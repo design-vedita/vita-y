@@ -1,0 +1,16 @@
+include includes/head
+include includes/header
+include includes/footer
+include includes/scripts
+
+extends includes/layout
+
+block head
+   +head('Главная')
+
+block content
+   +header()
+
+   block footer
+      +footer()
+   +scripts()
