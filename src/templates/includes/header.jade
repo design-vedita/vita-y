@@ -14,14 +14,44 @@ mixin header()
                sup  &copy;
             p  Harmonize your life
       .cart-header
-         .cart-header__data
-            p.count  Cart:
-               span  3 item
-            p.sum 120 &euro;
+         a(href="javascript:void(0)")
+            +svg('cart')
+            .cart-header__data
+               p.count  Cart:
+                  span  3 item
+               p.sum 120 &euro;
       .language-link
          a(href="javascript:void(0)").active  Deutch
          a(href="javascript:void(0)")  English
          a(href="javascript:void(0)")  Русский
+      .menu.js-menu
+         .menu__logo
+            img(src="../img/logo.png")
+            .menu__logo__text
+               p  Vita
+                  = ' '
+                  span - Y
+                  sup  &copy;
+               p  Harmonize your life
+            .menu__logo__komplex
+               p  Aktiv
+                  span  Komplex
+         .menu__list
+            ul
+               li:   a(href="javascript:void(0)")  About
+               li:   a(href="javascript:void(0)")  Faq
+               li:   a(href="javascript:void(0)")  Offer
+               li:   a(href="javascript:void(0)")  Contact
+            .menu__list__register
+               a(href="javascript:void(0)").login-link
+                  +svg('login')
+                  |  Login
+               a(href="javascript:void(0)").ask-link Ask a Question Yeti
+            .menu__list__phone
+               a(href="mailto:8-800-123-45-67")
+                  +svg('telephone')
+                  |  8-800-123-45-67
+
 
 
 

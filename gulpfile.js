@@ -101,7 +101,6 @@ gulp.task('svgstore', function () {
 
     return gulp
         .src(path.src.svg_html)
-        .pipe(newer(path.src.svg_dest))
         .pipe(inject(svgs, { transform: fileContents }))
         .pipe(gulp.dest(path.src.svg_dest));
 });

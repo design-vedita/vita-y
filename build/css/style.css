@@ -35,6 +35,7 @@ html {
   font: normal 10px 'opensans-regular', 'sans-serif';
 }
 header {
+  position: relative;
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
@@ -43,6 +44,8 @@ header {
   background-color: #000;
 }
 header .burger {
+  position: relative;
+  z-index: 2;
   float: left;
   width: 26px;
   padding-top: 26px;
@@ -156,22 +159,50 @@ header .logo .logo__text p:last-child {
 header .cart-header {
   float: right;
   padding-top: 21px;
-  width: 107px;
+  width: 110px;
+  font-size: 0;
+}
+header .cart-header .cart {
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 22px;
+  height: 28px;
+  fill: #fff;
+  transition: fill 300ms linear;
+}
+header .cart-header__data {
+  display: inline-block;
+  vertical-align: middle;
 }
 header .cart-header .count {
   margin-bottom: 0;
-  font: 1.3em / normal 'opensans-semibold', 'sans-serif';
+  font: 1.3rem / normal 'opensans-semibold', 'sans-serif';
   text-transform: uppercase;
   color: #9c9c9c;
+  transition: color 300ms linear;
 }
 header .cart-header .count span {
   color: #fff;
   text-transform: none;
+  transition: color 300ms linear;
 }
 header .cart-header .sum {
   margin-bottom: 0;
-  font: 1.3em / normal 'opensans-semibold', 'sans-serif';
+  font: 1.3rem / normal 'opensans-semibold', 'sans-serif';
   color: #fff;
+  transition: color 300ms linear;
+}
+header .cart-header:hover .cart {
+  fill: #ef4601;
+}
+header .cart-header:hover .count,
+header .cart-header:hover .sum {
+  color: #ef4601;
+}
+header .cart-header:hover .count span,
+header .cart-header:hover .sum span {
+  color: inherit;
 }
 header .language-link {
   margin-right: 47px;
@@ -194,4 +225,190 @@ header .language-link a.active {
 header .language-link a:hover {
   text-decoration: none;
   color: #ef4601;
+}
+header .menu {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  padding-top: 80px;
+  padding-left: 36px;
+  width: 600px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #000;
+  box-sizing: border-box;
+  transition-property: opacity, visibility;
+  transition-duration: 300ms, 300ms;
+  transition-timing-function: linear;
+}
+header .menu.open--menu {
+  opacity: 1;
+  visibility: visible;
+}
+header .menu__logo {
+  font-size: 0;
+}
+header .menu__logo img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 113px;
+}
+header .menu__logo__text {
+  position: relative;
+  margin-left: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 215px;
+}
+header .menu__logo__text p {
+  font: 6.3rem/5rem 'opensans-light', 'sans-serif';
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+header .menu__logo__text p:last-child {
+  margin-top: 10px;
+  margin-left: 15px;
+  font: 1.6rem/1.6rem 'opensans-semibold', 'sans-serif';
+  color: #5271b3;
+  text-transform: none;
+}
+header .menu__logo__text p:first-child {
+  letter-spacing: .6px;
+  word-spacing: -8px;
+}
+header .menu__logo__text sup {
+  position: absolute;
+  font-family: 'opensans-semibold', 'sans-serif';
+  font-size: .8rem;
+  right: 0;
+  top: 0;
+  color: #fff;
+}
+header .menu__logo__text span {
+  font-family: 'opensans-semibold', 'sans-serif';
+}
+header .menu__logo__komplex {
+  margin-left: 19px;
+  display: inline-block;
+  vertical-align: middle;
+  font: 3rem/2.4rem 'opensans-bold', 'sans-serif';
+  color: #5271b3;
+  text-transform: uppercase;
+}
+header .menu__logo__komplex span {
+  display: block;
+}
+header .menu__list {
+  margin-top: 21px;
+  margin-left: 157px;
+}
+header .menu__list ul li {
+  list-style-type: none;
+}
+header .menu__list ul li a {
+  font-size: 1.6em;
+  line-height: 2.3em;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  transition: color 300ms linear;
+}
+header .menu__list ul li a:hover {
+  color: #ef4601;
+}
+header .menu__list__register {
+  margin-top: 31px;
+}
+header .menu__list__register .login {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15px;
+  height: 17px;
+  fill: #fff;
+}
+header .menu__list__register .login-link {
+  position: relative;
+  padding-left: 24px;
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+}
+header .menu__list__register .ask-link {
+  margin-left: 47px;
+  font: 1.4em 'opensans-semibold', 'sans-serif';
+  color: #fff;
+  text-decoration: none;
+  border-radius: 11px;
+  padding: 2px 11px 0;
+  background-color: #ef4601;
+}
+header .menu__list__phone {
+  margin-top: 37px;
+}
+header .menu__list__phone a {
+  position: relative;
+  padding-left: 33px;
+  font: 2em 'opensans-semibold', 'sans-serif';
+  color: #fff;
+  text-decoration: none;
+}
+header .menu__list__phone .telephone {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  fill: #5271b3;
+}
+.content .top-slider {
+  /*.slick-list,
+		.slick-track {
+			height: 100%;
+		}*/
+}
+.content .top-slider .slick-arrow {
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 34.5px);
+  width: 69px;
+  height: 69px;
+  background-color: #305094;
+  background-image: url(../img/slider-arrow.svg);
+  background-size: 36px 31px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+.content .top-slider .slick-next {
+  right: 22px;
+  transform: rotate(180deg);
+}
+.content .top-slider .slick-prev {
+  left: 22px;
+}
+.content .top-slider .slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.content .top-slider .slide__item {
+  position: relative;
+}
+.content .top-slider .slide img {
+  width: 100%;
+  height: auto;
+}
+.content .top-slider .cloud {
+  position: absolute;
+  width: 270px;
+  height: 230px;
+  background-image: url(../img/cloud.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 78px 45px 87px 40px;
 }
