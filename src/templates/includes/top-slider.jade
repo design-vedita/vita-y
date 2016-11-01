@@ -1,11 +1,15 @@
 mixin top-slider()
-   .top-slider.js-top-slider
-      .slide
-         img(src="../img/slide-top.jpg")
-         .container
-            .slide__item
-               p.cloud.animated.fadeInRight  Текст текст текст текс
-      .slide(style="background-image: url(../img/slide-top.jpg)")
-         .container
-            .slide__item
-               p.cloud(data-in="left" data-out="left" data-step=0 data-position="100,150")  Текст текст текст текс
+   section#header-slider
+      .top-slider.js-top-slider
+         .slide
+            img(src="../img/slide-top.jpg")
+            .container
+               .slide__item
+                  p.cloud.left.js-cloud  Текст текст текст текс
+                  p.cloud.right.js-cloud  Текст текст текст текс
+         .slide
+            img(src="../img/slide-top-2.jpg")
+            .container
+               .slide__item
+                  p.cloud.left.js-cloud  Текст текст текст текс
+                  p.cloud.right.js-cloud  Текст текст текст текс

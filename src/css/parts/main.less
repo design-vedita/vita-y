@@ -7,6 +7,10 @@ body, html {
 	font: normal 10px @regular;
 }
 
+.clear {
+	clear: both;
+}
+
 header {
 	position: relative;
 	padding-left: 20px;
@@ -18,7 +22,7 @@ header {
 
 	.burger {
 		position: relative;
-		z-index: 2;
+		z-index: 4;
 		float: left;
 		width: 26px;
 		padding-top: 26px;
@@ -243,7 +247,7 @@ header {
 
 	.menu {
 		position: absolute;
-		z-index: 1;
+		z-index: 3;
 		left: 0;
 		top: 0;
 		padding-top: 80px;
@@ -410,11 +414,6 @@ header {
 
 	.top-slider {
 
-		/*.slick-list,
-		.slick-track {
-			height: 100%;
-		}*/
-
 		.slick-arrow {
 			position: absolute;
 			z-index: 2;
@@ -439,17 +438,21 @@ header {
 		}
 
 		.slide {
+			position: relative;
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
 
-			&__item {
-				position: relative;
-			}
-
 			img {
 				width: 100%;
 				height: auto;
+			}
+
+			.container {
+				position: absolute;
+				top: 0;
+				left: calc(~'50% - 585px');
+				height: 100%;
 			}
 		}
 
@@ -457,11 +460,262 @@ header {
 				position: absolute;
 				width: 270px;
 				height: 230px;
+				visibility: hidden;
 				background-image: url(../img/cloud.png);
 				background-size: cover;
 				background-position: center;
 				background-repeat: no-repeat;
 				padding: 78px 45px 87px 40px;
+
+				&.animated {
+					visibility: visible;
+				}
+
+				&.left {
+					left: 0;
+					top: 0;
+				}
+
+				&.right {
+					right: 0;
+					top: 0;
+				}
+
+				&.center {
+					left: calc(~'50% - 135px');
+					top: calc(~'50% - 115px');
+				}
+
+				&.left-bottom {
+					bottom: 0;
+					left: 0;
+				}
+
+				&.right-bottom {
+					bottom: 0;
+					right: 0;
+				}
+			}
+	}
+
+	.man-slider {
+
+		.slider-man {
+
+			&__desc {
+				position: relative;
+
+				.big {
+					width: 100%;
+					opacity: 1;
+					transition-property: opacity, visibility;
+					transition-duration: 500ms, 500ms;
+					transition-delay: 500ms, 500ms;
+					transition-timing-function: linear;
+
+					&.no--visible {
+						opacity: 0;
+						visibility: hidden;
+					}
+				}
+
+				.hand {
+					position: absolute;
+					z-index: 2;
+					left: calc(~'50% - 259px');
+					bottom: 100px;
+					transition-property: opacity, visibility;
+					transition-duration: 500ms, 500ms;
+					transition-delay: 500ms, 500ms;
+					transition-timing-function: linear;
+
+					&.no--visible {
+						opacity: 0;
+						visibility: hidden;
+					}
+				}
+
+				.sphere {
+					position: absolute;
+					z-index: 1;
+					bottom: 140px;
+				}
+
+				.plant {
+					left: 300px;
+					opacity: 1;
+					visibility: visible;
+					transition-property: left, opacity, visibility;
+					transition-duration: 500ms, 500ms, 500ms;
+					transition-delay: 0s, 500ms, 500ms;
+					transition-timing-function: linear;
+
+					&.plant--move {
+						left: calc(~'50% - 135.5px');
+						opacity: 0;
+						visibility: hidden;
+					}
+				}
+
+				.science {
+					right: 300px;
+					opacity: 1;
+					visibility: visible;
+					transition-property: right, opacity, visibility;
+					transition-duration: 500ms, 500ms, 500ms;
+					transition-delay: 0s, 500ms, 500ms;
+					transition-timing-function: linear;
+
+					&.science--move {
+						right: calc(~'50% - 97.5px');
+						opacity: 0;
+						visibility: hidden;
+					}
+				}
+
+				&__text {
+					position: absolute;
+					z-index: -1;
+					width: 50%;
+					visibility: hidden;
+
+					&.animated {
+						visibility: visible;
+					}
+
+					&.left {
+						top: 110px;
+						left: 15px;
+					}
+
+					&.right {
+						top: 160px;
+						right: 15px;
+						text-align: right;
+
+						.inner-text {
+							width: 100%;
+							padding-left: 43%;
+						}
+					}
+
+					.title {
+						margin-bottom: 0;
+						font: 3em @bold;
+						text-transform: uppercase;
+						color: @titleSlide;
+					}
+
+					.subtitle {
+						margin-top: -5px;
+						margin-bottom: 0;
+						font: 1.6em @light;
+						color: @titleSlide;
+						letter-spacing: .2px;
+					}
+
+					.color {
+						margin-bottom: 0;
+						margin-left: -15px;
+						margin-top: 18px;
+						padding: 10px;
+						padding-left: 18px;
+						font: 2.4em @bold;
+						color: @white;
+						letter-spacing: .1px;
+						text-transform: uppercase;
+
+						&.green {
+							background-color: @green;
+						}
+
+						&.blue {
+							background-color: @blueArrow;
+						}
+					}
+
+					.inner-text {
+						margin-top: 18px;
+						margin-bottom: 0;
+						width: 57%;
+						font: 1.4em/2.1em @regular;
+						color: @grayLight;
+					}
+				}
 			}
 		}
+	}
+
+	.games {
+		position: relative;
+		padding-top: 47px;
+		padding-bottom: 41px;
+
+		&::before {
+			position: absolute;
+			z-index: -1;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 50%;
+			height: 100%;
+			background-image: url(../img/orange-part.jpg);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			content: '';
+		}
+
+		.title-games {
+			margin-bottom: 0;
+			padding-left: 40px;
+			font: 30px @bold;
+			color: @white;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		&::after {
+			position: absolute;
+			z-index: -1;
+			right: 0;
+			top: 0;
+			display: block;
+			width: 50%;
+			height: 100%;
+			background-image: url(../img/blue-part.jpg);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			content: '';
+		}
+
+		.hand-ico {
+			margin-right: 10px;
+			margin-left: 10px;
+			width: 48px;
+			height: 54px;
+			fill: @white;
+			display: inline;
+			vertical-align: middle;
+		}
+
+		&__tap-block {
+			margin-top: 31px;
+
+			.title {
+				font: 3em @light;
+				color: @white;
+				text-transform: uppercase;
+			}
+
+			&__at-work {
+				.tap-block(@orangeGame);
+			}
+
+			&__at-home {
+				.tap-block(@blueGame);
+			}
+		}
+	}
 }
