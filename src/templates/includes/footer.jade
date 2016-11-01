@@ -1,7 +1,30 @@
 
-
 mixin footer()
-    .container
+    footer
+        .container
+            .footer-top
+                .row
+                    .col-md-1.logo-footer
+                        img(src="../img/logo.png")
+                    .col-md-3.slogan-footer
+                        p  Vita
+                            span - Y
+                            sup  &reg;
+                        p  Harmonize your life
+                    .col-md-2.slogan-subtitle
+                        p   Aktiv
+                            span   Komplex
+                    .col-md-4.footer-menu
+                        ul
+                            li:   a(href="javascript:void(0)")  About
+                            li:   a(href="javascript:void(0)")  Faq
+                            li:   a(href="javascript:void(0)")  Offer
+                            li:   a(href="javascript:void(0)")  Contact
+                    .col-md-2.footer-phone
+                        a(href="mailto:8-800-123-45-67")
+                            +svg('telephone')
+                            |  8-800-123-45-67
+
 
 
 

@@ -1,0 +1,51 @@
+mixin catalog()
+   section#catalog-list
+      .catalog
+         .container
+            .row
+               .col-md-12
+                  .title-wrapper
+                     p.title-catalog  Vita
+                        span  - Y
+                        sup   &reg;
+                     p.subtitle-catalog  Aktiv Komplex
+            .catalog__list
+               .row
+                  .col-md-6
+                     .catalog__list__item
+                        img(src="../img/good.jpg")
+                        .catalog__list__item__description
+                           a(href="javascript:void(0)").title-good   Таке me
+                              span  before
+                              |  work
+                           p.subtitle-good   mid Widpflanzer Extrakten und Mineralstoffen
+                           .catalog__list__item__description__introtext
+                              p  Витамины осуществляют каталитическую функцию в составе активных центров разнообразных ферментов, а также могут участвовать в
+                           .catalog__list__item__description__buttons
+                              form
+                                 .counter-good
+                                    button.decrement -
+                                    input(type="text" value="1")
+                                    button.increment +
+                                 .add-good
+                                    input(type="submit" value="Add to cart")
+                  .col-md-6
+                     .catalog__list__item
+                        img(src="../img/good-2.jpg")
+                        .catalog__list__item__description
+                           a(href="javascript:void(0)").title-good   Таке me
+                              span  before
+                              |  work
+                           p.subtitle-good   mid Widpflanzer Extrakten und Mineralstoffen
+                           .catalog__list__item__description__introtext
+                              p  Витамины осуществляют каталитическую функцию в составе активных центров разнообразных ферментов, а также могут участвовать в
+                           .catalog__list__item__description__buttons
+                              form
+                                 .counter-good
+                                    button.decrement -
+                                    input(type="text" value="1")
+                                    button.increment +
+                                 .add-good
+                                    input(type="submit" value="Add to cart")
+            .catalog__cart-link
+               a(href="javascript:void(0)")  Go to shopping cart

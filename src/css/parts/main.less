@@ -458,7 +458,7 @@ header {
 
 			.cloud {
 				position: absolute;
-				width: 270px;
+				width: 278px;
 				height: 230px;
 				visibility: hidden;
 				background-image: url(../img/cloud.png);
@@ -851,6 +851,369 @@ header {
 					}
 				}
 			}
+		}
+	}
+
+	.catalog {
+		margin-top: 40px;
+
+		.title-wrapper {
+			text-align: center;
+
+			.title-catalog {
+				margin-bottom: 0;
+				font: 9em/normal @light;
+				color: @black;
+				text-transform: uppercase;
+				letter-spacing: .6px;
+				word-spacing: -8px;
+
+				span {
+					font-family: @semibold;
+				}
+
+				sup {
+					top: -2.5em;
+					font-size: 2.5rem;
+					color: @supCatalog;
+				}
+			}
+
+			.subtitle-catalog {
+				margin-top: -28px;
+				margin-bottom: 0;
+				font: 2.4em/2.4em @bold;
+				color: @blueArrow;
+				text-transform: uppercase;
+			}
+		}
+
+		&__list {
+			margin-top: 10px;
+
+			&__item {
+				padding: 25px 15px 20px;
+				text-align: center;
+				border: 1px @borderCatalogItem solid;
+
+				img {
+					max-width: 300px;
+					width: 100%;
+					height: auto;
+				}
+
+				.title-good {
+					font: 3em @bold;
+					color: @titleSlide;
+					text-decoration: none;
+					text-transform: uppercase;
+					outline: none;
+
+					span {
+						font-family: @light;
+						color: @green;
+					}
+				}
+
+				.subtitle-good {
+					margin-bottom: 0;
+					margin-top: 11px;
+					font: 3em @light;
+					color: @titleSlide;
+				}
+
+				&__description {
+
+					&__introtext {
+						margin-top: 14px;
+						font: 1.4em/1.8em @regular;
+						color: @introtext;
+					}
+
+					&__buttons {
+						max-width: 300px;
+						width: 100%;
+						margin: 30px auto 0;
+
+						.counter-good {
+							width: 105px;
+							float: left;
+
+							* {
+								float: left;
+							}
+
+							&::after {
+								display: block;
+								clear: both;
+								content: '';
+							}
+						}
+
+						.add-good {
+							width: 145px;
+							float: right;
+						}
+
+						form {
+
+							&::after {
+								display: block;
+								clear: both;
+								content: '';
+							}
+						}
+
+						input {
+
+							&[type=text] {
+								width: 41px;
+								height: 38px;
+								font: 1.8em @semibold;
+								border: none;
+								text-align: center;
+								color: @white;
+								background-color: @countButton;
+							}
+
+							&[type=submit] {
+								float: right;
+								padding-left: 40px;
+								width: 145px;
+								height: 38px;
+								font-size: 1.5em;
+								color: @white;
+								text-transform: uppercase;
+								background-color: @blueArrow;
+								border-radius: 3px;
+								border: none;
+								background-image: url(../img/cart.svg);
+								background-size: 18px 24px;
+								background-repeat: no-repeat;
+								background-position: 9px 7px;
+								box-sizing: border-box;
+								transition: background 300ms linear;
+
+								&:hover {
+									background-color: @blueLight;
+								}
+							}
+						}
+
+						button {
+							width: 32px;
+							height: 38px;
+							font: 1.8em @semibold;
+							color: @white;
+							background-color: @countButton;
+							border: none;
+							transition: background 300ms linear;
+
+							&:hover {
+								background-color: @countButtonHover;
+							}
+
+							&.decrement {
+								border-radius: 3px 0 0 3px;
+							}
+
+							&.increment {
+								border-radius: 0 3px 3px 0;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__cart-link {
+			margin-top: 36px;
+			text-align: center;
+
+			a {
+				padding: 8px 15px;
+				font: 1.5em @bold;
+				color: @white;
+				text-transform: uppercase;
+				text-decoration: none;
+				background-color: @green;
+				border-radius: 3px;
+				transition: background 300ms linear;
+
+				&:hover {
+					background-color: @darkGreen;
+				}
+			}
+		}
+	}
+
+	.gallery {
+		margin-top: 37px;
+		padding-top: 29px;
+		letter-spacing: .1px;
+		background-color: @galleryBack;
+
+		.title-gallery {
+			font: 3em @bold;
+			color: @titleSlide;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.slider {
+			margin-top: 10px;
+		}
+
+		.item {
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
+footer {
+	padding-top: 14px;
+	background-color: @black;
+
+	.footer-top {
+		padding-bottom: 20px;
+	}
+
+	.logo-footer {
+		padding-right: 0;
+
+		img {
+			width: 110px;
+			height: auto;
+
+			@media (min-width: 992px) and (max-width: 1199px) {
+
+				& {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.slogan-footer {
+		margin-top: 60px;
+
+		@media (min-width: 992px) and (max-width: 1199px) {
+
+			& {
+				margin-top: 30px;
+			}
+		}
+
+		p {
+			margin-bottom: 0;
+
+			&:first-child {
+				color: @white;
+				font: 6.3rem/2.8rem @light;
+				text-transform: uppercase;
+				text-align: right;
+				letter-spacing: .6px;
+				word-spacing: -5px;
+
+				span {
+					font-family: @bold;
+				}
+
+				sup {
+					top: -2.5em;
+					font-family: @semibold;
+					font-size: .3em;
+				}
+			}
+
+			&:last-child {
+				position: relative;
+				top: 13px;
+				left: 68px;
+				font: 1.6em/1.6em @semibold;
+				color: @blueArrow;
+			}
+		}
+	}
+
+	.slogan-subtitle {
+		margin-top: 49px;
+
+		@media (min-width: 992px) and (max-width: 1199px) {
+
+			& {
+				margin-top: 21px;
+			}
+		}
+
+		p {
+			font: 3rem/2.4rem @bold;
+			color: @blue;
+			text-transform: uppercase;
+
+			span {
+				display: block;
+			}
+		}
+	}
+
+	.footer-menu {
+		margin-top: 77px;
+
+		@media (min-width: 992px) and (max-width: 1199px) {
+
+			& {
+				margin-top: 46px;
+			}
+		}
+
+		ul {
+			font-size: 0;
+			margin-bottom: 0;
+
+			li {
+				width: 25%;
+				display: inline-block;
+
+				a {
+					font-size: 1.6rem;
+					line-height: 2.3rem;
+					color: @white;
+					text-transform: uppercase;
+					text-decoration: none;
+					outline: none;
+					transition: color 300ms linear;
+
+					&:hover {
+						color: @orange;
+					}
+				}
+			}
+		}
+	}
+
+	.footer-phone {
+		padding-left: 0;
+
+		a {
+			position: relative;
+			padding-left: 28px;
+			font: 2em @semibold;
+			color: @white;
+			text-decoration: none;
+		}
+
+		.telephone {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 22px;
+			height: 23px;
+			fill: @blue;
 		}
 	}
 }

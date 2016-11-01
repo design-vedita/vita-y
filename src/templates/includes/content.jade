@@ -1,10 +1,22 @@
 include top-slider
 include man-slider
 include games
+include catalog
+include gallery
 
 mixin content()
    .content
+      // Слайдер под шапкой
       +top-slider()
+
+      //Мужик
       +man-slider()
+
+      // Выбор пилюли
       +games()
 
+      // Каталог товаров
+      +catalog()
+
+      // Слайдер галереи
+      +gallery()

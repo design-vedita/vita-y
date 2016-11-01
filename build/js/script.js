@@ -60,6 +60,15 @@ var App = {
             burger();
         });
 
+        // карусель фото
+        $('.js-gallery').slick({
+            infinite: true,
+            slidesToShow: 6.1,
+            slidesToScroll: 3,
+           // autoplay: true,
+            arrows: false
+        });
+
         // Слайдер верхний
         $('.js-top-slider').slick({
             'prevArrow': '<button type="button" class="slick-prev"></button>',
@@ -162,11 +171,6 @@ var App = {
             },
             offset: '30%'
         });
-
-        window.onresize = function() {
-            height.menu();
-        }
-
     });
 
     // открываем меню
@@ -175,7 +179,7 @@ var App = {
             $menu = $('.js-menu');
         var clientHeight = document.documentElement.clientHeight,
             menu = document.getElementsByClassName('js-menu')[0];
-            menu.style.height = clientHeight + 'px';
+        menu.style.height = clientHeight + 'px';
 
         $burger.on('click', function() {
             $(this).toggleClass('open');
