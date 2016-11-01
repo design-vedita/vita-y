@@ -3,7 +3,7 @@
 	padding: 25px;
 	border: 1px @white solid;
 
-	.title {
+	& > .title {
 		position: absolute;
 		top: -20px;
 		left: 60px;
@@ -13,6 +13,7 @@
 	}
 
 	.elem {
+		position: relative;
 		cursor: pointer;
 		border: 1px @white solid;
 		box-sizing: border-box;
@@ -20,6 +21,15 @@
 
 		&:hover {
 			border-width: 3px;
+		}
+
+		img {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
 		}
 	}
 
@@ -46,12 +56,22 @@
 			float: left;
 			width: 85px;
 			height: 85px;
+
+			img {
+				width: 60px;
+				height: auto;
+			}
 		}
 
 		.two-square-load {
 			float: left;
 			width: 186px;
 			height: 85px;
+
+			img {
+				height: 60px;
+				width: auto;
+			}
 		}
 
 

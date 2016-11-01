@@ -5,41 +5,108 @@ mixin games()
             p.title-games  Fold in the box
                +svg('hand-ico')
                |  of your problems
-            .games__tap-block
-               .row
-                  .col-md-6
-                     .games__tap-block__at-work
-                        p.title  At work
-                        .list-loads
-                           .list-loads__item
-                              .big-square-load.elem.js-elem
-                              .list-loads__item__mini
-                                 .square-load.elem.js-elem
-                                 .square-load.elem.js-elem
-                                 .square-load.elem.js-elem
-                                 .square-load.elem.js-elem
-                                 .two-square-load.elem.js-elem
-                              .clear
-                           .list-loads__item
-                              .square-load.elem.js-elem
-                              .square-load.elem.js-elem
-                              .square-load.elem.js-elem
-                              .square-load.elem.js-elem
-                  .col-md-6
-                     .games__tap-block__at-home
-                        p.title  At Home
-                        .list-loads
-                           .list-loads__item
-                              .big-square-load.elem.js-elem
-                              .list-loads__item__mini
-                                 .square-load.elem.js-elem
-                                 .square-load.elem.js-elem
-                                 .square-load.elem.js-elem
-                                 .square-load.elem.js-elem
-                                 .two-square-load.elem.js-elem
-                              .clear
-                           .list-loads__item
-                              .square-load.elem.js-elem
-                              .square-load.elem.js-elem
-                              .square-load.elem.js-elem
-                              .square-load.elem.js-elem
+            form
+               // инпуты для формы, в них передавать тип выбранного
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               input(type="hidden" name="")
+               .games__tap-block
+                  .row
+                     .col-md-6
+                        .games__tap-block__at-work
+                           p.title  At work
+                           .list-loads
+                              .list-loads__item
+                                 .big-square-load.elem.js-elem-work
+                                    img(src="../img/ico-1.png")
+                                 .list-loads__item__mini
+                                    .square-load.elem.js-elem-work
+                                       img(src="../img/ico-2.png")
+                                    .square-load.elem.js-elem-work
+                                    .square-load.elem.js-elem-work
+                                    .square-load.elem.js-elem-work
+                                    .two-square-load.elem.js-elem-work
+                                       img(src="../img/ico-2.png")
+                                 .clear
+                              .list-loads__item
+                                 .square-load.elem.js-elem-work
+                                 .square-load.elem.js-elem-work
+                                 .square-load.elem.js-elem-work
+                                 .square-load.elem.js-elem-work
+                        .list-added
+                           p.title-added You need to work up to 3 capsules
+                           .list-added__wrapper
+                              .list-added__wrapper__item.js-added-work
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-work
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-work
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-work
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-work
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                     .col-md-6
+                        .games__tap-block__at-home
+                           p.title  At Home
+                           .list-loads
+                              .list-loads__item
+                                 .big-square-load.elem.js-elem-home
+                                    img(src="../img/ico-1.png")
+                                 .list-loads__item__mini
+                                    .square-load.elem.js-elem-home
+                                    .square-load.elem.js-elem-home
+                                    .square-load.elem.js-elem-home
+                                    .square-load.elem.js-elem-home
+                                    .two-square-load.elem.js-elem-home
+                                 .clear
+                              .list-loads__item
+                                 .square-load.elem.js-elem-home
+                                 .square-load.elem.js-elem-home
+                                 .square-load.elem.js-elem-home
+                                 .square-load.elem.js-elem-home
+                        .list-added
+                           p.title-added You need to work up to 3 capsules
+                           .list-added__wrapper
+                              .list-added__wrapper__item.js-added-home
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-home
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-home
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-home
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                              .list-added__wrapper__item.js-added-home
+                                 a(href="javascript:void(0)").delete-item.js-delete
+                                    span  X
+                                 img(src="")
+                     .col-md-12
+                        .games__tap-block__submit
+                           label
+                              input(type="submit" value="Order")
+

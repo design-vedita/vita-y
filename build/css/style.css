@@ -26,6 +26,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'opensans-extrabold';
+  src: url('../fonts/opensans-extrabold.eot');
+  src: local('?'), url('../fonts/opensans-extrabold.woff') format('woff'), url('../fonts/opensans-extrabold.ttf') format('truetype'), url('../fonts/opensans-extrabold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -621,7 +628,7 @@ header .menu__list__phone .telephone {
   padding: 25px;
   border: 1px #fff solid;
 }
-.content .games__tap-block__at-work .title {
+.content .games__tap-block__at-work > .title {
   position: absolute;
   top: -20px;
   left: 60px;
@@ -630,6 +637,7 @@ header .menu__list__phone .telephone {
   background-color: #f39400;
 }
 .content .games__tap-block__at-work .elem {
+  position: relative;
   cursor: pointer;
   border: 1px #fff solid;
   box-sizing: border-box;
@@ -637,6 +645,14 @@ header .menu__list__phone .telephone {
 }
 .content .games__tap-block__at-work .elem:hover {
   border-width: 3px;
+}
+.content .games__tap-block__at-work .elem img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 .content .games__tap-block__at-work .list-loads {
   font-size: 0;
@@ -659,10 +675,18 @@ header .menu__list__phone .telephone {
   width: 85px;
   height: 85px;
 }
+.content .games__tap-block__at-work .list-loads .square-load img {
+  width: 60px;
+  height: auto;
+}
 .content .games__tap-block__at-work .list-loads .two-square-load {
   float: left;
   width: 186px;
   height: 85px;
+}
+.content .games__tap-block__at-work .list-loads .two-square-load img {
+  height: 60px;
+  width: auto;
 }
 .content .games__tap-block__at-work .list-loads__item > .square-load {
   margin-bottom: 0;
@@ -689,7 +713,7 @@ header .menu__list__phone .telephone {
   padding: 25px;
   border: 1px #fff solid;
 }
-.content .games__tap-block__at-home .title {
+.content .games__tap-block__at-home > .title {
   position: absolute;
   top: -20px;
   left: 60px;
@@ -698,6 +722,7 @@ header .menu__list__phone .telephone {
   background-color: #325194;
 }
 .content .games__tap-block__at-home .elem {
+  position: relative;
   cursor: pointer;
   border: 1px #fff solid;
   box-sizing: border-box;
@@ -705,6 +730,14 @@ header .menu__list__phone .telephone {
 }
 .content .games__tap-block__at-home .elem:hover {
   border-width: 3px;
+}
+.content .games__tap-block__at-home .elem img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 .content .games__tap-block__at-home .list-loads {
   font-size: 0;
@@ -727,10 +760,18 @@ header .menu__list__phone .telephone {
   width: 85px;
   height: 85px;
 }
+.content .games__tap-block__at-home .list-loads .square-load img {
+  width: 60px;
+  height: auto;
+}
 .content .games__tap-block__at-home .list-loads .two-square-load {
   float: left;
   width: 186px;
   height: 85px;
+}
+.content .games__tap-block__at-home .list-loads .two-square-load img {
+  height: 60px;
+  width: auto;
 }
 .content .games__tap-block__at-home .list-loads__item > .square-load {
   margin-bottom: 0;
@@ -751,4 +792,119 @@ header .menu__list__phone .telephone {
 }
 .content .games__tap-block__at-home .list-loads__item__mini .square-load:not(:nth-of-type(3n)) {
   margin-right: 15px;
+}
+.content .games__tap-block__submit {
+  margin-top: 30px;
+  text-align: center;
+}
+.content .games__tap-block__submit label {
+  position: relative;
+}
+.content .games__tap-block__submit label::before {
+  position: absolute;
+  left: 49px;
+  top: 10px;
+  display: block;
+  width: 19px;
+  height: 19px;
+  background-image: url(../img/submit-ico.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  content: '';
+  transform: rotate(-90deg);
+}
+.content .games__tap-block__submit input[type=submit] {
+  padding: 9px 57px 9px 75px;
+  font: 15px 'opensans-semibold', 'sans-serif';
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #ef4601;
+  border: none;
+  border-radius: 3px;
+  transition: background 300ms linear;
+}
+.content .games__tap-block__submit input[type=submit]:hover {
+  background-color: #ef7c01;
+}
+.content .games__tap-block .list-added {
+  margin-top: 33px;
+}
+.content .games__tap-block .list-added .title-added {
+  font: 1.6em 'opensans-semibold', 'sans-serif';
+  color: #fff;
+  text-align: center;
+}
+.content .games__tap-block .list-added__wrapper {
+  margin-top: 20px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+.content .games__tap-block .list-added__wrapper__item {
+  position: relative;
+  float: left;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 1px #cccccc solid;
+  border-radius: 3px;
+  box-shadow: 5px 5px 0 0 rgba(0, 0, 0, 0.18);
+}
+.content .games__tap-block .list-added__wrapper__item:not(:last-child) {
+  margin-right: 14px;
+}
+.content .games__tap-block .list-added__wrapper__item img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 60px;
+  height: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 300ms, 300ms;
+  transition-timing-function: linear;
+}
+.content .games__tap-block .list-added__wrapper__item a {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  font: 14px 'opensans-extrabold', 'sans-serif';
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #e00c2a;
+  border: none;
+  transition-property: opacity, visibility, background;
+  transition-duration: 300ms, 300ms, 300ms;
+  transition-timing-function: linear;
+}
+.content .games__tap-block .list-added__wrapper__item a span {
+  position: relative;
+  top: -1px;
+}
+.content .games__tap-block .list-added__wrapper__item a:hover {
+  background-color: #9c2335;
+}
+.content .games__tap-block .list-added__wrapper__item.free--item a {
+  visibility: visible;
+  opacity: 1;
+}
+.content .games__tap-block .list-added__wrapper__item.free--item img {
+  visibility: visible;
+  opacity: 1;
+}
+.content .games__tap-block .list-added__wrapper::after {
+  display: block;
+  clear: both;
+  content: '';
 }

@@ -25,6 +25,8 @@ var App = {
 
     App.doc.ready(function(){
 
+        App.modules.Games = new App.Games();
+
         // Добавляем браузерные классы
         if (App.is_ff) {
             App.htmlTag.addClass('ff');
@@ -49,16 +51,10 @@ var App = {
         }
 
         burger();
-        hoverAnimate('.js-elem-work');
-        hoverAnimate('.js-elem-home');
 
-        addedItem('js-elem-work', 'js-added-work');
-        addedItem('js-elem-home', 'js-added-home');
-        deleteItem('js-delete');
+        animate.hover();
 
-        App.win.on('resize', function(){
-            burger();
-        });
+        height.menu();
 
         // Слайдер верхний
         $('.js-top-slider').slick({
@@ -169,13 +165,9 @@ var App = {
 
     });
 
-    // открываем меню
     function burger() {
         var $burger = $('.js-burger'),
             $menu = $('.js-menu');
-        var clientHeight = document.documentElement.clientHeight,
-            menu = document.getElementsByClassName('js-menu')[0];
-            menu.style.height = clientHeight + 'px';
 
         $burger.on('click', function() {
             $(this).toggleClass('open');
@@ -184,66 +176,57 @@ var App = {
 
     }
 
-    function hoverAnimate(el) {
 
-        var el  = $(el);
 
-        el.on('mouseout', function(e) {
-           // console.log(e);
-        });
-    }
+    var height = {
 
-    function addedItem(el, el_add) {
-        var item = document.getElementsByClassName(el),
-            add = document.getElementsByClassName(el_add);
-
-        var i,
-            j,
-            k;
-
-        for(i = 0; i < item.length; i++) {
-
-            item[i].onclick = function(e){
-                var src = e.target.getAttribute('src');
-                var list = [];
-
-                var typeImg = src.slice(-4),
-                    url = src.slice(0, -4);
-
-                for (j = 0; j < add.length; j++) {
-                    list[j] = add[j].classList.contains('free--item');
-                }
-                var index = list.indexOf(false);
-
-                for (k = 0; k < add.length; k++) {
-                    if([k] == index) {
-                        var img = add[k].querySelector('img');
-                            img.setAttribute('src', url + '-hover' + typeImg);
-                            add[k].classList.add('free--item');
-                    }
-                }
-            };
-        }
-    }
-
-    function deleteItem(el) {
-        var delItem = document.getElementsByClassName(el);
-
-        var i;
-
-        for (i = 0; i < delItem.length; i++) {
-
-            delItem[i].onclick = function(e){
-                var _self = this,
-                    parent = _self.parentNode,
-                    image = parent.querySelector('img');
-                setTimeout(function(){
-                    image.setAttribute('src','');
-                }, 300);
-                parent.classList.remove('free--item');
-            }
+        menu: function() {
+            var clientHeight = document.documentElement.clientHeight,
+                menu = document.getElementsByClassName('js-menu')[0];
+                menu.style.height = clientHeight + 'px';
         }
 
-    }
+    };
 
+    var animate = {
+
+        hover: function() {
+
+            var el  = $('.js-elem');
+
+            el.on('mouseout', function(e) {
+               //console.log(e);
+            });
+        }
+    };
+
+
+}(App));
+
+App.Games = (function(App){
+    "use strict";
+
+    var module = function(){
+        this.options = {
+            self: '.js-elem'
+        };
+        this.$root = $(this.options.self);
+        this.init();
+    };
+
+    module.prototype = {
+        constructor: module,
+        init: function(){
+            this.added = $('.js-added', this.$root);
+            this.$root.on('click',this.on_click_element);
+        },
+
+        on_click_element: function(e) {
+            console.log(this.added);
+            var __self = $(e.currentTarget),
+            src = __self.attr('data-src');
+        }
+    };
+
+    return module;
 }(App));

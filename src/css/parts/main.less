@@ -716,6 +716,141 @@ header {
 			&__at-home {
 				.tap-block(@blueGame);
 			}
+
+			&__submit {
+				margin-top: 30px;
+				text-align: center;
+
+				label {
+					position: relative;
+
+					&::before {
+						position: absolute;
+						left: 49px;
+						top: 10px;
+						display: block;
+						width: 19px;
+						height: 19px;
+						background-image: url(../img/submit-ico.svg);
+						background-size: cover;
+						background-position: center;
+						background-repeat: no-repeat;
+						content: '';
+						transform: rotate(-90deg);
+					}
+				}
+
+				input[type=submit] {
+					padding: 9px 57px 9px 75px;
+					font: 15px @semibold;
+					color: @white;
+					text-transform: uppercase;
+					background-color: @orange;
+					border: none;
+					border-radius: 3px;
+					transition: background 300ms linear;
+
+					&:hover {
+						background-color: @submitHover;
+					}
+				}
+			}
+
+			.list-added {
+				margin-top: 33px;
+
+				.title-added {
+					font: 1.6em @semibold;
+					color: @white;
+					text-align: center;
+				}
+
+				&__wrapper {
+					margin-top: 20px;
+					padding-left: 48px;
+					padding-right: 48px;
+
+					&__item {
+						position: relative;
+						float: left;
+						width: 80px;
+						height: 80px;
+						background-color: @white;
+						border: 1px @addedBorder solid;
+						border-radius: 3px;
+						box-shadow: 5px 5px 0 0 rgba(0, 0, 0, .18);
+
+						&:not(:last-child) {
+							margin-right: 14px;
+						}
+
+						img {
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 0;
+							bottom: 0;
+							margin: auto;
+							width: 60px;
+							height: auto;
+							opacity: 0;
+							visibility: hidden;
+							transition-property: opacity, visibility;
+							transition-duration: 300ms, 300ms;
+							transition-timing-function: linear;
+						}
+
+						a {
+							position: absolute;
+							right: -10px;
+							top: -10px;
+							width: 20px;
+							height: 20px;
+							font: 14px @extra;
+							text-decoration: none;
+							opacity: 0;
+							visibility: hidden;
+							text-align: center;
+							outline: none;
+							color: @white;
+							border-radius: 50%;
+							background-color: @red;
+							border: none;
+							transition-property: opacity, visibility, background;
+							transition-duration: 300ms, 300ms, 300ms;
+							transition-timing-function: linear;
+
+							span {
+								position: relative;
+								top: -1px;
+							}
+
+							&:hover {
+								background-color: @darkRed;
+							}
+						}
+
+						&.free--item {
+
+							a {
+								visibility: visible;
+								opacity: 1;
+							}
+
+							img {
+								visibility: visible;
+								opacity: 1;
+							}
+						}
+					}
+
+					&::after {
+						display: block;
+						clear: both;
+						content: '';
+					}
+				}
+			}
 		}
 	}
 }
