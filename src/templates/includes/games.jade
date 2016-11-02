@@ -1,12 +1,13 @@
 mixin games()
    section#games
       .games
+         .gray-line.js-gray
          .container
-            p.title-games  Fold in the box
+            p.title-games.js-title-games  Fold in the box
                +svg('hand-ico')
                |  of your problems
             form
-               // инпуты для формы, в них передавать тип выбранного
+               // РёРЅРїСѓС‚С‹ РґР»СЏ С„РѕСЂРјС‹, РІ РЅРёС… РїРµСЂРµРґР°РІР°С‚СЊ С‚РёРї РІС‹Р±СЂР°РЅРЅРѕРіРѕ
                input(type="hidden" name="")
                input(type="hidden" name="")
                input(type="hidden" name="")
@@ -19,27 +20,36 @@ mixin games()
                input(type="hidden" name="")
                .games__tap-block
                   .row
-                     .col-md-6
+                     .col-lg-6.col-md-12.col-sm-12
                         .games__tap-block__at-work
                            p.title  At work
                            .list-loads
                               .list-loads__item
                                  .big-square-load.elem.js-elem-work
-                                    img(src="../img/ico-1.png")
+                                    img(src="../img/work-1.svg")
                                  .list-loads__item__mini
+                                    .square-load.elem.js-elem-work.hidden-item
+                                       img(src="../img/work-1.svg")
                                     .square-load.elem.js-elem-work
-                                       img(src="../img/ico-2.png")
+                                       img(src="../img/work-2.svg")
                                     .square-load.elem.js-elem-work
+                                       img(src="../img/work-4.svg")
                                     .square-load.elem.js-elem-work
+                                       img(src="../img/work-5.svg")
                                     .square-load.elem.js-elem-work
+                                       img(src="../img/work-6.svg")
                                     .two-square-load.elem.js-elem-work
-                                       img(src="../img/ico-2.png")
+                                       img(src="../img/work-3.svg")
                                  .clear
                               .list-loads__item
                                  .square-load.elem.js-elem-work
+                                    img(src="../img/work-10.svg")
                                  .square-load.elem.js-elem-work
+                                    img(src="../img/work-7.svg")
                                  .square-load.elem.js-elem-work
+                                    img(src="../img/work-8.svg")
                                  .square-load.elem.js-elem-work
+                                    img(src="../img/work-9.svg")
                         .list-added
                            p.title-added You need to work up to 3 capsules
                            .list-added__wrapper
@@ -63,25 +73,36 @@ mixin games()
                                  a(href="javascript:void(0)").delete-item.js-delete
                                     span  X
                                  img(src="")
-                     .col-md-6
+                     .col-lg-6.col-md-12.col-sm-12
                         .games__tap-block__at-home
                            p.title  At Home
                            .list-loads
                               .list-loads__item
                                  .big-square-load.elem.js-elem-home
-                                    img(src="../img/ico-1.png")
+                                    img(src="../img/home-4.svg")
                                  .list-loads__item__mini
+                                    .square-load.elem.js-elem-home.hidden-item
+                                       img(src="../img/home-4.svg")
                                     .square-load.elem.js-elem-home
+                                       img(src="../img/home-6.svg")
                                     .square-load.elem.js-elem-home
+                                       img(src="../img/home-9.svg")
                                     .square-load.elem.js-elem-home
+                                       img(src="../img/home-1.svg")
                                     .square-load.elem.js-elem-home
+                                       img(src="../img/home-8.svg")
                                     .two-square-load.elem.js-elem-home
+                                       img(src="../img/home-2.svg")
                                  .clear
                               .list-loads__item
                                  .square-load.elem.js-elem-home
+                                    img(src="../img/home-3.svg")
                                  .square-load.elem.js-elem-home
+                                    img(src="../img/home-7.svg")
                                  .square-load.elem.js-elem-home
+                                    img(src="../img/home-5.svg")
                                  .square-load.elem.js-elem-home
+                                    img(src="../img/home-10.svg")
                         .list-added
                            p.title-added You need to work up to 3 capsules
                            .list-added__wrapper
@@ -105,7 +126,7 @@ mixin games()
                                  a(href="javascript:void(0)").delete-item.js-delete
                                     span  X
                                  img(src="")
-                     .col-md-12
+                     .col-lg-6.col-md-12.col-sm-12
                         .games__tap-block__submit
                            label
                               input(type="submit" value="Order")

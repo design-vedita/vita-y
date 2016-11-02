@@ -4,26 +4,52 @@ mixin footer()
         .container
             .footer-top
                 .row
-                    .col-md-1.logo-footer
+                    .col-md-12.menu-visible
+                        .row
+                            .col-sm-6.hidden-lg.footer-menu
+                                ul
+                                    li:   a(href="javascript:void(0)")  About
+                                    li:   a(href="javascript:void(0)")  Faq
+                                    li:   a(href="javascript:void(0)")  Offer
+                                    li:   a(href="javascript:void(0)")  Contact
+                            .col-sm-6.hidden-lg.footer-phone
+                                a(href="mailto:8-800-123-45-67")
+                                    +svg('telephone')
+                                    |  8-800-123-45-67
+                                .footer-phone__ask
+                                    a(href="javascript:void(0)").ask-link   Ask a Question Yeti
+
+                    .col-lg-1.col-md-4.col-sm-4.col-xs-12.logo-footer
                         img(src="../img/logo.png")
-                    .col-md-3.slogan-footer
+                    .col-lg-3.col-md-4.col-sm-4.col-xs-12.slogan-footer
                         p  Vita
                             span - Y
                             sup  &reg;
                         p  Harmonize your life
-                    .col-md-2.slogan-subtitle
+                    .col-lg-2.col-md-3.col-sm-3.col-xs-12.slogan-subtitle
                         p   Aktiv
                             span   Komplex
-                    .col-md-4.footer-menu
+                    .col-md-4.footer-menu.visible-lg
                         ul
                             li:   a(href="javascript:void(0)")  About
                             li:   a(href="javascript:void(0)")  Faq
                             li:   a(href="javascript:void(0)")  Offer
                             li:   a(href="javascript:void(0)")  Contact
-                    .col-md-2.footer-phone
+                    .col-md-2.footer-phone.visible-lg
                         a(href="mailto:8-800-123-45-67")
                             +svg('telephone')
                             |  8-800-123-45-67
+                        .footer-phone__ask
+                            a(href="javascript:void(0)").ask-link   Ask a Question Yeti
+        .footer-bottom
+            .container
+                .row
+                    .col-md-6.col-sm-6.col-xs-12.left-part
+                        p.copyright Все права защищены © 2016 г.
+                    .col-md-6.col-sm-6.col-xs-12.right-part
+                        p.developer Разработка и продвижение сайта
+                        a(href="http://www.vedita.ru" target="_blank")
+                            img(src="../img/vedita-logo.png")
 
 
 

@@ -122,14 +122,15 @@
       <!-- Выбор пилюли-->
       <section id="games">
         <div class="games">
+          <div class="gray-line js-gray"></div>
           <div class="container">
-            <p class="title-games"> Fold in the box
+            <p class="title-games js-title-games"> Fold in the box
               <svg class="hand-ico">
                 <use xlink:href="#hand-ico"></use>
               </svg> of your problems
             </p>
             <form>
-              <!-- ������ ��� �����, � ��� ���������� ��� ����������-->
+              <!-- инпуты для формы, в них передавать тип выбранного-->
               <input type="hidden" name=""/>
               <input type="hidden" name=""/>
               <input type="hidden" name=""/>
@@ -142,26 +143,27 @@
               <input type="hidden" name=""/>
               <div class="games__tap-block">
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="games__tap-block__at-work">
                       <p class="title"> At work</p>
                       <div class="list-loads">
                         <div class="list-loads__item">
-                          <div class="big-square-load elem js-elem-work"><img src="../img/ico-1.png"/></div>
+                          <div class="big-square-load elem js-elem-work"><img src="../img/work-1.svg"/></div>
                           <div class="list-loads__item__mini">
-                            <div class="square-load elem js-elem-work"><img src="../img/ico-2.png"/></div>
-                            <div class="square-load elem js-elem-work"></div>
-                            <div class="square-load elem js-elem-work"></div>
-                            <div class="square-load elem js-elem-work"></div>
-                            <div class="two-square-load elem js-elem-work"><img src="../img/ico-2.png"/></div>
+                            <div class="square-load elem js-elem-work hidden-item"><img src="../img/work-1.svg"/></div>
+                            <div class="square-load elem js-elem-work"><img src="../img/work-2.svg"/></div>
+                            <div class="square-load elem js-elem-work"><img src="../img/work-4.svg"/></div>
+                            <div class="square-load elem js-elem-work"><img src="../img/work-5.svg"/></div>
+                            <div class="square-load elem js-elem-work"><img src="../img/work-6.svg"/></div>
+                            <div class="two-square-load elem js-elem-work"><img src="../img/work-3.svg"/></div>
                           </div>
                           <div class="clear"></div>
                         </div>
                         <div class="list-loads__item">
-                          <div class="square-load elem js-elem-work"></div>
-                          <div class="square-load elem js-elem-work"></div>
-                          <div class="square-load elem js-elem-work"></div>
-                          <div class="square-load elem js-elem-work"></div>
+                          <div class="square-load elem js-elem-work"><img src="../img/work-10.svg"/></div>
+                          <div class="square-load elem js-elem-work"><img src="../img/work-7.svg"/></div>
+                          <div class="square-load elem js-elem-work"><img src="../img/work-8.svg"/></div>
+                          <div class="square-load elem js-elem-work"><img src="../img/work-9.svg"/></div>
                         </div>
                       </div>
                     </div>
@@ -176,26 +178,27 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="games__tap-block__at-home">
                       <p class="title"> At Home</p>
                       <div class="list-loads">
                         <div class="list-loads__item">
-                          <div class="big-square-load elem js-elem-home"><img src="../img/ico-1.png"/></div>
+                          <div class="big-square-load elem js-elem-home"><img src="../img/home-4.svg"/></div>
                           <div class="list-loads__item__mini">
-                            <div class="square-load elem js-elem-home"></div>
-                            <div class="square-load elem js-elem-home"></div>
-                            <div class="square-load elem js-elem-home"></div>
-                            <div class="square-load elem js-elem-home"></div>
-                            <div class="two-square-load elem js-elem-home"></div>
+                            <div class="square-load elem js-elem-home hidden-item"><img src="../img/home-4.svg"/></div>
+                            <div class="square-load elem js-elem-home"><img src="../img/home-6.svg"/></div>
+                            <div class="square-load elem js-elem-home"><img src="../img/home-9.svg"/></div>
+                            <div class="square-load elem js-elem-home"><img src="../img/home-1.svg"/></div>
+                            <div class="square-load elem js-elem-home"><img src="../img/home-8.svg"/></div>
+                            <div class="two-square-load elem js-elem-home"><img src="../img/home-2.svg"/></div>
                           </div>
                           <div class="clear"></div>
                         </div>
                         <div class="list-loads__item">
-                          <div class="square-load elem js-elem-home"></div>
-                          <div class="square-load elem js-elem-home"></div>
-                          <div class="square-load elem js-elem-home"></div>
-                          <div class="square-load elem js-elem-home"></div>
+                          <div class="square-load elem js-elem-home"><img src="../img/home-3.svg"/></div>
+                          <div class="square-load elem js-elem-home"><img src="../img/home-7.svg"/></div>
+                          <div class="square-load elem js-elem-home"><img src="../img/home-5.svg"/></div>
+                          <div class="square-load elem js-elem-home"><img src="../img/home-10.svg"/></div>
                         </div>
                       </div>
                     </div>
@@ -210,7 +213,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12">
+                  <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="games__tap-block__submit">
                       <label>
                         <input type="submit" value="Order"/>
@@ -237,7 +240,7 @@
             </div>
             <div class="catalog__list">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6">
                   <div class="catalog__list__item"><img src="../img/good.jpg"/>
                     <div class="catalog__list__item__description"><a href="javascript:void(0)" class="title-good">  Таке me<span> before</span> work</a>
                       <p class="subtitle-good">  mid Widpflanzer Extrakten und Mineralstoffen</p>
@@ -259,7 +262,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6">
                   <div class="catalog__list__item"><img src="../img/good-2.jpg"/>
                     <div class="catalog__list__item__description"><a href="javascript:void(0)" class="title-good">  Таке me<span> before</span> work</a>
                       <p class="subtitle-good">  mid Widpflanzer Extrakten und Mineralstoffen</p>
@@ -309,15 +312,33 @@
       <div class="container">
         <div class="footer-top">
           <div class="row">
-            <div class="col-md-1 logo-footer"><img src="../img/logo.png"/></div>
-            <div class="col-md-3 slogan-footer">
+            <div class="col-md-12 menu-visible">
+              <div class="row">
+                <div class="col-sm-6 hidden-lg footer-menu">
+                  <ul>
+                    <li><a href="javascript:void(0)"> About</a></li>
+                    <li><a href="javascript:void(0)"> Faq</a></li>
+                    <li><a href="javascript:void(0)"> Offer</a></li>
+                    <li><a href="javascript:void(0)"> Contact</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-6 hidden-lg footer-phone"><a href="mailto:8-800-123-45-67">
+                    <svg class="telephone">
+                      <use xlink:href="#telephone"></use>
+                    </svg> 8-800-123-45-67</a>
+                  <div class="footer-phone__ask"><a href="javascript:void(0)" class="ask-link">  Ask a Question Yeti</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-4 col-sm-4 col-xs-12 logo-footer"><img src="../img/logo.png"/></div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 slogan-footer">
               <p> Vita<span>- Y</span><sup> &reg;</sup></p>
               <p> Harmonize your life</p>
             </div>
-            <div class="col-md-2 slogan-subtitle">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 slogan-subtitle">
               <p>  Aktiv<span>  Komplex</span></p>
             </div>
-            <div class="col-md-4 footer-menu">
+            <div class="col-md-4 footer-menu visible-lg">
               <ul>
                 <li><a href="javascript:void(0)"> About</a></li>
                 <li><a href="javascript:void(0)"> Faq</a></li>
@@ -325,10 +346,24 @@
                 <li><a href="javascript:void(0)"> Contact</a></li>
               </ul>
             </div>
-            <div class="col-md-2 footer-phone"><a href="mailto:8-800-123-45-67">
+            <div class="col-md-2 footer-phone visible-lg"><a href="mailto:8-800-123-45-67">
                 <svg class="telephone">
                   <use xlink:href="#telephone"></use>
-                </svg> 8-800-123-45-67</a></div>
+                </svg> 8-800-123-45-67</a>
+              <div class="footer-phone__ask"><a href="javascript:void(0)" class="ask-link">  Ask a Question Yeti</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 left-part">
+              <p class="copyright">Все права защищены © 2016 г.</p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 right-part">
+              <p class="developer">Разработка и продвижение сайта</p><a href="http://www.vedita.ru" target="_blank"><img src="../img/vedita-logo.png"/></a>
+            </div>
           </div>
         </div>
       </div>

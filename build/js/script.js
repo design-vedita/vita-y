@@ -55,9 +55,11 @@ var App = {
         addedItem('js-elem-work', 'js-added-work');
         addedItem('js-elem-home', 'js-added-home');
         deleteItem('js-delete');
+        heightGray();
 
         App.win.on('resize', function(){
             burger();
+            heightGray();
         });
 
         // карусель фото
@@ -66,8 +68,52 @@ var App = {
             slidesToShow: 6.1,
             slidesToScroll: 3,
            // autoplay: true,
-            arrows: false
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1550,
+                    settings: {
+                        slidesToShow: 5.1
+                    }
+                },
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 4.1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3.1
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 460,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
         });
+
+        function heightGray() {
+            var $line = $('.js-gray'),
+                $title = $('.js-title-games'),
+                clientWidth = document.documentElement.clientWidth;
+
+            if(clientWidth <= 1199) {
+
+                var $titleHeight = $title.outerHeight();
+                $line.css({'height':$titleHeight});
+            }
+        }
 
         // Слайдер верхний
         $('.js-top-slider').slick({
@@ -208,7 +254,8 @@ var App = {
         for(i = 0; i < item.length; i++) {
 
             item[i].onclick = function(e){
-                var src = e.target.getAttribute('src');
+                var image = this.querySelector('img');
+                var src = image.getAttribute('src');
                 var list = [];
 
                 var typeImg = src.slice(-4),
