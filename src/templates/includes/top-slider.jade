@@ -1,15 +1,20 @@
 mixin top-slider()
    section#header-slider
       .top-slider.js-top-slider
-         .slide
+         .slide(style="background-image: url(../img/slide-top.jpg)")
             img(src="../img/slide-top.jpg")
             .container
                .slide__item
-                  p.cloud.left.js-cloud  Текст текст текст текс
-                  p.cloud.right.js-cloud  Текст текст текст текс
+                  .cloud.js-cloud
+                     p.first  Woke up too late? Not enough time for a relaxed morning? No breakfast?
+                     p.last  Woke up too late? Not enough time for a relaxed morning?  No breakfast?
+
+                 // p.cloud.left.js-cloud  Текст текст текст текс
+                 // p.cloud.right.js-cloud  Текст текст текст текс
          .slide
             img(src="../img/slide-top-2.jpg")
             .container
                .slide__item
-                  p.cloud.left.js-cloud  Текст текст текст текс
-                  p.cloud.right.js-cloud  Текст текст текст текс
+                  .cloud.js-cloud
+                     p.first  Woke up too late? Not enough time for a relaxed morning? No breakfast?
+                     p.last  Woke up too late? Not enough time for a relaxed morning?  No breakfast?

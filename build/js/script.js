@@ -48,19 +48,29 @@ var App = {
             App.htmlTag.addClass('ios');
         }
 
-        burger();
-        hoverAnimate('.js-elem-work');
-        hoverAnimate('.js-elem-home');
+        var burger = burgerActions();
+
+        burger.openMenu();
+        burger.heightMenu();
+        burger.positionHeader();
 
         addedItem('js-elem-work', 'js-added-work');
         addedItem('js-elem-home', 'js-added-home');
         deleteItem('js-delete');
         heightGray();
+        preloader();
 
         App.win.on('resize', function(){
-            burger();
+            burger.heightMenu();
             heightGray();
         });
+
+        App.win.on('scroll', function(){
+            burger.positionHeader();
+        });
+
+        /***/
+        //Подключение плагинов
 
         // карусель фото
         $('.js-gallery').slick({
@@ -103,53 +113,45 @@ var App = {
             ]
         });
 
-        function heightGray() {
-            var $line = $('.js-gray'),
-                $title = $('.js-title-games'),
-                clientWidth = document.documentElement.clientWidth;
-
-            if(clientWidth <= 1199) {
-
-                var $titleHeight = $title.outerHeight();
-                $line.css({'height':$titleHeight});
-            }
-        }
-
         // Слайдер верхний
         $('.js-top-slider').slick({
             'prevArrow': '<button type="button" class="slick-prev"></button>',
-            'nextArrow': '<button type="button" class="slick-next"></button>'
-        })
-            .on('beforeChange', function(){
-                var $slides = $('.slide');
-
-                $slides.each(function(){
-
-                    var $clouds = $(this).find('.js-cloud');
-                    $clouds.removeClass('animated fadeInLeft fadeInRight');
-                });
-            })
-            .on('afterChange', function(){
-                var currentSlide = $('.js-top-slider').slick('slickCurrentSlide');
-
-                var $slides = $('.slide');
-
-                $slides.each(function(){
-                    var attr = $(this).attr('data-slick-index');
-
-                    if(attr == currentSlide) {
-                        var $clouds = $(this).find('.js-cloud');
-
-                        $clouds.each(function(){
-                            if( $(this).hasClass('left') ) {
-                                $(this).addClass('animated fadeInLeft');
-                            } else if ( $(this).hasClass('right') ) {
-                                $(this).addClass('animated fadeInRight');
-                            }
-                        });
+            'nextArrow': '<button type="button" class="slick-next"></button>',
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false
                     }
-                });
+                }
+            ]
+        })
+        .on('beforeChange', function(){
+            var $slides = $('.slide');
+
+            $slides.each(function(){
+
+                var $clouds = $(this).find('.js-cloud');
+                $clouds.removeClass('animated fadeInLeft fadeInRight');
             });
+        })
+        .on('afterChange', function(){
+            var currentSlide = $('.js-top-slider').slick('slickCurrentSlide');
+
+            var $slides = $('.slide');
+
+            $slides.each(function(){
+                var attr = $(this).attr('data-slick-index');
+
+                if(attr == currentSlide) {
+                    var $clouds = $(this).find('.js-cloud');
+
+                    $clouds.each(function(){
+                        $(this).addClass('animated bounceInDown');
+                    });
+                }
+            });
+        });
 
         // Слайдер с мужиком
         $('.js-man-slider').slick({
@@ -186,7 +188,7 @@ var App = {
             });
 
         //waypoint
-        var waypoint = new Waypoint({
+        /*var waypoint = new Waypoint({
             element: document.getElementById('vigdorovich'),
             handler: function(direction) {
                 var $block = $('.js-animate');
@@ -200,6 +202,7 @@ var App = {
             },
             offset: '30%'
         });
+        */
 
         var waypoint2 = new Waypoint({
             element: document.getElementById('header-slider'),
@@ -207,42 +210,160 @@ var App = {
                 var $block = $('.js-cloud');
 
                 $block.each(function(){
-
-                    if($(this).hasClass('left')) {
-                        $(this).addClass('animated fadeInLeft');
-                    } else if ($(this).hasClass('right')) {
-                        $(this).addClass('animated fadeInRight');
-                    }
+                    $(this).addClass('animated bounceInDown');
                 });
-            },
-            offset: '30%'
+            }
         });
     });
 
-    // открываем меню
-    function burger() {
+    /***********/
+
+    /***********************/
+    // Функции, объекты, вся логика
+
+    function preloader() {
+        var $preloader = $('.preloader'),
+            $spinner   = $preloader.find('.spinner');
+        $preloader.addClass('slow');
+        $spinner.addClass('slow');
+    }
+
+    function heightGray() {
+        var $line = $('.js-gray'),
+            $title = $('.js-title-games'),
+            clientWidth = document.documentElement.clientWidth;
+
+        if(clientWidth <= 1199) {
+
+            var $titleHeight = $title.outerHeight();
+            $line.css({'height':$titleHeight});
+        }
+    }
+
+    // верхнее меню и шапка
+
+    function burgerActions() {
         var $burger = $('.js-burger'),
-            $menu = $('.js-menu');
-        var clientHeight = document.documentElement.clientHeight,
+            $menu = $('.js-menu'),
+            $header = $('.js-header'),
+            $content = $('.js-content'),
             menu = document.getElementsByClassName('js-menu')[0];
-        menu.style.height = clientHeight + 'px';
 
-        $burger.on('click', function() {
-            $(this).toggleClass('open');
-            $menu.toggleClass('open--menu');
-        });
+       return {
+           openMenu: function(){
+               // открываем меню
+               $burger.on('click', function() {
+                   $(this).toggleClass('open');
+                   $menu.toggleClass('open--menu');
+                   $header.toggleClass('open--menu');
+               });
+           },
 
+           heightMenu: function() {
+               //задаём высоту меню
+                var clientHeight = document.documentElement.clientHeight,
+                    clientWidth = document.documentElement.clientWidth;
+
+               if (clientWidth >= 768) {
+                   menu.style.height = clientHeight + 'px';
+               } else {
+                   menu.style.height = '';
+               }
+           },
+
+           positionHeader: function(){
+               // плавающая шапка
+               var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+               if (scrollTop >= $header.outerHeight()) {
+                   $header.addClass('scroll--header');
+                   $content.css({'margin-top': $header.outerHeight() + 'px'});
+               } else {
+                   $header.removeClass('scroll--header');
+                   $content.css({'margin-top': ''});
+               }
+           }
+
+       }
     }
 
-    function hoverAnimate(el) {
+    function HintConstructor() {
 
-        var el  = $(el);
+        return {
 
-        el.on('mouseout', function(e) {
-           // console.log(e);
-        });
+            hintGallery: function() {
+                //подсказка в галерее в подвале
+                var $link = $('.js-hint-gallery'),
+                    $hint = $('.js-gallery-hint');
+
+                    $link.on('click', function(){
+                        var $text = $(this).attr('data-hint'),
+                            $offset = $(this).offset(),
+                            $hintHeight = $hint.outerHeight();
+                        $hint.toggleClass('visible');
+
+                            $hint.html($text);
+                            var $top = $offset.top - ($hintHeight / 1.5);
+
+                            if($hint.hasClass('visible')) {
+
+                                $hint.offset({
+                                    left: $offset.left,
+                                    top: $top
+                                });
+
+                            } else {
+                                $hint.offset({
+                                    left: 0,
+                                    top: 0
+                                });
+                            }
+                    });
+            },
+
+            hintGames: function(el){
+                // подсказка у элементов игры
+                var el  = $(el),
+                    $hint = $('.js-hint-block');
+                el.on('mouseenter', function(e) {
+
+                    var $offset = $(this).offset(),
+                        $text = $(this).attr('data-hint');
+                    $hint.text($text);
+
+                    var $height = $(this).outerHeight(),
+                        $width  = $(this).outerWidth();
+
+                    $hint.addClass('visible--hint');
+
+                    var $top = $height + $offset.top,
+                        $left = $offset.left - ($width / 3);
+
+                    $hint.offset({
+                        top: $top,
+                        left: $left
+                    });
+                    $hint.addClass('hint--games');
+
+
+                });
+
+                el.on('mouseleave', function(e) {
+
+                    $hint.css({'left':'', 'top':''});
+                    $hint.removeClass('visible--hint');
+                    $hint.html('');
+                });
+            }
+
+        }
     }
 
+    var hint = HintConstructor();
+    hint.hintGallery();
+    hint.hintGames('.js-hint');
+
+    // добавление элемента для расчёта
     function addedItem(el, el_add) {
         var item = document.getElementsByClassName(el),
             add = document.getElementsByClassName(el_add);
@@ -277,6 +398,7 @@ var App = {
         }
     }
 
+    // удаление элемента для расчёта
     function deleteItem(el) {
         var delItem = document.getElementsByClassName(el);
 

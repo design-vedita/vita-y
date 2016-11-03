@@ -1,6 +1,8 @@
 
 mixin header()
-   header
+   .preloader
+      img(src="../img/Loading.gif").spinner
+   header.js-header
       .burger.js-burger.out
          button
             span
@@ -20,20 +22,20 @@ mixin header()
                p.count  Cart:
                   span  3 item
                p.sum 120 &euro;
-      .language-link
+      .language-link.hidden-xs
          a(href="javascript:void(0)").active  Deutch
          a(href="javascript:void(0)")  English
          a(href="javascript:void(0)")  Русский
       .menu.js-menu
-         .menu__logo
+         .menu__logo.hidden-xs
             img(src="../img/logo.png")
-            .menu__logo__text
+            .menu__logo__text.hidden-xs
                p  Vita
                   = ' '
                   span - Y
                   sup  &copy;
                p  Harmonize your life
-            .menu__logo__komplex
+            .menu__logo__komplex.hidden-xs
                p  Aktiv
                   span  Komplex
          .menu__list
