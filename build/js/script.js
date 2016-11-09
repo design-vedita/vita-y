@@ -59,10 +59,12 @@ var App = {
         deleteItem('js-delete');
         heightGray();
         preloader();
+        heightSlide();
 
         App.win.on('resize', function(){
             burger.heightMenu();
             heightGray();
+            heightSlide();
         });
 
         App.win.on('scroll', function(){
@@ -132,7 +134,7 @@ var App = {
             $slides.each(function(){
 
                 var $clouds = $(this).find('.js-cloud');
-                $clouds.removeClass('animated fadeInLeft fadeInRight');
+                $clouds.removeClass('animated bounceInDown');
             });
         })
         .on('afterChange', function(){
@@ -155,40 +157,178 @@ var App = {
 
         // Слайдер с мужиком
         $('.js-man-slider').slick({
-            'prevArrow': '<button type="button" class="slick-prev"></button>',
-            'nextArrow': '<button type="button" class="slick-next"></button>'
+            'prevArrow': '<button type="button" class="slick-prev-man"></button>',
+            'nextArrow': '<button type="button" class="slick-next-man"></button>',
+            fade: true,
+            speed: 1000,
+            infinite: true
         })
             .on('afterChange', function(){
+                // Первый слайд
                 var slide = $('.js-man-slider').slick('slickCurrentSlide');
 
-                var $activeMan = $('.js-man-slider').find('.slick-active'),
+                // Второй слайд
+                var $hand = $('.js-hand'),
+                    $big = $('.js-big'),
+                    $plant = $('.js-plant'),
+                    $science = $('.js-science'),
+                    $steps = $('.js-step');
+
+                //Третий слайд
+                var $zoomEl = $('.js-zoom'),
+                    $capsule = $('.js-capsule'),
+                    $bottle = $('.js-bottle'),
+                    $yellowCapsule = $('.js-yellow'),
+                    $blueCapsule = $('.js-blue'),
+                    $wrapperCounter = $('.js-animate-capsule');
+                //счётчики
+                var $counterOrange = $('.js-count-yellow'),
+                    $counterBlue = $('.js-count-blue');
+
+                var $activeMan = $('.js-man-slider').find('.slick-active'), // получаем активный слайд
                     $animateBlock = $activeMan.find('.js-animate');
 
                 if(slide == 1) {
-                    $animateBlock.addClass('animated fadeInRight');
+                    $animateBlock.addClass('animated fadeInRight delay-300');
                 }
 
                 if(slide == 2) {
-                    var $hand = $('.js-hand'),
-                        $big = $('.js-big'),
-                        $plant = $('.js-plant'),
-                        $science = $('.js-science');
-
                     $hand.addClass('no--visible');
                     $big.addClass('no--visible');
 
+                    // Ищем в текущем слайде блоки с текстом и анимируем их
+                    setTimeout(function(){
+                        $animateBlock.each(function(){
+
+                            if($(this).hasClass('left')) {
+                                $(this).addClass('fadeOutLeft');
+                            } else if($(this).hasClass('right')) {
+                                $(this).addClass('fadeOutRight');
+                            }
+                        });
+                    },   500);
+
+                    // Добавляем классы анимации сферам
                     setTimeout(function(){
                             $plant.addClass('plant--move');
                             $science.addClass('science--move');
+                        },  1000);
+
+                    // Добавляем классы анимации шагам
+                    $steps.each(function(i){
+                        var $self = $(this);
+
+                        // Добавляем отдельно, чтобы через step перекрыть время задержки
+                        if (i == 4) {
+                            setTimeout(function(){
+                                $self.addClass('animated fadeIn step-' + i);
+                            }, 2200)
+                        }
+
+                        // Добавляем классы анимации каждому шагу со своей задержкой
+                        setTimeout(function(){
+                            if(i != 4) {
+                                $self.addClass('step-' + i);
+                            }
+                        }, 1200);
+
+                    });
+
+                } else {
+                    // получаем все нужные блоки для анимации
+                    $hand.removeClass('no--visible');
+                    $big.removeClass('no--visible');
+                    $plant.removeClass('plant--move');
+                    $science.removeClass('science--move');
+
+                    // всем шагам раздаём классы анимации и задержки
+                    $steps.each(function(i){
+                        $(this).removeClass('step-' + i + ' animated fadeInDown');
+                    });
+                }
+
+                if (slide == 3) {
+                    $zoomEl.addClass('animated zoomOut');
+
+                    //большие капсулы даём им анимацию
+                    $capsule.each(function(){
+                        var self = $(this);
+
+                        if(self.hasClass('left')) {
+                            self.addClass('animated fadeInLeft');
+                        } else if (self.hasClass('right')) {
+                            self.addClass('animated fadeInRight');
+                        }
+
+                        setTimeout(function(){
+                           self.addClass('top-capsule');
+                        }, 400);
+                    });
+
+                    // коробки в которые падают таблетки им тоже даём анимацию
+                    $bottle.each(function(){
+                        var self = $(this);
+
+                        setTimeout(function(){
+
+                            if(self.hasClass('left')) {
+                                self.addClass('animated fadeInUp');
+                            } else if (self.hasClass('right')) {
+                                self.addClass('animated fadeInUp');
+                            }
                         },
-                        1000
-                    )
+                        800)
+                    });
+
+                    // анимированное появление счётчиков после старта
+                    setTimeout(function(){
+                        $wrapperCounter.addClass('animated fadeInUp');
+                    }, 900);
+
+
+                    // Анимация падения жёлтых капсул
+                    $yellowCapsule.each(function(i){
+                        var $self = $(this);
+
+                        setTimeout(function(){
+                            $self.addClass('delay-' + i + ' animate');
+                        }, 1200);
+                    });
+
+                    // Анимация падения голубых капсул
+                    $blueCapsule.each(function(i){
+                        var $self = $(this);
+
+                        setTimeout(function(){
+                            $self.addClass('delay-' + i + ' animate');
+                        }, 1200);
+                    });
+
+                    // счётчик голубых капсул
+                    setTimeout(function(){
+                        $($counterBlue).animate({ num: 63 }, {
+                            duration: 3200,
+                            step: function (num){
+                                this.innerHTML = num.toFixed(0)
+                            }
+                        });
+                    }, 1200);
+
+                    // счётчик оранжевых капсул
+                    setTimeout(function(){
+                        $($counterOrange).animate({ num: 63 }, {
+                            duration: 2500,
+                            step: function (num){
+                                this.innerHTML = num.toFixed(0)
+                            }
+                        });
+                    }, 1200);
                 }
 
             });
 
         //waypoint
-        /*var waypoint = new Waypoint({
+        var waypoint = new Waypoint({
             element: document.getElementById('vigdorovich'),
             handler: function(direction) {
                 var $block = $('.js-animate');
@@ -202,7 +342,6 @@ var App = {
             },
             offset: '30%'
         });
-        */
 
         var waypoint2 = new Waypoint({
             element: document.getElementById('header-slider'),
@@ -212,7 +351,8 @@ var App = {
                 $block.each(function(){
                     $(this).addClass('animated bounceInDown');
                 });
-            }
+            },
+            offset: '30%'
         });
     });
 
@@ -228,6 +368,7 @@ var App = {
         $spinner.addClass('slow');
     }
 
+    // Высота серой подложки в заголовке игры на мелких устройствах
     function heightGray() {
         var $line = $('.js-gray'),
             $title = $('.js-title-games'),
@@ -238,6 +379,16 @@ var App = {
             var $titleHeight = $title.outerHeight();
             $line.css({'height':$titleHeight});
         }
+    }
+
+    // Высота последнего слайдера с анимацией под высоту остальных
+    function heightSlide() {
+        var $slide = $('.js-slide'),
+            $slideRecipient = $('.js-height-slide');
+
+        var $slideHeight = $slide.outerHeight();
+
+        $slideRecipient.css({'height': $slideHeight + 'px'});
     }
 
     // верхнее меню и шапка
@@ -398,7 +549,7 @@ var App = {
         }
     }
 
-    // удаление элемента для расчёта
+    // удаление элемента из расчёта
     function deleteItem(el) {
         var delItem = document.getElementsByClassName(el);
 

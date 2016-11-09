@@ -150,6 +150,14 @@
 					}
 				}
 			}
+
+			&.hidden-phone {
+				display: block;
+
+				@media (max-width: 570px) {
+					display: none;
+				}
+			}
 		}
 
 		.two-square-load {
@@ -174,6 +182,13 @@
 
 				& {
 					width: 199px;
+				}
+			}
+
+			@media (min-width: 500px) and (max-width: 570px) {
+
+				& {
+					margin-right: 27px;
 				}
 			}
 
@@ -294,7 +309,11 @@
 							width: 47%;
 
 							&:not(:nth-of-type(2n)) {
-								margin-right: 3% !important;
+								margin-right: 6% !important;
+							}
+
+							&:last-child {
+								margin-right: 0;
 							}
 
 							&:nth-of-type(4),
@@ -330,4 +349,10 @@
 			}
 		}
 	}
+}
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
 }
