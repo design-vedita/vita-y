@@ -602,8 +602,11 @@ header .menu__list__phone .telephone {
   bottom: 0;
   margin: auto;
 }
+.content .man-slider .static-image img.sphere {
+  top: 18%;
+}
 .content .man-slider .static-image img.plant {
-  top: -57.5%;
+  top: -39.5%;
   left: -5%;
 }
 @-moz-keyframes flyLeft {
@@ -893,7 +896,7 @@ header .menu__list__phone .telephone {
 .content .man-slider .wrapper-animate img {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 18%;
   right: 0;
   bottom: 0;
   margin: auto;
@@ -976,7 +979,7 @@ header .menu__list__phone .telephone {
   animation-fill-mode: forwards;
 }
 .content .man-slider .wrapper-animate .step-4 {
-  top: -57.5%;
+  top: -39.5%;
   left: -5%;
   animation-duration: 450ms;
   animation-delay: 300ms;
@@ -1077,6 +1080,9 @@ header .menu__list__phone .telephone {
   visibility: hidden;
 }
 .content .man-slider .slider-man__desc__text.animated {
+  visibility: visible;
+}
+.content .man-slider .slider-man__desc__text.visible {
   visibility: visible;
 }
 .content .man-slider .slider-man__desc__text.delay-300 {
@@ -2143,6 +2149,8 @@ header .menu__list__phone .telephone {
   text-align: center;
   color: #fff;
   background-color: #c4344d;
+  outline: none;
+  border-radius: 0;
 }
 .content .catalog__list__item__description__buttons input[type=submit] {
   float: right;
@@ -2220,6 +2228,7 @@ header .menu__list__phone .telephone {
   background-repeat: no-repeat;
   box-sizing: border-box;
   display: none;
+  pointer-events: none;
 }
 .content .gallery .hint-gallery.visible {
   display: block;

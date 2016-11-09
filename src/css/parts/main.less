@@ -712,11 +712,12 @@ header {
 				margin: auto;
 
 				&.sphere {
+					top: 18%;
 					//width: 198px;
 				}
 
 				&.plant {
-					top: -57.5%;
+					top: -39.5%;
 					left: -5%;
 					//width: 169.68px;
 				}
@@ -971,7 +972,7 @@ header {
 			img {
 				position: absolute;
 				left: 0;
-				top: 0;
+				top: 18%;
 				right: 0;
 				bottom: 0;
 				margin: auto;
@@ -1068,7 +1069,7 @@ header {
 			}
 
 			.step-4 {
-				top: -57.5%;
+				top: -39.5%;
 				left: -5%;
 				animation-duration: 450ms;
 				animation-delay: 300ms;
@@ -1191,6 +1192,10 @@ header {
             &.animated {
               visibility: visible;
             }
+
+			  &.visible {
+				  visibility: visible;
+			  }
 
 		  &.delay-300 {
 			  animation-delay: 0ms !important;
@@ -1878,6 +1883,8 @@ header {
 								text-align: center;
 								color: @white;
 								background-color: @countButton;
+								outline: none;
+								border-radius: 0;
 							}
 
 							&[type=submit] {
@@ -1956,6 +1963,7 @@ header {
 		margin-top: 37px;
 		padding-top: 29px;
 		letter-spacing: .1px;
+		letter-spacing: .1px;
 		background-color: @galleryBack;
 
 		.hint-gallery {
@@ -1971,6 +1979,7 @@ header {
 			background-repeat: no-repeat;
 			box-sizing: border-box;
 			display: none;
+			pointer-events: none;
 
 			&.visible {
 				display: block;

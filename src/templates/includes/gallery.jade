@@ -1,21 +1,27 @@
 mixin gallery()
    section#gallery-block
       .gallery
-         .hint-gallery.js-gallery-hint
+         .hint-gallery(data-hint=1).js-gallery-hint Very good preparation. I'm full of energy! 1
+         .hint-gallery(data-hint=2).js-gallery-hint Very good preparation. I'm full of energy! 2
+         .hint-gallery(data-hint=3).js-gallery-hint Very good preparation. I'm full of energy! 3
+         .hint-gallery(data-hint=4).js-gallery-hint Very good preparation. I'm full of energy! 4
+         .hint-gallery(data-hint=5).js-gallery-hint Very good preparation. I'm full of energy! 5
+         .hint-gallery(data-hint=6).js-gallery-hint Very good preparation. I'm full of energy! 6
+         .hint-gallery(data-hint=7).js-gallery-hint Very good preparation. I'm full of energy! 7
          .container
             p.title-gallery   satisfied customers
          .gallery__slider.slider.js-gallery
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy!")
+            .galley__slider__item.item.js-hint-gallery(data-hint=1)
                img(src="../img/gallery-1.jpg")
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy! 1")
+            .galley__slider__item.item.js-hint-gallery(data-hint=2)
                img(src="../img/gallery-2.jpg")
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy! 2")
+            .galley__slider__item.item.js-hint-gallery(data-hint=3)
                img(src="../img/gallery-3.jpg")
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy! 3")
+            .galley__slider__item.item.js-hint-gallery(data-hint=4)
                img(src="../img/gallery-4.jpg")
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy! 4")
+            .galley__slider__item.item.js-hint-gallery(data-hint=5)
                img(src="../img/gallery-5.jpg")
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy! 5")
+            .galley__slider__item.item.js-hint-gallery(data-hint=6)
                img(src="../img/gallery-6.jpg")
-            .galley__slider__item.item.js-hint-gallery(data-hint="Very good preparation. I'm full of energy! 6")
+            .galley__slider__item.item.js-hint-gallery(data-hint=7)
                img(src="../img/gallery-4.jpg")
