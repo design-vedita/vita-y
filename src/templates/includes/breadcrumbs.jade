@@ -1,0 +1,6 @@
+mixin breadcrumbs(title)
+   .breadcrumbs
+      ul
+         li: a(href="javascript:void(0)")
+            +svg('home')
+         li: span    #{title}

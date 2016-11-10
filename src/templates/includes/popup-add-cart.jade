@@ -1,0 +1,17 @@
+mixin popup-add-cart()
+   .overlay.js-overlay
+   .popup-add-cart.js-popup-cart
+      .popup-add-cart__header
+         .popup-add-cart__logo
+            img(src="../img/logo.png")
+         .popup-add-cart__logo-text
+            p  Vita -
+               = ' '
+               span  Y
+               sup  &copy;
+            p  Harmonize your life
+         .close-popup.js-close-cart
+            +svg('close')
+      .popup-add-cart__content
+         p Ваш товар добавлен в корзину и обрабатывается
+         button.js-close-cart   Ок

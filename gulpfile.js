@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     newer = require('gulp-newer'),
     remember = require('gulp-remember'),
-    paths = require('gulp-path');
+    paths = require('gulp-path'),
+    svgo = require('gulp-svgo');
 // spritesmith = require('gulp.spritesmith');
 
 var path = {
@@ -142,6 +143,7 @@ gulp.task('css:build', function () {
 
 gulp.task('image:build', function () {
     gulp.src(path.src.img)
+        .pipe(svgo())
         .pipe(newer(path.build.img))
         .pipe(gulp.dest(path.build.img));
 });

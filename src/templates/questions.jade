@@ -1,0 +1,21 @@
+include includes/head
+include includes/header
+include includes/questions
+include includes/footer
+include includes/scripts
+extends includes/layout
+block head
+
+    +head('Вопрос-ответ')
+
+block content
+
+    +header()
+
+    +questions()
+
+block footer
+
+    +footer()
+
+    +scripts()

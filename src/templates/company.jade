@@ -1,0 +1,21 @@
+include includes/head
+include includes/header
+include includes/company
+include includes/footer
+include includes/scripts
+
+extends includes/layout
+
+block head
+    +head('О компании')
+
+block content
+    +header()
+
+    +company()
+
+block footer
+
+    +footer()
+
+    +scripts()

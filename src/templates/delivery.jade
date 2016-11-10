@@ -1,0 +1,22 @@
+include includes/head
+include includes/header
+include includes/delivery
+include includes/footer
+include includes/scripts
+extends includes/layout
+
+block head
+
+    +head('Доставка')
+
+block content
+
+    +header()
+
+    +delivery()
+
+block footer
+
+    +footer()
+
+    +scripts()

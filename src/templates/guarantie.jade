@@ -1,0 +1,21 @@
+include includes/head
+include includes/header
+include includes/guarantie
+include includes/footer
+include includes/scripts
+
+extends includes/layout
+
+block head
+    +head('Гарантии')
+
+block content
+    +header()
+
+    +guarantie()
+
+block footer
+
+    +footer()
+
+    +scripts()

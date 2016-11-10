@@ -21,6 +21,62 @@ button {
 	outline: none !important;
 }
 
+h1 {
+	margin-top: 14px;
+	font-size: 30px;
+	font-family: @bold;
+	color: @titleSlide;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 18px;
+	font-family: @bold;
+	color: @green;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: 16px;
+	line-height: 24px;
+	font-family: @semibold;
+	color: @colorH3;
+	text-transform: uppercase;
+}
+
+.bold {
+	color: @boldText;
+	font-family: @semibold;
+}
+
+.bold-gray {
+	font-family: @semibold;
+}
+
+.color {
+	color: @pink;
+	font-family: @bold;
+}
+
+.extra {
+	font-family: @bold;
+}
+
+.float-left {
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+
+.float-right {
+	float: right;
+}
+
+a {
+	font-family: @semibold;
+	color: @blueArrow;
+}
+
 html {
 
 	&.ios {
@@ -469,6 +525,7 @@ header {
 					width: 15px;
 					height: 17px;
 					fill: @white;
+					transition: fill 500ms linear;
 				}
 
 				.login-link {
@@ -477,6 +534,15 @@ header {
 					font-size: 1.4em;
 					color: @white;
 					text-decoration: none;
+					transition: color 500ms linear;
+
+					&:hover {
+						color: @orange;
+
+						.login {
+							fill: @orange;
+						}
+					}
 
 					@media (max-width: 767px) {
 
@@ -623,7 +689,7 @@ header {
 			left: 0;
 			visibility: hidden;
 			width: 100%;
-			font: 1.4em/1.6em Comic Sans MS;
+			font: 1.4em/1.6em Comic Sans MS, Comoc Sans, Chalkboard, "ChalkboardSE-Regular", sans-serif;
 			background-image: url(../img/top-slider-cloud.svg);
 			background-size: contain;
 			background-position: center;
@@ -1490,7 +1556,7 @@ header {
                 &::before {
                   position: absolute;
                   left: 49px;
-                  top: 10px;
+                  top: -4px;
                   display: block;
                   width: 19px;
                   height: 19px;
@@ -1726,7 +1792,7 @@ header {
                       font-size: 17px;
 
                       span {
-                        top: 1px;
+                        top: 2px;
                       }
                     }
                   }
@@ -2003,6 +2069,461 @@ header {
 				width: 100%;
 				height: auto;
 			}
+		}
+	}
+
+	&-inner {
+		padding-top: 18px;
+		padding-bottom: 25px;
+
+		.border-line {
+			margin-top: 30px;
+			margin-bottom: 30px;
+			padding-left: 18px;
+			color: @blueArrow;
+			border-left: 5px @blueArrow solid;
+		}
+
+		.column {
+			column-count: 2;
+			column-gap: 2em;
+			-moz-column-count: 2;
+			-moz-column-gap: 2em;
+			-webkit-column-count: 2;
+			-webkit-column-gap: 2em;
+
+			@media (max-width: 767px) {
+
+				column-count: 1;
+				-moz-column-count: 1;
+				-webkit-column-count: 1;
+			}
+		}
+
+		.breadcrumbs {
+
+			ul {
+
+				li {
+					position: relative;
+					display: inline-block;
+					font: 13px/28px @regular;
+					color: @crumbs;
+
+					&:not(:first-child) {
+						padding-left: 7px;
+					}
+
+					&:not(:first-child)::before {
+						position: absolute;
+						left: 0;
+						top: 0;
+						display: inline;
+						font: 13px/28px @regular;
+						color: @crumbs;
+						content: ' - ';
+					}
+				}
+
+				a {
+					text-decoration: none;
+				}
+
+				.home {
+					width: 11px;
+					height: 10px;
+					fill: @crumbHome;
+				}
+			}
+		}
+
+		&__text {
+			margin-top: 36px;
+			color: @textInner;
+			font: 14px/24px @regular;
+
+			.point-image {
+				width: 100%;
+			}
+
+			.address {
+				margin-top: 10px;
+				padding-left: 25px;
+				color: @addresColor;
+				margin-bottom: 0;
+				font-family: @semibold;
+				background-image: url(../img/point.svg);
+				background-size: 12px 14px;
+				background-position: left center;
+				background-repeat: no-repeat;
+			}
+
+			.phone {
+				padding-left: 25px;
+				font-family: @semibold;
+				color: @addresColor;
+				background-image: url(../img/phone-ico.svg);
+				background-size: 12px 12px;
+				background-position: left center;
+				background-repeat: no-repeat;
+			}
+
+			.pay-good {
+				padding-left: 32px;
+				background-image: url(../img/pay.svg);
+				background-size: 23px 22px;
+				background-position: left center;
+				background-repeat: no-repeat;
+			}
+
+			.delivery-methods {
+				padding-left: 35px;
+				background-image: url(../img/methods.svg);
+				background-size: 30px 18px;
+				background-position: left center;
+				background-repeat: no-repeat;
+			}
+
+			.delivery-cost {
+				padding-left: 32px;
+				background-image: url(../img/cost.svg);
+				background-size: 23px 21px;
+				background-position: left center;
+				background-repeat: no-repeat;
+			}
+
+			ul {
+				list-style-type: none;
+
+				li {
+					position: relative;
+					padding-left: 14px;
+
+					&:not(:last-child) {
+						margin-bottom: 10px;
+					}
+
+					&::before {
+						position: absolute;
+						left: 2px;
+						top: calc(~'50% - 2.5px');
+						display: block;
+						width: 5px;
+						height: 5px;
+						background-color: @blueArrow;
+						border-radius: 50%;
+						content: '';
+					}
+				}
+			}
+		}
+
+		.quote-image {
+			width: 100%;
+		}
+
+		blockquote {
+			position: relative;
+			padding-left: 40px;
+			padding-right: 40px;
+			border-left: none;
+			font-size: 14px;
+			line-height: 24px;
+			font-family: @italic;
+
+			&::before {
+				position: absolute;
+				left: 0;
+				top: 10px;
+				display: block;
+				width: 19px;
+				height: 16px;
+				background-image: url(../img/quotes.svg);
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				content: '';
+			}
+		}
+
+		.top-quotes {
+			margin-top: 35px;
+		}
+
+		.question-list {
+
+			&__quest {
+
+				&:not(:last-child) {
+					margin-bottom: 25px;
+				}
+
+				.item-content {
+					display: none;
+				}
+
+				.view-this {
+					position: relative;
+					padding-right: 15px;
+					font-size: 13px;
+					font-family: @regular;
+					color: @questName;
+					text-decoration: none;
+					border-bottom: 1px @questName dashed;
+
+					&::after {
+						position: absolute;
+						right: 0;
+						top: calc(~'50% - 2px');
+						display: block;
+						width: 7px;
+						height: 4px;
+						background-image: url(../img/all-quest.svg);
+						background-size: cover;
+						background-position: center;
+						background-repeat: no-repeat;
+						content: '';
+					}
+
+					&.opened {
+
+						&::after {
+							transform: rotate(180deg);
+						}
+					}
+				}
+
+				.title {
+					padding-left: 35px;
+					font: 16px/24px @semibold;
+					color: @colorH3;
+					background-image: url(../img/quest-ico.svg);
+					background-position: left center;
+					background-repeat: no-repeat;
+					background-size: 25px 22px;
+				}
+
+				.data-question {
+					padding-left: 35px;
+
+					.quest-cloud {
+						margin-top: 6px;
+						float: left;
+						width: 17px;
+						height: 14px;
+						fill: @questCloud;
+					}
+
+					.name {
+						margin-left: 7px;
+						float: left;
+						font-size: 13px;
+						color: @questName;
+					}
+
+					.date {
+						position: relative;
+						margin-left: 7px;
+						padding-left: 10px;
+						float: left;
+						font-size: 13px;
+						color: @questDate;
+
+						&::before {
+							position: absolute;
+							left: 0;
+							top: 50%;
+							display: block;
+							width: 3px;
+							height: 3px;
+							background-color: @questDate;
+							content: '';
+						}
+					}
+
+					&::after {
+						display: block;
+						content: '';
+						clear: both;
+					}
+				}
+
+				.quest-repeat {
+					margin-top: 11px;
+					padding-left: 35px;
+
+					@media (max-width: 767px) {
+
+						& {
+							padding-left: 0;
+						}
+					}
+
+					blockquote {
+
+						&::before {
+							top: 4px;
+							background-image: url(../img/quotes-ico-blue.svg);
+						}
+
+					}
+				}
+
+				.answer-block {
+					margin-top: 26px;
+
+					&::after {
+						display: block;
+						content: '';
+						clear: both;
+					}
+
+					&__img {
+						float: left;
+						width: 51px;
+
+						@media (max-width: 767px) {
+							float: none;
+							margin: 0 auto 20px;
+						}
+
+						img {
+							width: 51px;
+							height: auto;
+						}
+					}
+
+					&__text {
+						position: relative;
+						float: left;
+						padding-top: 6px;
+						padding-bottom: 10px;
+						margin-left: 17px;
+						padding-left: 26px;
+						border-left: 4px @green solid;
+						width: calc(~'100% - 68px');
+						box-sizing: border-box;
+						background-color: @answerBack;
+						font-family: @semibold;
+
+						&::before {
+							position: absolute;
+							left: -11px;
+							top: 22px;
+							display: block;
+							width: 0;
+							height: 0;
+							border-top: 5px solid transparent;
+							border-right: 10px solid @green;
+							border-bottom: 5px solid transparent;
+							content: '';
+						}
+
+						@media (max-width: 767px) {
+
+							& {
+								margin-left: 11px;
+								padding-left: 15px;
+								padding-right: 15px;
+								width: 99%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.quest-form {
+			margin-top: 70px;
+			padding-top: 23px;
+			padding-bottom: 40px;
+			background-color: @answerBack;
+		}
+
+		form.universal {
+
+			.submit-block {
+				margin-top: 27px;
+			}
+
+			legend {
+				border-bottom: none;
+				font: 16px/24px @semibold;
+			}
+
+			label {
+				display: block;
+				font: 14px/24px @regular;
+				color: @labelQuestForm;
+
+				&.textarea {
+					margin-top: 20px;
+				}
+			}
+
+			input {
+				border-radius: 0;
+				-webkit-appearance: none;
+				box-shadow: none;
+				outline: 0;
+
+				&[type=text],
+				&[type=email]{
+					padding-left: 5px;
+					width: 100%;
+					height: 33px;
+					font: 14px/24px @regular;
+					color: @labelQuestForm;
+					border: 1px @inputBorder solid;
+					box-sizing: border-box;
+				}
+
+				&[type=submit] {
+					width: 163px;
+					height: 47px;
+					font: 19px @semibold;
+					color: @white;
+					background-color: @green;
+					border: none;
+					cursor: pointer;
+					transition: background 300ms linear;
+
+					&:hover {
+						background-color: @darkGreen;
+					}
+				}
+			}
+
+			textarea {
+				padding-left: 5px;
+				padding-top: 5px;
+				width: 100%;
+				height: 92px;
+				font: 14px/24px @regular;
+				color: @labelQuestForm;
+				resize: none;
+				border: 1px @inputBorder solid;
+				box-sizing: border-box;
+				border-radius: 0;
+				-webkit-appearance: none;
+				box-shadow: none;
+				outline: 0;
+			}
+
+			.captcha {
+
+				@media (max-width: 767px) {
+
+					& {
+
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+
+		&.no-pb {
+			padding-bottom: 0;
 		}
 	}
 }
@@ -2403,7 +2924,7 @@ footer {
 	display: none;
 	width: 219px;
 	height: 154px;
-	font: 1.4em/1.2em Comic Sans MS;
+	font: 1.4em/1.2em Comic Sans MS, Comic Sans, Chalkboard, "ChalkboardSE-Regular", sans-serif;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -2459,5 +2980,142 @@ footer {
 	&.slow {
 		opacity: 0;
 		visibility: hidden;
+	}
+}
+
+.overlay {
+	position: fixed;
+	z-index: 12;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: fade(@black, 70%);
+	visibility: hidden;
+	opacity: 0;
+	transition-property: visibility, opacity;
+	transition-duration: 300ms, 300ms;
+	transition-timing-function: linear;
+
+	&.visible {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.popup-add-cart {
+	position: fixed;
+	z-index: 13;
+	padding: 9px 10px 12px 13px;
+	max-width: 555px;
+	width: 100%;
+	visibility: hidden;
+	opacity: 0;
+	background-color: @white;
+	box-shadow: 0 0 16px 0 fade(@black, 68%);
+	transition-property: visibility, opacity;
+	transition-duration: 300ms, 300ms;
+	transition-timing-function: linear;
+
+	&.visible {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__header {
+
+		&::after {
+			display: block;
+			clear: both;
+			content: '';
+		}
+
+		.close-popup {
+			margin-top: 9px;
+			margin-right: 2px;
+			float: right;
+
+			svg {
+				width: 32px;
+				height: 32px;
+				cursor: pointer;
+				transition: fill 300ms linear;
+
+				&:hover {
+					fill: @closeHover;
+				}
+			}
+		}
+	}
+
+	&__content {
+		padding-top: 36px;
+		padding-bottom: 11px;
+		margin-top: 10px;
+		border: 1px @borderCatalogItem solid;
+		text-align: center;
+		font: 1.6em/2.4em @semibold;
+
+		p {
+			margin-bottom: 29px;
+		}
+
+		button {
+			width: 145px;
+			height: 38px;
+			border-radius: 3px;
+			background-color: @blueArrow;
+			color: @white;
+			font: 15px @regular;
+			border: none;
+			text-transform: uppercase;
+			transition: background 500ms linear;
+
+			&:hover {
+				background-color: @blueLight;
+			}
+		}
+	}
+
+	&__logo {
+		width: 45px;
+		float: left;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__logo-text {
+		margin-top: 5px;
+		float: left;
+		margin-left: 12px;
+
+		p {
+			margin-bottom: 0;
+
+			&:first-child {
+				font: 35px/38px @light;
+				color: @black;
+				text-transform: uppercase;
+				letter-spacing: -1px;
+			}
+
+			&:last-child {
+				margin-left: 7px;
+				font: 9px/9px @semibold;
+				color: @gray;
+			}
+
+			span {
+				font-family: @semibold;
+
+			}
+
+			sup {
+				font-size: 11px;
+				top: -2em;
+			}
+		}
 	}
 }

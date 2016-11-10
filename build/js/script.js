@@ -48,11 +48,14 @@ var App = {
             App.htmlTag.addClass('ios');
         }
 
-        var burger = burgerActions();
+        var burger = new burgerActions();
 
         burger.openMenu();
         burger.heightMenu();
         burger.positionHeader();
+
+        var questions = new question();
+        questions.open();
 
         addedItem('js-elem-work', 'js-added-work');
         addedItem('js-elem-home', 'js-added-home');
@@ -63,6 +66,7 @@ var App = {
 
         App.win.on('resize', function(){
             burger.heightMenu();
+            questions.closed();
             heightGray();
             heightSlide();
         });
@@ -103,13 +107,15 @@ var App = {
                 {
                     breakpoint: 767,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: 2,
+                        slidesToScroll: 1
                     }
                 },
                 {
                     breakpoint: 460,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: 1,
+                        slidesToScroll: 1
                     }
                 }
             ]
@@ -383,33 +389,42 @@ var App = {
 
         });
 
-        //waypoint
-        var waypoint = new Waypoint({
-            element: document.getElementById('vigdorovich'),
-            handler: function(direction) {
-                var $block = $('.js-animate');
+        var addCart = new closePopup;
 
-                $block.each(function(){
+        addCart.open();
+        addCart.close();
 
-                    if($(this).hasClass('one')) {
-                        $(this).addClass('animated fadeInLeft');
-                    }
-                });
-            },
-            offset: '30%'
-        });
+        if(document.getElementById('vigdorovich')) {
+            //waypoint
+            var waypoint = new Waypoint({
+                element: document.getElementById('vigdorovich'),
+                handler: function(direction) {
+                    var $block = $('.js-animate');
 
-        var waypoint2 = new Waypoint({
-            element: document.getElementById('header-slider'),
-            handler: function(direction) {
-                var $block = $('.js-cloud');
+                    $block.each(function(){
 
-                $block.each(function(){
-                    $(this).addClass('animated bounceInDown');
-                });
-            },
-            offset: '30%'
-        });
+                        if($(this).hasClass('one')) {
+                            $(this).addClass('animated fadeInLeft');
+                        }
+                    });
+                },
+                offset: '30%'
+            });
+
+            var waypoint2 = new Waypoint({
+                element: document.getElementById('header-slider'),
+                handler: function(direction) {
+                    var $block = $('.js-cloud');
+
+                    $block.each(function(){
+                        $(this).addClass('animated bounceInDown');
+                    });
+                },
+                offset: '30%'
+            });
+        }
+
+
     });
 
     /***********/
@@ -489,6 +504,7 @@ var App = {
                    $header.removeClass('scroll--header');
                    $content.css({'margin-top': ''});
                }
+
            }
 
        }
@@ -629,7 +645,69 @@ var App = {
                 parent.classList.remove('free--item');
             }
         }
+    }
 
+    // Подсказка при добалении в корзину
+
+    function closePopup() {
+        var $close = $('.js-close-cart'),
+            $cart = $('.js-popup-cart'),
+            $overlay = $('.js-overlay'),
+            $add = $('.js-add-good');
+
+
+        return {
+            // Закрытие
+            close: function(){
+
+                $close.on('click', function(){
+
+                    $cart.removeClass('visible');
+                    $overlay.removeClass('visible');
+                });
+            },
+            // Открытие
+            open: function(){
+
+                $add.on('click', function(){
+
+                    var $cartHeight = $cart.outerHeight(),
+                        $cartWidth = $cart.outerWidth();
+
+                    $cart.css({'left':'calc(50% - '+ ($cartWidth / 2) +'px)','top': 'calc(50% - ' + ($cartHeight / 2) +'px)'});
+                    $cart.addClass('visible');
+                    $overlay.addClass('visible');
+
+                    return false;
+                });
+            }
+        }
+
+    }
+
+    function question() {
+        var $links = $('.js-view-this');
+
+        return {
+
+            open: function(){
+                var i = 0;
+
+                $links.on('click', function(){
+                    i++;
+                    $(this).toggleClass('opened');
+
+                    (i % 2 == 0) ? $(this).html('Показать ответ') : $(this).html('Скрыть ответ');
+
+                    var $parent  = $(this).parent(),
+                        $block = $parent.find('.js-inner');
+
+                    $block.slideToggle();
+
+                });
+            }
+
+        }
     }
 
 }(App));

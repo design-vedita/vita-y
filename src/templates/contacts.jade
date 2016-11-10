@@ -1,0 +1,22 @@
+include includes/head
+include includes/header
+include includes/contacts
+include includes/footer
+include includes/scripts
+extends includes/layout
+
+block head
+
+    +head('Контакты')
+
+block content
+
+    +header()
+
+    +contacts()
+
+block footer
+
+    +footer()
+
+    +scripts()
