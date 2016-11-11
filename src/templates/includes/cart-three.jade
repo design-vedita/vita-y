@@ -1,3 +1,20 @@
-//
-   Created by nikalun on 11.11.2016.
-
+include breadcrumbs
+include steps
+   
+mixin cart-three()
+    .content-inner.js-content
+        .container
+            +breadcrumbs('Корзина')
+            h1 Адреса
+            +steps()
+            .cart-delivery-data
+               form
+                  label Выберите адрес доставки
+                  .wrapper-select
+                      select.js-cart-select
+                         option Мой адрес
+                         option  Москва
+                         option  Тамбов
+                         option  Кёльн
+                  input(type="checkbox" id="check")
+                  label(for="check")    Использовать этот же адрес для оплаты заказа

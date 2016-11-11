@@ -63,6 +63,7 @@ var App = {
         heightGray();
         preloader();
         heightSlide();
+        activeStep();
 
         App.win.on('resize', function(){
             burger.heightMenu();
@@ -125,6 +126,7 @@ var App = {
         $('.js-top-slider').slick({
             'prevArrow': '<button type="button" class="slick-prev"></button>',
             'nextArrow': '<button type="button" class="slick-next"></button>',
+            fade: true,
             responsive: [
                 {
                     breakpoint: 768,
@@ -685,6 +687,8 @@ var App = {
 
     }
 
+    // Вопрос-ответ открываем вкладки
+
     function question() {
         var $links = $('.js-view-this');
 
@@ -709,5 +713,25 @@ var App = {
 
         }
     }
+
+    // Активный шаг в корзине показываем элементы
+    function activeStep() {
+        var $steps = $('.js-step');
+
+            $steps.each(function(i){
+
+                if ($(this).hasClass('active--step') && i != 0) {
+
+                    var $prev = $(this).prev();
+
+                    var $foot = $prev.find('.foot');
+                        $foot.addClass('visible');
+                }
+            });
+    }
+
+    (function(){
+        $('.js-cart-select').styler();
+    })();
 
 }(App));

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>  Доставка</title>
+    <title>  Корзина</title>
     <link rel="stylesheet" href="../css/normalize.css"/>
     <link rel="stylesheet" href="../css/libs/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/libs/slick/slick.css"/>
@@ -74,36 +74,143 @@
                 <svg class="home">
                   <use xlink:href="#home"></use>
                 </svg></a></li>
-            <li><span>   Доставка</span></li>
+            <li><span>   Корзина</span></li>
           </ul>
         </div>
-        <h1>Доставка</h1>
-        <div class="content-inner__text">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="pay-good"> Оплата товара</h3>
-              <p> Мы принимаем оплату заказов по безналичному расчёту</p>
-              <p> На заказанные товары Вам будет отправлен счет на оплату по электронной почте.</p>
-              <h3 class="delivery-methods"> Способы доставки</h3>
-              <p class="bold">  Получение товара в Москве возможно тремя способами:</p>
-              <ul>
-                <li>Самовывоз со склада Интернет-магазина (м. Пролетарская);</li>
-                <li>Курьером в пределах МКАД (товары до 10 кг);</li>
-                <li>Курьером на а/м в пределах МКАД (товары свыше 10 кг, но не более 1,5 м в длину)</li>
-              </ul>
-              <p class="bold">  Доставка регионы РФ:</p>
-              <p>Товары доставляются транспортными компаниями: "Байкал-Сервис", "Автотрейдинг", "Деловые линии" и др.</p>
-              <h3 class="delivery-cost"> Стоимость доставки</h3>
-              <p class="bold">  Доставка по Москве возможна двумя способами:</p>
-              <ul>
-                <li>самовывоз со склада Интернет-магазина (м. Пролетарская) - бесплатно;</li>
-                <li><span class="color">Курьером</span> в пределах МКАД (товары до 10 кг); -<span class="color"> 350 р.</span></li>
-                <li>Стоимость доставки курьером на а/м по Москве - 1000 руб.</li>
-              </ul>
-              <p class="bold">  Доставка в регионы:</p>
-              <p>Стоимость услуг транспортной компании (забор товара с нашего склада и доставка в город покупателя) - зависит от веса и объёма груза.</p>
-              <p class="extra"> Оплата услуг транспортно-экспедиционной компании ("Автотрейдинг", "Байкал-Сервис", "Деловые Линии") производится при получении товара на складе транспортной компании в вашем городе.</p>
+        <h1>Ваша корзина</h1>
+        <div class="cart-steps">
+          <div class="cart-steps__item step-one active--step js-step">
+            <div class="image-step"><img src="../img/step-1-cart.png" class="abstract"/><img src="../img/step-1-foot.png" class="foot"/></div>
+            <div class="number-step"><span>   1</span></div>
+            <div class="title-step">
+              <p>  Сводка</p>
             </div>
+          </div>
+          <div class="cart-steps__item step-two active--step js-step">
+            <div class="image-step"><img src="../img/step-2-cart.png" class="abstract"/><img src="../img/step-2-foot.png" class="foot"/></div>
+            <div class="number-step"><span>   2</span></div>
+            <div class="title-step">
+              <p>  Войти</p>
+            </div>
+          </div>
+          <div class="cart-steps__item step-three js-step">
+            <div class="image-step"><img src="../img/step-3-cart.png" class="abstract"/><img src="../img/step-3-foot.png" class="foot"/></div>
+            <div class="number-step"><span>   3</span></div>
+            <div class="title-step">
+              <p>  Адрес</p>
+            </div>
+          </div>
+          <div class="cart-steps__item step-four js-step">
+            <div class="image-step"><img src="../img/step-4-cart.png" class="abstract"/><img src="../img/step-4-foot.png" class="foot"/></div>
+            <div class="number-step"><span>   4</span></div>
+            <div class="title-step">
+              <p>  Доставка</p>
+            </div>
+          </div>
+          <div class="cart-steps__item step-five js-step">
+            <div class="image-step"><img src="../img/step-5-cart.png" class="abstract"/></div>
+            <div class="number-step"><span>   5</span></div>
+            <div class="title-step">
+              <p>  Оплата</p>
+            </div>
+          </div>
+        </div>
+        <div class="cart-goods">
+          <article class="good-list">
+            <header>
+              <ul>
+                <li></li>
+                <li> Название</li>
+                <li> Цена</li>
+                <li> Количество</li>
+                <li> Итого</li>
+                <li> Удалить</li>
+              </ul>
+            </header>
+            <section>
+              <ul>
+                <li><a href="javascript:void(0)"><img src="../img/good.jpg" class="good"/></a></li>
+                <li>
+                  <div class="vita-logo">
+                    <p> Vita - <span> Y</span><sup> &reg;</sup>
+                    </p>
+                  </div>
+                  <p class="name-good">  Тake me<span>   before</span>  work</p>
+                </li>
+                <li>
+                  <p class="price">120 &euro;</p>
+                </li>
+                <li>
+                  <div class="counter-cart">
+                    <button> -</button>
+                    <input type="text" value="1"/>
+                    <button> +</button>
+                  </div>
+                </li>
+                <li>
+                  <p class="result">   240 &euro;</p>
+                </li>
+                <li>
+                  <svg class="close-cart">
+                    <use xlink:href="#close-cart"></use>
+                  </svg>
+                </li>
+              </ul>
+              <ul>
+                <li><a href="javascript:void(0)"><img src="../img/good.jpg" class="good"/></a></li>
+                <li>
+                  <div class="vita-logo">
+                    <p> Vita - <span> Y</span><sup> &reg;</sup>
+                    </p>
+                  </div>
+                  <p class="name-good">  Тake me<span>   before</span>  work</p>
+                </li>
+                <li>
+                  <p class="price">120 &euro;</p>
+                </li>
+                <li>
+                  <div class="counter-cart">
+                    <button> -</button>
+                    <input type="text" value="1"/>
+                    <button> +</button>
+                  </div>
+                </li>
+                <li>
+                  <p class="result">   240 &euro;</p>
+                </li>
+                <li>
+                  <svg class="close-cart">
+                    <use xlink:href="#close-cart"></use>
+                  </svg>
+                </li>
+              </ul>
+            </section>
+          </article>
+          <div class="cart-footer">
+            <p>  Всего товаров (с НДС 7%): 600 &euro;</p>
+            <p>  Итого доставка (с налогами): 49 &euro;</p>
+          </div>
+          <div class="dop-info">
+            <ul>
+              <li>
+                <div class="coupone">
+                  <label>  Код купона на скидку</label>
+                  <input type="text"/>
+                  <input type="submit" value="Пересчитать"/><a href="javascript:void(0)">   Нет купона?</a>
+                </div>
+              </li>
+              <li>
+                <div class="total"> Итого<span>   649 &euro;</span></div>
+              </li>
+              <li>
+                <div class="more-buy"><a href="javascript:void(0)">  < Продолжить покупки</a></div>
+              </li>
+              <li>
+                <div class="checkout">
+                  <input type="submit" value="Оформить"/>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

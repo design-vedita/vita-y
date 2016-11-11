@@ -79,6 +79,27 @@ a {
 
 html {
 
+	&[lang=de-de] {
+
+		.cart-header {
+			width: 14%;
+
+			@media (min-width: 992px) and (max-width: 1199px) {
+
+				& {
+					width: 16%;
+				}
+			}
+
+			@media (min-width: 768px) and (max-width: 992px) {
+
+				& {
+					width: 24%;
+				}
+			}
+		}
+	}
+
 	&.ios {
 
 		.logo {
@@ -96,6 +117,13 @@ html {
 						top: -3rem !important;
 					}
 				}
+			}
+		}
+
+		.cart-user-data {
+
+			label {
+				width: 14%;
 			}
 		}
 	}
@@ -278,8 +306,24 @@ header {
 	.cart-header {
 		float: right;
 		padding-top: 21px;
-		width: 110px;
+		/*width: 110px;*/
+		width: 10%;
 		font-size: 0;
+
+		@media (min-width: 992px) and (max-width: 1199px) {
+
+			& {
+				width: 12%;
+			}
+		}
+
+		@media (min-width: 768px) and (max-width: 991px) {
+
+			& {
+				width: 15%;
+			}
+		}
+
 
 		@media (max-width: 767px) {
 
@@ -1333,6 +1377,7 @@ header {
     }
 
     #games {
+		margin-top: 20px;
 
       @media (max-width: 767px) {
 
@@ -1556,7 +1601,7 @@ header {
                 &::before {
                   position: absolute;
                   left: 49px;
-                  top: -4px;
+                  top: 10px;
                   display: block;
                   width: 19px;
                   height: 19px;
@@ -2146,28 +2191,6 @@ header {
 				width: 100%;
 			}
 
-			.address {
-				margin-top: 10px;
-				padding-left: 25px;
-				color: @addresColor;
-				margin-bottom: 0;
-				font-family: @semibold;
-				background-image: url(../img/point.svg);
-				background-size: 12px 14px;
-				background-position: left center;
-				background-repeat: no-repeat;
-			}
-
-			.phone {
-				padding-left: 25px;
-				font-family: @semibold;
-				color: @addresColor;
-				background-image: url(../img/phone-ico.svg);
-				background-size: 12px 12px;
-				background-position: left center;
-				background-repeat: no-repeat;
-			}
-
 			.pay-good {
 				padding-left: 32px;
 				background-image: url(../img/pay.svg);
@@ -2449,6 +2472,7 @@ header {
 			legend {
 				border-bottom: none;
 				font: 16px/24px @semibold;
+				text-transform: uppercase;
 			}
 
 			label {
@@ -2524,6 +2548,51 @@ header {
 
 		&.no-pb {
 			padding-bottom: 0;
+		}
+
+		.title-contact {
+			font: 18px @bold;
+			color: @titleSlide;
+			text-transform: uppercase;
+
+			span {
+				color: @green;
+			}
+		}
+
+		.contact-form {
+			margin-top: 45px;
+		}
+
+		.contact-map {
+			margin-top: 40px;
+			height: 555px;
+		}
+
+		.address {
+			margin-top: 10px;
+			padding-left: 25px;
+			color: @addresColor;
+			margin-bottom: 0;
+			font-family: @semibold;
+			font-size: 14px;
+			line-height: 24px;
+			background-image: url(../img/point.svg);
+			background-size: 12px 14px;
+			background-position: left center;
+			background-repeat: no-repeat;
+		}
+
+		.phone {
+			padding-left: 25px;
+			font-family: @semibold;
+			color: @addresColor;
+			font-size: 14px;
+			line-height: 24px;
+			background-image: url(../img/phone-ico.svg);
+			background-size: 12px 12px;
+			background-position: left center;
+			background-repeat: no-repeat;
 		}
 	}
 }
@@ -2949,7 +3018,7 @@ footer {
 
 .preloader {
 	position: fixed;
-	z-index: 14;
+	z-index: 140;
 	left: 0;
 	top: 0;
 	right: 0;
@@ -2985,7 +3054,7 @@ footer {
 
 .overlay {
 	position: fixed;
-	z-index: 12;
+	z-index: 102;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -3005,7 +3074,7 @@ footer {
 
 .popup-add-cart {
 	position: fixed;
-	z-index: 13;
+	z-index: 103;
 	padding: 9px 10px 12px 13px;
 	max-width: 555px;
 	width: 100%;

@@ -1,7 +1,36 @@
 include breadcrumbs
 
 mixin contacts()
-   .content-inner.js-content
+   .content-inner.no-pb.js-content
       .container
          +breadcrumbs('Контакты')
          h1 Контакты
+         p.title-contact  Наш адрес
+            = ' '
+            span и телефон
+         p.address Dircksenstraße 51, 10178 Berlin, Германия
+         p.phone +49 30 28599209
+         .contact-form
+            form.universal
+               fieldset
+                  legend  Обратная связь
+                  .row
+                     .col-md-3.col-sm-6
+                        label   Ваше имя
+                        input(type="text")
+                     .col-md-3.col-sm-6
+                        label   E-mail
+                        input(type="email")
+                  .row
+                     .col-md-12
+                        label.textarea   Сообщение
+                        textarea
+                  .submit-block
+                     .row
+                        .col-md-2.col-sm-2
+                           .captcha
+                              |   Сюда вставить капчу
+                        .col-md-3.col-sm-3
+                           input(type="submit" value="Отправить")
+      .contact-map#map
+      script   var map;  function initMap() {var myLatLng = {lat: -25.363, lng: 131.044};var map = new google.maps.Map(document.getElementById('map'), {zoom: 4,center: myLatLng, scrollwheel: false, disableDoubleClickZoom: true}); var marker = new google.maps.Marker({position: myLatLng, map: map,title: 'Hello World!'});}

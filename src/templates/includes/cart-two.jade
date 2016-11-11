@@ -1,3 +1,46 @@
-//
-   Created by nikalun on 11.11.2016.
+include breadcrumbs
+include steps
 
+mixin cart-two()
+    .content-inner.js-content
+        .container
+            +breadcrumbs('Корзина')
+            h1 Ваша корзина
+            +steps()
+            .cart-user-data
+                .row
+                    .col-md-6
+                        .form-wrapper
+                            form
+                                legend   Создание учётной записи
+                               .form-wrapper__table
+                                 table
+                                    tr
+                                       td(colspan=2)
+                                          p  Для регистрации укажите, пожалуйста, свой адрес электронной почты
+                                    tr
+                                       td(colspan=2)
+                                          label E-mail
+                                          input(type="email")
+                                    tr
+                                       td
+                                          input(type="submit" value="Создание учётной записи")
+                                 p  Сюда воткнуть войти с помощью
+                    .col-md-6
+                        .form-wrapper
+                            form
+                                legend   Уже зарегистрированы?
+                               .form-wrapper__table
+                                   table.entered
+                                       tr
+                                           td(colspan=2)
+                                                label E-mail
+                                                input(type="email")
+                                       tr
+                                           td
+                                                label Пароль
+                                                input(type="password")
+
+                                       tr
+                                           td:   a(href="javascript:void(0)")  Забыли пароль?
+                                   input(type="submit" value="Войти").go
