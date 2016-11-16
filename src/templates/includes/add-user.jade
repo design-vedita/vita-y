@@ -1,0 +1,121 @@
+include breadcrumbs
+
+mixin add-user()
+   .content-inner.js-content
+      .container
+         +breadcrumbs('Регистрация')
+         h1 Создание учётной записи
+         .add-user
+            p.title-user   Ваша персональная информация
+            form
+               fieldset
+                  .row
+                     .col-md-6
+                        table
+                           tr
+                              td.sex-user
+                                 span Обращение:
+                                 input(type="radio" name="sex")#man
+                                 label(for="man")  Мужчина
+                                 input(type="radio" name="sex")#women
+                                 label(for="women")  Женщина
+                           tr
+                              td
+                                 label Имя
+                                    span  *
+                                 input(type="text" placeholder="Иван")
+                           tr
+                              td
+                                 label Дата рождения
+                                 .wrapper-dates
+                                    select.date.js-date
+                                       option   1
+                                       option   2
+                                       option   3
+                                       option   4
+                                       option   5
+                                       option   6
+                                       option   7
+                                       option   8
+                                       option   9
+                                       option   10
+                                       option   11
+                                       option   12
+                                       option   13
+                                       option   14
+                                       option   15
+                                       option   16
+                                       option   17
+                                       option   18
+                                       option   19
+                                       option   20
+                                       option   21
+                                       option   22
+                                       option   23
+                                       option   24
+                                       option   25
+                                       option   26
+                                       option   27
+                                       option   28
+                                       option   29
+                                       option   30
+                                       option   31
+                                 .wrapper-dates
+                                    select.month.js-month
+                                       option   Январь
+                                       option   Февраль
+                                       option   Март
+                                       option   Апрель
+                                       option   Май
+                                       option   Июнь
+                                       option   Июль
+                                       option   Август
+                                       option   Сентябрь
+                                       option   Октябрь
+                                       option   Ноябрь
+                                       option   Декабрь
+                                 .wrapper-dates
+                                    select.year.js-year
+                                       option   2006
+                                       option   2007
+                                       option   2008
+                                       option   2009
+                                       option   2010
+                                       option   2011
+                                       option   2012
+                                       option   2013
+                                       option   2014
+                                       option   2015
+                                       option   2016
+
+                     .col-md-6
+                        table.right-table
+                           tr
+                              td
+                                 label Титул
+                                 input(type="text" placeholder="Доктор")
+                           tr
+                              td
+                                 label Фамилия
+                                    span  *
+                                 input(type="text" placeholder="Иванов")
+                  .gray-line-form
+                  .row
+                     .col-md-6
+                        .mail
+                           label E-mail
+                              span  *
+                           input(type="email" placeholder="MyMail@mail.ru")
+                     .col-md-6
+                        .pass
+                           label Пароль
+                              span  *
+                           input(type="password" placeholder="*****")
+                  .gray-line-form-2
+                  .row
+                     .col-md-12
+                        input(type="checkbox")#subscribe
+                        label(for="subscribe") Подписаться на нашу рассылку
+                     .col-md-12
+                        span.required-field  * Обязательное поле
+                  input(type="submit" value="Зарегистрироваться")

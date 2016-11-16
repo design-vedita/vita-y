@@ -1,0 +1,21 @@
+include includes/head
+include includes/header
+include includes/cart-five
+include includes/footer
+include includes/scripts
+extends includes/layout
+block head
+
+    +head('Корзина')
+
+block content
+
+    +header()
+
+    +cart-five()
+
+block footer
+
+    +footer()
+
+    +scripts()

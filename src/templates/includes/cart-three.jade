@@ -17,4 +17,55 @@ mixin cart-three()
                          option  Тамбов
                          option  Кёльн
                   input(type="checkbox" id="check")
-                  label(for="check")    Использовать этот же адрес для оплаты заказа
+                  label(for="check").select-address    Использовать этот же адрес для оплаты заказа
+                .cart-delivery-data__forms
+                    .row
+                        .col-md-6
+                            .form-wrapper
+                                form
+                                    legend  Адрес доставки
+                                    .form-wrapper__table
+                                        table
+                                            tr
+                                                td  Jonn Smit
+                                            tr
+                                                td  Москва, Краснопресненская набережная, 14
+                                            tr
+                                                td  101000 Москва
+                                            tr
+                                                td  Россия
+                                            tr
+                                                td  +3 (800) - 123-45-67
+                                        button.refresh  Обновить
+                        .col-md-6
+                            .form-wrapper
+                                form
+                                    legend  Адрес оплаты
+                                    .form-wrapper__table
+                                        table
+                                            tr
+                                                td  Jonn Smit
+                                            tr
+                                                td  Москва, Краснопресненская набережная, 14
+                                            tr
+                                                td  101000 Москва
+                                            tr
+                                                td  Россия
+                                            tr
+                                                td  +3 (800) - 123-45-67
+                                        button.refresh  Обновить
+                    input(type="submit" value="Добавить новый адрес")
+                p Если хотите добавить комментарий к заказу, пожалуйста, напишите его ниже.
+                .row
+                    .col-md-12
+                        textarea
+                .dop-info
+                    ul
+                        li
+                            .more-buy
+                                a(href="javascript:void(0)")   < Продолжить покупки
+                        li
+                            .checkout
+                                input(type="submit" value="Оформить")
+
+

@@ -1,0 +1,96 @@
+include breadcrumbs
+
+mixin address()
+   .content-inner.js-content
+      .container
+         +breadcrumbs('Регистрация')
+         .your-address
+            p.title-address   Ваши адреса
+            form
+               p  Чтобы добавить адрес, заполните форму:
+               .form-address-wrapper
+                  .row
+                     //- 1 ряд
+                     .col-md-6
+                        label Имя
+                           span  *
+                        input(type="text" placeholder="Иван")
+                     .col-md-6
+                        label Фамилия
+                           span  *
+                        input(type="text" placeholder="Иванов")
+                  .row
+                     //- 2 ряд
+                     .col-md-12
+                        .input-12
+                           label Организация
+                           input(type="text" placeholder="Microsoft")
+                  .row
+                     //- 3 ряд
+                     .col-md-8
+                        .input-8
+                           label Адрес
+                              span  *
+                           input(type="text" placeholder="")
+                     .col-md-4
+                        .input-4
+                           label Номер дома
+                              span  *
+                           input(type="text" placeholder="Иван")
+                  .row
+                     //- 4 ряд
+                     .col-md-8
+                        .input-8
+                           label Адрес 2
+                              span  *
+                           input(type="text" placeholder="")
+                     .col-md-4
+                        .input-4
+                           label Номер дома
+                              span  *
+                           input(type="text" placeholder="Иван")
+                  .row
+                     //- 5 ряд
+                     .col-md-4
+                        .input-4
+                           label Почтовый индекс
+                              span  *
+                           input(type="text" placeholder="")
+                     .col-md-4
+                        .input-4
+                           label Город
+                              span  *
+                           input(type="text" placeholder="")
+                     .col-md-4
+                        .input-4
+                           label Страна
+                              span  *
+                           select.js-country
+                              option   Россия
+                              option   Германия
+                              option   Англия
+                              option   Америка
+                  .row
+                     //- 6 ряд
+                     .col-md-6
+                        label Домашний телефон
+                        input(type="tel" placeholder="")
+                     .col-md-6
+                        label Мобильный телефон
+                        input(type="tel" placeholder="")
+                  .row
+                     //- 7 ряд
+                     .col-md-12
+                        .textarea
+                           label  Дополнительная информация
+                           textarea
+                  .row
+                     //- 8 ряд
+                     .col-md-12
+                        .textarea
+                           label  Название указанного адреса, например, "Дом" или "Работа"
+                           input(type="text")
+                  .row
+                     .col-md-12.no-margin
+                        span.required-field  * Обязательное поле
+                  input(type="submit" value="Сохранить")

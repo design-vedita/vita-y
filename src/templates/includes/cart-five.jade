@@ -1,0 +1,24 @@
+include breadcrumbs
+include steps
+include cart-good
+
+mixin cart-five()
+   .content-inner.js-content
+      .container
+         +breadcrumbs('Корзина')
+         h1 Ваша корзина
+         +steps()
+         +cart-good()
+         .dop-info
+            .total-wrap
+               .total  Итого
+                  span    649 &euro;
+            .run-pay-list
+               .run-pay-list__item
+               .run-pay-list__item
+               .run-pay-list__item
+               .run-pay-list__item
+               .run-pay-list__item
+               .run-pay-list__item
+
+

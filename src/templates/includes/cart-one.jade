@@ -1,5 +1,6 @@
 include breadcrumbs
 include steps
+include cart-good
 
 mixin cart-one()
     .content-inner.js-content
@@ -7,78 +8,21 @@ mixin cart-one()
             +breadcrumbs('Корзина')
             h1 Ваша корзина
             +steps()
-            .cart-goods
-                article.good-list
-                    header
-                        ul
-                            li
-                            li  Название
-                            li  Цена
-                            li  Количество
-                            li  Итого
-                            li  Удалить
-                    section
-                        ul
-                            li: a(href="javascript:void(0)"):   img(src="../img/good.jpg").good
-                            li
-                                .vita-logo
-                                    p  Vita -
-                                        = ' '
-                                        span  Y
-                                        sup  &reg;
-                                p.name-good   Тake me
-                                    span    before
-                                    |   work
-                            li
-                                p.price 120 &euro;
-                            li
-                                .counter-cart
-                                    button  -
-                                    input(type="text" value=1)
-                                    button  +
-                            li
-                                p.result    240 &euro;
-                            li
-                                +svg('close-cart')
-                        ul
-                            li: a(href="javascript:void(0)"):   img(src="../img/good.jpg").good
-                            li
-                                .vita-logo
-                                    p  Vita -
-                                        = ' '
-                                        span  Y
-                                        sup  &reg;
-                                p.name-good   Тake me
-                                    span    before
-                                    |   work
-                            li
-                                p.price 120 &euro;
-                            li
-                                .counter-cart
-                                    button  -
-                                    input(type="text" value=1)
-                                    button  +
-                            li
-                                p.result    240 &euro;
-                            li
-                                +svg('close-cart')
-                .cart-footer
-                    p   Всего товаров (с НДС 7%): 600 &euro;
-                    p   Итого доставка (с налогами): 49 &euro;
-                .dop-info
-                    ul
-                        li
-                            .coupone
-                                label   Код купона на скидку
-                                input(type="text")
-                                input(type="submit" value="Пересчитать")
-                                a(href="javascript:void(0)")    Нет купона?
-                        li
-                            .total  Итого
-                                span    649 &euro;
-                        li
-                            .more-buy
-                                a(href="javascript:void(0)")   < Продолжить покупки
-                        li
-                            .checkout
-                                input(type="submit" value="Оформить")
+            +cart-good()
+            .dop-info
+                ul
+                    li
+                        .coupone
+                            label   Код купона на скидку
+                            input(type="text")
+                            input(type="submit" value="Пересчитать")
+                            a(href="javascript:void(0)")    Нет купона?
+                    li
+                        .total  Итого
+                            span    649 &euro;
+                    li
+                        .more-buy
+                            a(href="javascript:void(0)")   < Продолжить покупки
+                    li
+                        .checkout
+                            input(type="submit" value="Оформить")

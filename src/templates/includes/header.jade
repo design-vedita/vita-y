@@ -26,6 +26,11 @@ mixin header()
          a(href="javascript:void(0)").active  Deutch
          a(href="javascript:void(0)")  English
          a(href="javascript:void(0)")  Русский
+      .networks
+         a(href="javascript:void(0)")
+            +svg('facebook')
+         a(href="javascript:void()")
+            +svg('linkedin')
       .menu.js-menu
          .menu__logo.hidden-xs
             img(src="../img/logo.png")
@@ -48,11 +53,18 @@ mixin header()
                a(href="javascript:void(0)").login-link
                   +svg('login')
                   |  Login
-               a(href="javascript:void(0)").ask-link Ask a Question Yeti
+               a(href="javascript:void(0)").ask-link
+                  +svg('mail')
+                  |  Ask a Question Yeti
             .menu__list__phone
                a(href="mailto:8-800-123-45-67")
                   +svg('telephone')
                   |  8-800-123-45-67
+            .menu__list__networks
+               a(href="javascript:void(0)")
+                  +svg('facebook')
+               a(href="javascript:void()")
+                  +svg('linkedin')
 
 
 

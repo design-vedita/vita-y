@@ -356,3 +356,45 @@
 	@-webkit-keyframes @name { @arguments(); }
 	@keyframes @name { @arguments(); }
 }
+
+.h3 (@size: 16px; @line: 24px) {
+	font-size: @size;
+	line-height: @line;
+	font-family: @semibold;
+	color: @colorH3;
+	text-transform: uppercase;
+}
+
+.required (@padding: 0) {
+	padding-left: @padding;
+	font: 12px/30px @semibold;
+	color: @countButton;
+
+	@media (max-width: 767px) {
+		& {
+			padding-left: 0;
+		}
+	}
+}
+
+.submit-form(@margin: 0) {
+	margin-top: 5px;
+	margin-left: @margin;
+	padding: 10px 33px;
+	font: 19px @semibold;
+	color: @white;
+	background-color: @newUser;
+	border: none;
+	cursor: pointer;
+	transition: background 300ms linear;
+
+	&:hover {
+		background-color: @newUserHover;
+	}
+
+	@media (max-width: 767px) {
+		& {
+			margin-left: 0;
+		}
+	}
+}

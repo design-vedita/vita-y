@@ -37,11 +37,7 @@ h2 {
 }
 
 h3 {
-	font-size: 16px;
-	line-height: 24px;
-	font-family: @semibold;
-	color: @colorH3;
-	text-transform: uppercase;
+	.h3();
 }
 
 .bold {
@@ -79,22 +75,53 @@ a {
 
 html {
 
-	&[lang=de-de] {
+	&.edge {
 
-		.cart-header {
-			width: 14%;
+		.logo {
 
-			@media (min-width: 992px) and (max-width: 1199px) {
+			&__text {
 
-				& {
-					width: 16%;
+				p {
+
+					&:first-child {
+						margin-top: 10px;
+						line-height: 1rem !important;
+					}
+
+					sup {
+						left: 11.5rem !important;
+						top: -3rem !important;
+					}
+
+					&:last-child {
+						top: -10px !important;
+					}
 				}
 			}
+		}
+	}
 
-			@media (min-width: 768px) and (max-width: 992px) {
+	&.ie {
 
-				& {
-					width: 24%;
+		.logo {
+
+			&__text {
+
+				p {
+
+					&:first-child {
+						margin-top: 10px;
+						line-height: 1rem !important;
+					}
+
+					sup {
+						left: 11.5rem !important;
+						top: -3rem !important;
+					}
+
+					&:last-child {
+						top: -10px !important;
+					}
 				}
 			}
 		}
@@ -147,7 +174,7 @@ header {
 
 	&.scroll--header {
 		position: fixed;
-		z-index: 12;
+		z-index: 102;
 		left: 0;
 		top: 0;
 		width: 100%;
@@ -245,6 +272,12 @@ header {
 		width: 180px;
 		font-size: 0;
 
+		&::after {
+			display: block;
+			content: '';
+			clear: both;
+		}
+
 		@media (max-width: 767px) {
 
 			& {
@@ -256,16 +289,17 @@ header {
 		}
 
 		img {
-			display: inline-block;
+			display: block;
+			float: left;
 			vertical-align: middle;
 			width: 45px;
 			height: auto;
 		}
 
 		.logo__text {
+			margin-top: 9px;
+			float: left;
 			margin-left: 7%;
-			display: inline-block;
-			vertical-align: middle;
 			width: calc(~'100% - 60px');
 
 			p {
@@ -303,14 +337,56 @@ header {
 		}
 	}
 
+	.networks {
+		margin-right: 2%;
+		margin-top: 21px;
+		display: none;
+		float: right;
+
+		@media (min-width: 768px) {
+
+			& {
+				display: block;
+			}
+		}
+
+		a {
+			text-decoration: none;
+			outline: none;
+		}
+
+		svg {
+			width: 33px;
+			height: 33px;
+			transition: fill 300ms linear;
+
+			&.facebook {
+				margin-right: 10px;
+				fill: @networks;
+
+					&:hover {
+						fill: @facebook;
+					}
+			}
+
+			&.linkedin {
+				fill: @networks;
+
+					&:hover {
+						fill: @linkedin;
+					}
+			}
+		}
+	}
+
 	.cart-header {
 		float: right;
 		padding-top: 21px;
 		/*width: 110px;*/
-		width: 10%;
+		//width: 10%;
 		font-size: 0;
 
-		@media (min-width: 992px) and (max-width: 1199px) {
+		/*@media (min-width: 992px) and (max-width: 1199px) {
 
 			& {
 				width: 12%;
@@ -324,7 +400,7 @@ header {
 			}
 		}
 
-
+*/
 		@media (max-width: 767px) {
 
 			& {
@@ -598,14 +674,24 @@ header {
 				}
 
 				.ask-link {
+					position: relative;
 					margin-left: 47px;
 					font: 1.4em @semibold;
 					color: @white;
 					text-decoration: none;
 					border-radius: 11px;
-					padding: 2px 11px 0;
+					padding: 2px 11px 0 30px;
 					background-color: @orange;
 					transition: background 300ms linear;
+
+					svg {
+						position: absolute;
+						left: 6px;
+						top: calc(~'50% - 8px');
+						width: 23px;
+						height: 16px;
+						fill: @white;
+					}
 
 					&:hover {
 						background-color: @submitHover;
@@ -638,6 +724,46 @@ header {
 					width: 25px;
 					height: 25px;
 					fill: @blue;
+				}
+			}
+
+			&__networks {
+				display: none;
+				margin-top: 30px;
+
+				@media (max-width: 767px) {
+
+					& {
+						display: block;
+					}
+				}
+
+				a {
+					text-decoration: none;
+					outline: none;
+				}
+
+				svg {
+					width: 33px;
+					height: 33px;
+					transition: fill 300ms linear;
+
+					&.facebook {
+						margin-right: 10px;
+						fill: @networks;
+
+						&:hover {
+							fill: @facebook;
+						}
+					}
+
+					&.linkedin {
+						fill: @networks;
+
+						&:hover {
+							fill: @linkedin;
+						}
+					}
 				}
 			}
 		}
@@ -1092,7 +1218,7 @@ header {
 				}
 			}
 
-			@keyframes stepOne {
+			.keyframes(stepOne; {
 				50% {
 					opacity: 1;
 				}
@@ -1102,9 +1228,9 @@ header {
 					opacity: 0;
 					transform: rotate(0);
 				}
-			}
+			});
 
-			@keyframes stepTwo {
+			.keyframes(stepTwo; {
 				90% {
 					opacity: 1;
 				}
@@ -1113,9 +1239,9 @@ header {
 					width: 315px; // 100%
 					opacity: 0;
 				}
-			}
+			});
 
-			@keyframes stepThree {
+			.keyframes(stepThree; {
 				90% {
 					opacity: 1;
 				}
@@ -1125,16 +1251,15 @@ header {
 					opacity: 0;
 					transform: rotate(0deg);
 				}
-			}
+			});
 
-			@keyframes stepFour {
-
+			.keyframes(stepFour; {
 				100% {
 					width: 397px; //100%
 					opacity: 1;
 					transform: rotate(0deg);
 				}
-			}
+			});
 
 			.step-0 {
 				width: 161.7px;
@@ -1350,10 +1475,9 @@ header {
               margin-top: 18px;
               padding: 10px;
               padding-left: 18px;
-              font: 2.4em @bold;
+              font: 1.9em @bold;
               color: @white;
               letter-spacing: .1px;
-              text-transform: uppercase;
 
               &.green {
                 background-color: @green;
@@ -1610,7 +1734,7 @@ header {
                   background-position: center;
                   background-repeat: no-repeat;
                   content: '';
-                  transform: rotate(-90deg);
+                  transform: rotate(90deg);
 
                   @media (max-width: 767px) {
 
@@ -1953,7 +2077,7 @@ header {
 					&__buttons {
 						max-width: 300px;
 						width: 100%;
-						margin: 30px auto 0;
+						margin: 30px auto 27px;
 
 						.counter-good {
 							width: 105px;
@@ -2045,6 +2169,17 @@ header {
 						}
 					}
 				}
+
+				a.composition {
+					font: 14px/24px @regular;
+					color: @introtext;
+					text-decoration: none;
+					transition: color 300ms linear;
+
+						&:hover {
+							color: @blueLight;
+						}
+				}
 			}
 		}
 
@@ -2071,9 +2206,8 @@ header {
 
 	.gallery {
 		position: relative;
-		margin-top: 37px;
+		/*margin-top: 37px;*/
 		padding-top: 29px;
-		letter-spacing: .1px;
 		letter-spacing: .1px;
 		background-color: @galleryBack;
 
@@ -2948,14 +3082,14 @@ footer {
 		}
 
 		&__ask {
-			margin-top: 5px;
+			margin-top: 30px;
 			text-align: right;
 
 			@media (min-width: 768px) and (max-width: 1199px) {
 
 				& {
 					margin-top: -9px;
-					margin-left: 4%;
+					margin-left: 2%;
 					display: inline-block;
 					vertical-align: middle;
 				}
@@ -2971,16 +3105,26 @@ footer {
 		}
 
 		a.ask-link {
+			position: relative;
 			font: 1.4em @semibold;
 			color: @white;
 			text-decoration: none;
 			border-radius: 11px;
-			padding: 2px 11px 0;
+			padding: 2px 11px 0 30px;
 			background-color: @orange;
 			transition: background 300ms linear;
 
 			&:hover {
 				background-color: @submitHover;
+			}
+
+			svg {
+				position: absolute;
+				left: 6px;
+				top: calc(~'50% - 8px');
+				width: 23px;
+				height: 16px;
+				fill: @white;
 			}
 		}
 	}
@@ -3028,7 +3172,7 @@ footer {
 	opacity: 1;
 	visibility: visible;
 	background-color: @white;
-	transition: opacity 1s ease 1s, visibility 1s ease 1s;
+	transition: opacity 1s ease, visibility 1s ease;
 
 	.spinner {
 		width: 400px;
@@ -3072,7 +3216,9 @@ footer {
 	}
 }
 
-.popup-add-cart {
+
+
+.popup {
 	position: fixed;
 	z-index: 103;
 	padding: 9px 10px 12px 13px;
@@ -3089,6 +3235,46 @@ footer {
 	&.visible {
 		visibility: visible;
 		opacity: 1;
+	}
+
+	&__content {
+		padding-top: 36px;
+		padding-bottom: 11px;
+		margin-top: 10px;
+		border: 1px @borderCatalogItem solid;
+		text-align: center;
+		font: 1.6em/2.4em @semibold;
+
+		button {
+			width: 145px;
+			height: 38px;
+			border-radius: 3px;
+			background-color: @blueArrow;
+			color: @white;
+			font: 15px @regular;
+			border: none;
+			text-transform: uppercase;
+			transition: background 500ms linear;
+
+			&:hover {
+				background-color: @blueLight;
+			}
+		}
+	}
+
+	a {
+		text-decoration: underline;
+		color: @blueArrow;
+	}
+
+	&-add-cart {
+
+		&__content {
+
+			p {
+				margin-bottom: 29px;
+			}
+		}
 	}
 
 	&__header {
@@ -3108,40 +3294,12 @@ footer {
 				width: 32px;
 				height: 32px;
 				cursor: pointer;
+				opacity: 1;
 				transition: fill 300ms linear;
 
 				&:hover {
 					fill: @closeHover;
 				}
-			}
-		}
-	}
-
-	&__content {
-		padding-top: 36px;
-		padding-bottom: 11px;
-		margin-top: 10px;
-		border: 1px @borderCatalogItem solid;
-		text-align: center;
-		font: 1.6em/2.4em @semibold;
-
-		p {
-			margin-bottom: 29px;
-		}
-
-		button {
-			width: 145px;
-			height: 38px;
-			border-radius: 3px;
-			background-color: @blueArrow;
-			color: @white;
-			font: 15px @regular;
-			border: none;
-			text-transform: uppercase;
-			transition: background 500ms linear;
-
-			&:hover {
-				background-color: @blueLight;
 			}
 		}
 	}
@@ -3187,4 +3345,78 @@ footer {
 			}
 		}
 	}
+}
+
+.popup-composition {
+
+	&__content {
+		text-align: left;
+		padding-top: 20px;
+		padding-left: 19px;
+		padding-right: 19px;
+
+		p {
+			margin-bottom: 0;
+			font: 14px/24px @regular;
+			color: @introtext;
+		}
+
+		.bold {
+			font: 16px/24px @semibold;
+			color: @colorH3;
+		}
+
+		button {
+			display: block;
+			margin: 20px auto 0;
+		}
+
+		table {
+			margin-top: 10px;
+			margin-bottom: 20px;
+			width: 100%;
+			border: 1px @tableBorder solid;
+
+			thead {
+
+				tr {
+					td {
+						border-bottom: 1px @tableBorder solid;
+						background-color: @answerBack;
+					}
+				}
+			}
+
+			tbody {
+
+				td {
+					color: @thead2;
+				}
+			}
+
+			tr {
+				background-color: @answerBack;
+
+				&:not(:last-child) {
+					border-bottom: 1px @tableBorder solid;
+				}
+
+				&:nth-of-type(odd) {
+					background-color: @white;
+				}
+			}
+
+			td {
+				padding: 5px;
+				font-size: 14px;
+				line-height: normal;
+				font-family: @regular;
+
+				&:not(:first-child) {
+					border-left: 1px @tableBorder solid;
+				}
+			}
+		}
+	}
+
 }

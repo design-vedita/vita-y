@@ -1,3 +1,21 @@
-//
-   Created by nikalun on 14.11.2016.
+include includes/head
+include includes/header
+include includes/cart-four
+include includes/footer
+include includes/scripts
+extends includes/layout
+block head
 
+    +head('Корзина')
+
+block content
+
+    +header()
+
+    +cart-four()
+
+block footer
+
+    +footer()
+
+    +scripts()

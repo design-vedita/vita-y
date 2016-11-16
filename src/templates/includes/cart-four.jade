@@ -1,3 +1,35 @@
-//
-   Created by nikalun on 14.11.2016.
+include breadcrumbs
+include steps
+
+mixin cart-four()
+   .content-inner.js-content
+      .container
+         +breadcrumbs('Корзина')
+         h1 Доставка
+         +steps()
+         .cart-delivery
+            p.title-delivery  Выберите способ доставки для адреса: Мой адрес
+            form
+               .cart-delivery__list
+                  .cart-delivery__list__item
+                     input(type="radio" name="delivery")#free
+                     label(for="free") Самовывоз
+                     img(src="../img/delivery-free.png")
+                  .cart-delivery__list__item
+                     input(type="radio" name="delivery")#dhl
+                     label(for="dhl") DHL
+                     img(src="../img/dhl.jpg")
+               input(type="checkbox")#conditions
+               label(for="conditions") Я ознакомлен(а) и согласен(на) с Условиями обслуживания. (
+                  a(href="javascript:void(0)" target="_blank") Прочитать Условия обслуживания
+                  =  ' '
+                  |  )
+         .dop-info
+            ul
+               li
+                  .more-buy
+                     a(href="javascript:void(0)")   < Продолжить покупки
+               li
+                  .checkout
+                     a(href="javascript:void(0)")  Оформить
 

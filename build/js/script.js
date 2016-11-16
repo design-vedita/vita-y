@@ -16,6 +16,7 @@ var App = {
     is_android: navigator.userAgent.indexOf("Android") !== -1,
     is_mac: navigator.userAgent.indexOf("Mac") !== -1,
     is_ios: navigator.userAgent.match(/iPhone|iPad|iPod/i),
+    is_edge: navigator.userAgent.indexOf("Edge") !== -1,
     update_delay: 400,
     debug: false
 };
@@ -48,6 +49,10 @@ var App = {
             App.htmlTag.addClass('ios');
         }
 
+        if (App.is_edge) {
+            App.htmlTag.addClass('edge');
+        }
+
         var burger = new burgerActions();
 
         burger.openMenu();
@@ -67,7 +72,6 @@ var App = {
 
         App.win.on('resize', function(){
             burger.heightMenu();
-            questions.closed();
             heightGray();
             heightSlide();
         });
@@ -127,6 +131,9 @@ var App = {
             'prevArrow': '<button type="button" class="slick-prev"></button>',
             'nextArrow': '<button type="button" class="slick-next"></button>',
             fade: true,
+            speed: 1500,
+            //autoplay: true,
+            //autoplaySpeed: 2000,
             responsive: [
                 {
                     breakpoint: 768,
@@ -142,7 +149,7 @@ var App = {
             $slides.each(function(){
 
                 var $clouds = $(this).find('.js-cloud');
-                $clouds.removeClass('animated bounceInDown');
+                $clouds.removeClass('animated fadeIn');
             });
         })
         .on('afterChange', function(){
@@ -157,7 +164,7 @@ var App = {
                     var $clouds = $(this).find('.js-cloud');
 
                     $clouds.each(function(){
-                        $(this).addClass('animated bounceInDown');
+                        $(this).addClass('animated fadeIn');
                     });
                 }
             });
@@ -391,10 +398,11 @@ var App = {
 
         });
 
-        var addCart = new closePopup;
+        var popups = new closePopup;
 
-        addCart.open();
-        addCart.close();
+        popups.addCart();
+        //popups.openComposition();
+        popups.close();
 
         if(document.getElementById('vigdorovich')) {
             //waypoint
@@ -654,6 +662,8 @@ var App = {
     function closePopup() {
         var $close = $('.js-close-cart'),
             $cart = $('.js-popup-cart'),
+            $compositionLink = $('.js-composition-link'),
+            $composition = $('.js-composition'),
             $overlay = $('.js-overlay'),
             $add = $('.js-add-good');
 
@@ -664,12 +674,14 @@ var App = {
 
                 $close.on('click', function(){
 
-                    $cart.removeClass('visible');
+                    var $parent = $(this).parents('.popup');
+
+                    $parent.removeClass('visible');
                     $overlay.removeClass('visible');
                 });
             },
             // Открытие
-            open: function(){
+            addCart: function(){
 
                 $add.on('click', function(){
 
@@ -682,7 +694,20 @@ var App = {
 
                     return false;
                 });
-            }
+            },
+
+            /*openComposition: function(){
+                $compositionLink.on('click', function(){
+
+                    var $composHeight = $composition.outerHeight(),
+                        $composWidth = $composition.outerWidth();
+
+                    $composition.css({'left':'calc(50% - '+ ($composWidth / 2) +'px)','top': 'calc(50% - ' + ($composHeight / 2) +'px)'});
+                    $composition.addClass('visible');
+                    $overlay.addClass('visible');
+
+                });
+            }*/
         }
 
     }
@@ -731,7 +756,7 @@ var App = {
     }
 
     (function(){
-        $('.js-cart-select').styler();
+        $('.js-cart-select, .js-date, .js-month, .js-year, .js-country').styler();
     })();
 
 }(App));

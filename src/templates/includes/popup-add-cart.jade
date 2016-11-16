@@ -1,10 +1,10 @@
 mixin popup-add-cart()
    .overlay.js-overlay
-   .popup-add-cart.js-popup-cart
-      .popup-add-cart__header
-         .popup-add-cart__logo
+   .popup-add-cart.popup.js-popup-cart
+      .popup__header
+         .popup__logo
             img(src="../img/logo.png")
-         .popup-add-cart__logo-text
+         .popup__logo-text
             p  Vita -
                = ' '
                span  Y
@@ -12,6 +12,6 @@ mixin popup-add-cart()
             p  Harmonize your life
          .close-popup.js-close-cart
             +svg('close')
-      .popup-add-cart__content
+      .popup-add-cart__content.popup__content
          p Ваш товар добавлен в корзину и обрабатывается
          button.js-close-cart   Ок

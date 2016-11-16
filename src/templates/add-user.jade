@@ -1,0 +1,21 @@
+include includes/head
+include includes/header
+include includes/add-user
+include includes/footer
+include includes/scripts
+extends includes/layout
+block head
+
+    +head('Корзина')
+
+block content
+
+    +header()
+
+    +add-user()
+
+block footer
+
+    +footer()
+
+    +scripts()

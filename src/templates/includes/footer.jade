@@ -36,11 +36,13 @@ mixin footer()
                             li:   a(href="javascript:void(0)")  Offer
                             li:   a(href="javascript:void(0)")  Contact
                     .col-md-2.footer-phone.visible-lg
-                        a(href="mailto:8-800-123-45-67")
+                        //-a(href="mailto:8-800-123-45-67")
                             +svg('telephone')
                             |  8-800-123-45-67
                         .footer-phone__ask
-                            a(href="javascript:void(0)").ask-link   Ask a Question Yeti
+                            a(href="javascript:void(0)").ask-link
+                                +svg('mail')
+                                |   Ask a Question Yeti
         .footer-bottom
             .container
                 .row
