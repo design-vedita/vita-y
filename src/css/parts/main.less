@@ -2384,6 +2384,13 @@ header {
 
 		.quote-image {
 			width: 100%;
+
+			@media (max-width: 991px) {
+
+				& {
+					width: auto;
+				}
+			}
 		}
 
 		blockquote {
@@ -2545,10 +2552,18 @@ header {
 					&__img {
 						float: left;
 						width: 51px;
+						opacity: 1;
+						visibility: visible;
+						transition-property: opacity, visibility;
+						transition-duration: 300ms;
+						transition-timing-function: linear;
 
 						@media (max-width: 767px) {
-							float: none;
-							margin: 0 auto 20px;
+							/*float: none;
+							margin: 0 auto 20px;*/
+							opacity: 0;
+							height: 0;
+							visibility: hidden;
 						}
 
 						img {

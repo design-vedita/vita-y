@@ -53,6 +53,11 @@ var App = {
             App.htmlTag.addClass('edge');
         }
 
+        $(".fancybox").fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none'
+        });
+
         var burger = new burgerActions();
 
         burger.openMenu();
@@ -69,6 +74,7 @@ var App = {
         preloader();
         heightSlide();
         activeStep();
+        beforeSelected();
 
         App.win.on('resize', function(){
             burger.heightMenu();
@@ -753,6 +759,20 @@ var App = {
                         $foot.addClass('visible');
                 }
             });
+    }
+
+    function beforeSelected() {
+        var titles = document.querySelectorAll('.js-title-good');
+
+            if(titles) {
+
+                for (var i = 0; i < titles.length; i++) {
+                    var text = titles[i].innerHTML;
+                        text = text.replace('before', '<span>before</span>');
+                        titles[i].innerHTML = text;
+                }
+            }
+
     }
 
     (function(){

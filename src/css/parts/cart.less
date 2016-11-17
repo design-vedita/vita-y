@@ -283,6 +283,13 @@
         }
       }
 
+      @media (max-width: 767px) {
+
+        & {
+          display: none;
+        }
+      }
+
     }
 
     li {
@@ -621,6 +628,24 @@
       & {
         padding-left: 0;
         padding-right: 0;
+      }
+    }
+
+    article {
+      display: table;
+      width: 100%;
+    }
+
+    section {
+      display: table-row-group;
+
+      ul {
+        display: table-row;
+      }
+
+      li {
+        display: table-cell;
+        vertical-align: middle;
       }
     }
   }
@@ -971,7 +996,7 @@
     }
 
     .jq-selectbox {
-      z-index: 0 !important;
+      z-index: 2 !important;
     }
 
     @media (max-width: 1199px) {
@@ -1324,7 +1349,7 @@
   label {
     vertical-align: middle;
     width: 21%;
-    font: 14px/30px @semibold;
+    font: 14px/20px @semibold;
     color: @titleSlide;
     margin-bottom: 0;
 
@@ -1436,7 +1461,7 @@
     }
 
     label {
-      width: 33%;
+      width: 32.3%;
 
       @media (min-width: 768px) and (max-width: 991px) {
 

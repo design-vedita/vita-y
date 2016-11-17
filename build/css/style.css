@@ -2617,6 +2617,11 @@ header .menu__list__networks svg.linkedin:hover {
 .content-inner .quote-image {
   width: 100%;
 }
+@media (max-width: 991px) {
+  .content-inner .quote-image {
+    width: auto;
+  }
+}
 .content-inner blockquote {
   position: relative;
   padding-left: 40px;
@@ -2745,11 +2750,19 @@ header .menu__list__networks svg.linkedin:hover {
 .content-inner .question-list__quest .answer-block__img {
   float: left;
   width: 51px;
+  opacity: 1;
+  visibility: visible;
+  transition-property: opacity, visibility;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
 }
 @media (max-width: 767px) {
   .content-inner .question-list__quest .answer-block__img {
-    float: none;
-    margin: 0 auto 20px;
+    /*float: none;
+							margin: 0 auto 20px;*/
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
   }
 }
 .content-inner .question-list__quest .answer-block__img img {
@@ -3660,6 +3673,11 @@ footer .footer-phone a.ask-link svg {
   top: -2em;
   color: #9a9a9a;
 }
+@media (max-width: 767px) {
+  .cart-goods .good-list .vita-logo {
+    display: none;
+  }
+}
 .cart-goods .good-list li {
   display: table-cell;
 }
@@ -3922,6 +3940,20 @@ footer .footer-phone a.ask-link svg {
     padding-left: 0;
     padding-right: 0;
   }
+}
+.form-wrapper__table article {
+  display: table;
+  width: 100%;
+}
+.form-wrapper__table section {
+  display: table-row-group;
+}
+.form-wrapper__table section ul {
+  display: table-row;
+}
+.form-wrapper__table section li {
+  display: table-cell;
+  vertical-align: middle;
 }
 .form-wrapper a {
   font: 12px/30px 'opensans-semibold', 'sans-serif';
@@ -4209,7 +4241,7 @@ footer .footer-phone a.ask-link svg {
   margin-right: 12px;
 }
 .add-user .wrapper-dates .jq-selectbox {
-  z-index: 0 !important;
+  z-index: 2 !important;
 }
 @media (max-width: 1199px) {
   .add-user .wrapper-dates {
@@ -4535,7 +4567,7 @@ footer .footer-phone a.ask-link svg {
 .your-address label {
   vertical-align: middle;
   width: 21%;
-  font: 14px/30px 'opensans-semibold', 'sans-serif';
+  font: 14px/20px 'opensans-semibold', 'sans-serif';
   color: #2e2e2e;
   margin-bottom: 0;
 }
@@ -4613,7 +4645,7 @@ footer .footer-phone a.ask-link svg {
   }
 }
 .your-address .input-4 label {
-  width: 33%;
+  width: 32.3%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .your-address .input-4 label {
