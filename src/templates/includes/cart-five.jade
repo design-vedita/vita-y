@@ -15,10 +15,40 @@ mixin cart-five()
                   span    649 &euro;
             .run-pay-list
                .run-pay-list__item
+                  a(href="javascript:void(0)")
+                     img(src="../img/credit-card.jpg")
+                     span  Оплата кредитной картой
+                     +svg('arrow')
                .run-pay-list__item
+                  a(href="javascript:void(0)")
+                     img(src="../img/paypal.jpg")
+                     span  Paypal
+                     +svg('arrow')
                .run-pay-list__item
+                  a(href="javascript:void(0)")
+                     img(src="../img/sofort-pay.jpg")
+                     span  Sofortüberweisung
+                     +svg('arrow')
                .run-pay-list__item
+                  a(href="javascript:void(0)")
+                     img(src="../img/prepayment.jpg")
+                     span  Предоплата
+                     +svg('arrow')
                .run-pay-list__item
-               .run-pay-list__item
+                  a(href="javascript:void(0)")
+                     img(src="../img/office-pay.jpg")
+                     span  Оплата наличными в офисе продаж
+                     +svg('arrow')
+            .dop-info
+               ul
+                  li
+                  li
+                  li
+                     .more-buy
+                        a(href="javascript:void(0)")   < Продолжить покупки
+                  li
+                     .checkout
+                        a(href="javascript:void(0)")  Оформить
+
 
 

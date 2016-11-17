@@ -132,11 +132,17 @@
 .cart-goods {
   margin-top: 25px;
 
+  @media (max-width: 767px) {
+
+    & {
+      overflow: scroll;
+    }
+  }
+
   .good-list {
     display: table;
     width: 100%;
     border: 1px @tdBorder solid;
-    overflow: scroll;
 
     .columns {
       display: table-column;
@@ -343,6 +349,8 @@
 
   .cart-footer {
     padding: 10px;
+    min-width: 513px;
+    max-width: 100%;
     font: 14px/24px @semibold;
     color: @addresColor;
     text-align: right;
@@ -588,11 +596,33 @@
     width: 12%;
     font: 14px/30px @semibold;
     color: @titleSlide;
+
+    @media (max-width: 767px) {
+
+      & {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+
+      & {
+        width: 15%;
+      }
+    }
   }
 
   &__table {
     padding-left: 13px;
     padding-right: 13px;
+
+    @media (max-width: 767px) {
+
+      & {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 
   a {
@@ -645,6 +675,15 @@
         }
       }
 
+      @media (max-width: 767px) {
+
+        & {
+          font-size: 16px;
+          padding-left: 22px;
+          padding-right: 23px;
+        }
+      }
+
     }
 
     &:not([type=submit]) {
@@ -657,6 +696,13 @@
       color: @titleSlide;
       border: 1px @noActiveStep solid;
       box-sizing: border-box;
+
+      @media (max-width: 767px) {
+
+        & {
+          max-width: none;
+        }
+      }
     }
   }
 }
@@ -810,6 +856,12 @@
           background-position: center;
           background-repeat: no-repeat;
         }
+      }
+
+      img {
+        position: absolute;
+        left: 35px;
+        top: calc(~'50% - 40px');
       }
 
       label {
@@ -1474,4 +1526,56 @@
       }
     }
   }
+}
+
+.run-pay-list {
+  border: 1px @borderCatalogItem solid;
+
+    &__item {
+      position: relative;
+
+      @media (max-width: 767px) {
+
+        & {
+          text-align: center;
+        }
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px @borderCatalogItem solid;
+      }
+
+      span {
+        font: 16px/24px @semibold;
+        color: @colorH3;
+        vertical-align: middle;
+        text-transform: uppercase;
+
+        @media (max-width: 767px) {
+
+          & {
+            margin-top: 10px;
+            display: block;
+          }
+        }
+      }
+
+      a {
+        padding: 15px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: @colorH3;
+        box-sizing: border-box;
+      }
+
+      svg {
+        position: absolute;
+        right: 30px;
+        top: calc(~'50% - 10.5px');
+        width: 13px;
+        height: 21px;
+      }
+    }
 }
