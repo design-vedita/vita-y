@@ -105,6 +105,11 @@ a {
   font-family: 'opensans-semibold', 'sans-serif';
   color: #305094;
 }
+@media (max-width: 767px) {
+  html[lang='de-de'] {
+    max-width: 215px;
+  }
+}
 html.edge .logo__text p:first-child {
   margin-top: 10px;
   line-height: 1rem !important;
@@ -645,32 +650,42 @@ header .menu__list__networks svg.linkedin:hover {
 .content .top-slider .slick-arrow {
   position: absolute;
   z-index: 2;
-  top: calc(50% - 34.5px);
-  width: 69px;
-  height: 69px;
-  background-color: #305094;
-  background-image: url(../img/slider-arrow.svg);
-  background-size: 36px 31px;
+  top: 0;
+  width: 13%;
+  height: 100%;
+  background-color: #000;
+  background-image: url(../img/slide-top-arrow.svg);
+  background-size: 35px 64px;
   background-position: center;
   background-repeat: no-repeat;
   border: none;
+  transition: background-color 300ms linear;
+}
+.content .top-slider .slick-arrow:hover {
+  background-color: #1c1f23;
+}
+.content .top-slider .slick-list,
+.content .top-slider .slick-track {
+  height: 100%;
 }
 .content .top-slider .slick-next {
-  right: 22px;
+  right: 0;
   transform: rotate(180deg);
 }
 .content .top-slider .slick-prev {
-  left: 22px;
+  left: 0;
 }
 .content .top-slider .slide {
+  height: 100%;
   position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .content .top-slider .slide img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
 }
 .content .top-slider .slide .container {
   position: absolute;
@@ -695,14 +710,6 @@ header .menu__list__networks svg.linkedin:hover {
     left: 0;
     max-width: 767px;
     width: 100%;
-  }
-}
-@media (max-width: 767px) {
-  .content .top-slider .slide {
-    min-height: 285px;
-  }
-  .content .top-slider .slide img {
-    display: none;
   }
 }
 .content .top-slider .cloud {
@@ -3400,6 +3407,9 @@ footer .footer-phone a.ask-link svg {
 .popup__logo-text p sup {
   font-size: 11px;
   top: -2em;
+}
+.popup-composition {
+  max-width: 790px;
 }
 .popup-composition__content {
   text-align: left;

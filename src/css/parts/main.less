@@ -75,6 +75,16 @@ a {
 
 html {
 
+	&[lang='de-de'] {
+
+		@media (max-width: 767px) {
+
+			& {
+				max-width: 215px;
+			}
+		}
+	}
+
 	&.edge {
 
 		.logo {
@@ -784,35 +794,47 @@ header {
 		.slick-arrow {
 			position: absolute;
 			z-index: 2;
-			top: calc(~'50% - 34.5px');
-			width: 69px;
-			height: 69px;
-			background-color: @blueArrow;
-			background-image: url(../img/slider-arrow.svg);
-			background-size: 36px 31px;
+			top: 0;
+			width: 13%;
+			height: 100%;
+			background-color: @black;
+			background-image: url(../img/slide-top-arrow.svg);
+			background-size: 35px 64px;
 			background-position: center;
 			background-repeat: no-repeat;
 			border: none;
+			transition: background-color 300ms linear;
+
+			&:hover {
+				background-color: @hoverTopArrow;
+			}
+		}
+
+		.slick-list,
+		.slick-track {
+			height: 100%;
 		}
 
 		.slick-next {
-			right: 22px;
+			right: 0;
 			transform: rotate(180deg);
 		}
 
 		.slick-prev {
-			left: 22px;
+			left: 0;
 		}
 
 		.slide {
+			height: 100%;
 			position: relative;
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
 
 			img {
-				width: 100%;
-				height: auto;
+				width: auto;
+				height: 100%;
+				margin: 0 auto;
 			}
 
 			.container {
@@ -846,17 +868,6 @@ header {
                 }
               }
 
-			}
-
-			@media (max-width: 767px) {
-
-				& {
-					min-height: 285px;
-
-					img {
-						display: none;
-					}
-				}
 			}
 		}
 
@@ -3370,6 +3381,7 @@ footer {
 }
 
 .popup-composition {
+	max-width: 790px;
 
 	&__content {
 		text-align: left;

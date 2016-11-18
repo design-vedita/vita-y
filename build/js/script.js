@@ -75,11 +75,14 @@ var App = {
         heightSlide();
         activeStep();
         beforeSelected();
+        heightTopSlider();
+        sizeImage();
 
         App.win.on('resize', function(){
             burger.heightMenu();
             heightGray();
             heightSlide();
+            heightTopSlider();
         });
 
         App.win.on('scroll', function(){
@@ -148,8 +151,23 @@ var App = {
                     }
                 }
             ]
-        })
-        .on('beforeChange', function(){
+        });
+
+
+        function sizeImage() {
+            var $slider = $('.js-top-slider'),
+                $arrows = $('.slick-arrow'),
+                $slides  = $slider.find('.slide');
+
+            $slides.each(function(){
+                var $images = $(this).find('img');
+                console.log($arrows);
+
+
+            });
+        }
+
+        /*.on('beforeChange', function(){
             var $slides = $('.slide');
 
             $slides.each(function(){
@@ -157,8 +175,8 @@ var App = {
                 var $clouds = $(this).find('.js-cloud');
                 $clouds.removeClass('animated fadeIn');
             });
-        })
-        .on('afterChange', function(){
+        })*/
+        /*.on('afterChange', function(){
             var currentSlide = $('.js-top-slider').slick('slickCurrentSlide');
 
             var $slides = $('.slide');
@@ -174,7 +192,7 @@ var App = {
                     });
                 }
             });
-        });
+        });*/
 
         // Слайдер с мужиком
         $('.js-man-slider').slick({
@@ -476,6 +494,20 @@ var App = {
         var $slideHeight = $slide.outerHeight();
 
         $slideRecipient.css({'height': $slideHeight + 'px'});
+    }
+
+
+    // высота верхнего слайдера
+    function heightTopSlider() {
+        var $slider = $('.js-top-slider'),
+            clientHeight = document.documentElement.clientHeight;
+
+        if (clientHeight > 285) {
+            $slider.css({'height': clientHeight - 69 + 'px'});
+        }  else {
+            $slider.css({'height': '258px'});
+        }
+
     }
 
     // верхнее меню и шапка
