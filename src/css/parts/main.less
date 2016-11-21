@@ -795,7 +795,8 @@ header {
 			position: absolute;
 			z-index: 2;
 			top: 0;
-			width: 13%;
+			width: 100%;
+			min-width: 50px;
 			height: 100%;
 			background-color: @black;
 			background-image: url(../img/slide-top-arrow.svg);
@@ -2010,6 +2011,7 @@ header {
 	}
 
 	.catalog {
+		position: relative;
 		margin-top: 40px;
 
 		.title-wrapper {
@@ -2052,6 +2054,10 @@ header {
 
 		&__list {
 			margin-top: 10px;
+
+			.col-md-6 {
+				position: static;
+			}
 
 			&__item {
 				padding: 25px 15px 20px;
@@ -3382,6 +3388,10 @@ footer {
 
 .popup-composition {
 	max-width: 790px;
+	position: absolute;
+	left: 0;
+	top: 0;
+
 
 	&__content {
 		text-align: left;

@@ -651,7 +651,8 @@ header .menu__list__networks svg.linkedin:hover {
   position: absolute;
   z-index: 2;
   top: 0;
-  width: 13%;
+  width: 100%;
+  min-width: 50px;
   height: 100%;
   background-color: #000;
   background-image: url(../img/slide-top-arrow.svg);
@@ -2311,6 +2312,7 @@ header .menu__list__networks svg.linkedin:hover {
   content: '';
 }
 .content .catalog {
+  position: relative;
   margin-top: 40px;
 }
 .content .catalog .title-wrapper {
@@ -2346,6 +2348,9 @@ header .menu__list__networks svg.linkedin:hover {
 }
 .content .catalog__list {
   margin-top: 10px;
+}
+.content .catalog__list .col-md-6 {
+  position: static;
 }
 .content .catalog__list__item {
   padding: 25px 15px 20px;
@@ -3410,6 +3415,9 @@ footer .footer-phone a.ask-link svg {
 }
 .popup-composition {
   max-width: 790px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .popup-composition__content {
   text-align: left;

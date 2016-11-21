@@ -76,13 +76,13 @@ var App = {
         activeStep();
         beforeSelected();
         heightTopSlider();
-        sizeImage();
 
         App.win.on('resize', function(){
             burger.heightMenu();
             heightGray();
             heightSlide();
             heightTopSlider();
+            resizes($topSlider);
         });
 
         App.win.on('scroll', function(){
@@ -135,8 +135,12 @@ var App = {
             ]
         });
 
+
+        var $topSlider = $('.js-top-slider');
+
+
         // Слайдер верхний
-        $('.js-top-slider').slick({
+        $topSlider.slick({
             'prevArrow': '<button type="button" class="slick-prev"></button>',
             'nextArrow': '<button type="button" class="slick-next"></button>',
             fade: true,
@@ -151,20 +155,30 @@ var App = {
                     }
                 }
             ]
+
         });
 
+        resizes($topSlider);
+        // размер кнопок влево-вправо подгоняем так, чтобы не было белого заднего
+        // фона под размер картинки
+        function resizes(slider) {
 
-        function sizeImage() {
-            var $slider = $('.js-top-slider'),
-                $arrows = $('.slick-arrow'),
-                $slides  = $slider.find('.slide');
-
-            $slides.each(function(){
-                var $images = $(this).find('img');
-                console.log($arrows);
+            var $prev = $(slider).find('button.slick-prev'),
+                $next = $(slider).find('button.slick-next'),
+                $current = $(slider).find('.slick-current'),
+                $image = $current.find('img');
 
 
-            });
+
+            var $imageWidth = $image.outerWidth(),
+                clientWidth = document.documentElement.clientWidth;
+
+            var $width = clientWidth - $imageWidth,
+                $sizeButtton = $width / 2;
+
+
+            $($prev).css({'max-width': $sizeButtton + 'px'});
+            $($next).css({'max-width': $sizeButtton + 'px'});
         }
 
         /*.on('beforeChange', function(){
@@ -425,7 +439,7 @@ var App = {
         var popups = new closePopup;
 
         popups.addCart();
-        //popups.openComposition();
+        popups.openComposition();
         popups.close();
 
         if(document.getElementById('vigdorovich')) {
@@ -733,19 +747,21 @@ var App = {
                     return false;
                 });
             },
-
-            /*openComposition: function(){
+            // Всплывающее окно состав
+            openComposition: function(){
                 $compositionLink.on('click', function(){
 
-                    var $composHeight = $composition.outerHeight(),
-                        $composWidth = $composition.outerWidth();
+                    var $composition_this = $(this).closest('.catalog__list__item').children('.js-composition');
 
-                    $composition.css({'left':'calc(50% - '+ ($composWidth / 2) +'px)','top': 'calc(50% - ' + ($composHeight / 2) +'px)'});
-                    $composition.addClass('visible');
+                    var    $composHeight = $composition_this.outerHeight();
+                    var    $composWidth = $composition_this.outerWidth();
+
+                    $composition_this.css({'left':'calc(50% - '+ ($composWidth / 2) +'px)','top': 'calc(50% - ' + ($composHeight / 2) +'px)'});
+                    $composition_this.addClass('visible');
                     $overlay.addClass('visible');
 
                 });
-            }*/
+            }
         }
 
     }
@@ -801,6 +817,7 @@ var App = {
                 for (var i = 0; i < titles.length; i++) {
                     var text = titles[i].innerHTML;
                         text = text.replace('before', '<span>before</span>');
+                        text = text.replace('after', '<span>after</span>');
                         titles[i].innerHTML = text;
                 }
             }
