@@ -67,8 +67,8 @@ var App = {
         var questions = new question();
         questions.open();
 
-        addedItem('js-elem-work', 'js-added-work');
-        addedItem('js-elem-home', 'js-added-home');
+        addedItem('js-elem-work', 'js-added-work', 'js-parent-work');
+        addedItem('js-elem-home', 'js-added-home', 'js-parent-home');
         deleteItem('js-delete');
         heightGray();
         preloader();
@@ -82,6 +82,7 @@ var App = {
             heightGray();
             heightSlide();
             heightTopSlider();
+
             resizes($topSlider);
         });
 
@@ -159,6 +160,7 @@ var App = {
         });
 
         resizes($topSlider);
+
         // размер кнопок влево-вправо подгоняем так, чтобы не было белого заднего
         // фона под размер картинки
         function resizes(slider) {
@@ -654,57 +656,185 @@ var App = {
     hint.hintGallery();
     hint.hintGames('.js-hint');
 
-    // добавление элемента для расчёта
-    function addedItem(el, el_add) {
+    // добавление элемента для расчёта в ячейку
+    function addedItem(el, el_add, parent) {
         var item = document.getElementsByClassName(el),
-            add = document.getElementsByClassName(el_add);
+            add = document.getElementsByClassName(el_add),
+            parentDel = document.getElementsByClassName(parent)[0];
 
         var i,
             j,
-            k;
+            k,
+            sum = 0;
 
         for(i = 0; i < item.length; i++) {
 
             item[i].onclick = function(e){
-                var image = this.querySelector('img');
-                var src = image.getAttribute('src');
+                var image = this.querySelector('img'),
+                    src = image.getAttribute('src'),
+                    count = this.getAttribute('data-count');
                 var list = [];
 
+                // чтобы повторно не суммировать этот блок, добавляем ему класс
+                this.classList.add('selected');
+
+                // собираем из кусков урл изображения, чтобы его вставить
                 var typeImg = src.slice(-4),
                     url = src.slice(0, -4);
 
+                // добавляем класс выбранному блоку в блоке удаления
                 for (j = 0; j < add.length; j++) {
                     list[j] = add[j].classList.contains('free--item');
                 }
+
+                var parent = '',
+                    newSum = 0,
+                    countTablets = '',
+                    p = '',
+                    query = '';
+
+                // Объявляем родителя, чтобы по нему смотреть новую сумму, после удаления
+                if(this.classList.contains('js-elem-work')) {
+                    parent = document.getElementsByClassName('js-list-loads-work')[0];
+                    countTablets = document.getElementsByClassName('js-count-tablet-work')[0];
+                    p = document.getElementsByClassName('js-title-added-work')[0];
+                    query = 'div.js-added-work.free--item';
+                } else  {
+                    parent = document.getElementsByClassName('js-list-loads-home')[0];
+                    countTablets = document.getElementsByClassName('js-count-tablet-home')[0];
+                    p = document.getElementsByClassName('js-title-added-home')[0];
+                    query = 'div.js-added-home.free--item';
+                }
+
+                // Если у родителя есть аттрибут с персчитанной суммой после удаления
+                // то объявляем новое значение суммы
+                if (parent.hasAttribute('new-sum')) {
+                    newSum = parent.getAttribute('new-sum');
+                    sum = +newSum;
+
+                    // Удаляем класс, чтобы сумма была корректной
+                    parent.removeAttribute('new-sum');
+                }
+
+                // Проверяем на наличие в индекса в массиве, чтобы при удалении перезаписывать ячейки
                 var index = list.indexOf(false);
+
+                if (index > -1) {
+
+                    sum += +count;
+                    parentDel.setAttribute('data-sum', sum);
+                }
+
+                if (sum <= 10 && sum > 0) {
+                    countTablets.innerHTML = 1;
+                } else if (sum >= 10 && sum <= 25) {
+                    countTablets.innerHTML = 2;
+                } else if (sum > 25) {
+                    countTablets.innerHTML = 3;
+                } else if (sum == 0) {
+                    countTablets.innerHTML = ' ';
+                }
 
                 for (k = 0; k < add.length; k++) {
                     if([k] == index) {
+
+                        // Если индекс массива равен индексу пустой ячейки, записываем в неё данные картинки
+                        // и парметры
                         var img = add[k].querySelector('img');
-                            img.setAttribute('src', url + '-hover' + typeImg);
-                            add[k].classList.add('free--item');
+                        img.setAttribute('src', url + '-hover' + typeImg);
+                        add[k].classList.add('free--item');
+                        add[k].setAttribute('data-count', +count);
                     }
+                }
+
+
+                // выбираем все ячейки и ищем количество выделенных
+                var cells = parentDel.querySelectorAll(query);
+
+                // Если выбрано 3 ситуации и больше, показываем заголовок с количкеством и текстом
+                if(cells.length >= 3) {
+                    p.classList.add('visible');
                 }
             };
         }
     }
 
-    // удаление элемента из расчёта
+    // удаление элемента из ячейки
     function deleteItem(el) {
         var delItem = document.getElementsByClassName(el);
 
-        var i;
+        var i,
+            j;
+
 
         for (i = 0; i < delItem.length; i++) {
 
             delItem[i].onclick = function(e){
                 var _self = this,
                     parent = _self.parentNode,
+                    wrapper = parent.parentNode,
                     image = parent.querySelector('img');
+
+                // получаем сумму и количество баллов текущего события
+                var sum = wrapper.getAttribute('data-sum'),
+                    count = parent.getAttribute('data-count');
+
+                // для плавности появление через интервал ставим аттрибут
                 setTimeout(function(){
                     image.setAttribute('src','');
                 }, 300);
+
+                // удаляем классы
                 parent.classList.remove('free--item');
+
+                // получаем текущую сумму при удалении элемента
+                // записываем её родителю
+                sum = +sum - +count;
+                wrapper.setAttribute('data-sum', sum);
+
+                // Определем в блоке клика родителя, которому добавлять аттрибут с новой суммой
+
+                var blockWork = '',
+                    countTablets = '',
+                    p = '';
+
+                if (parent.classList.contains('js-added-work')) {
+                    blockWork = document.getElementsByClassName('js-list-loads-work')[0];
+                    blockWork.setAttribute('new-sum', sum);
+
+                    // Определяем родителя, в котором ставим количество таблеток
+                    countTablets = document.getElementsByClassName('js-count-tablet-work')[0];
+
+                    // Заголовок, куда пишем количество таблеток
+                    p = document.getElementsByClassName('js-title-added-work')[0];
+                } else {
+                    blockWork = document.getElementsByClassName('js-list-loads-home')[0];
+                    blockWork.setAttribute('new-sum', sum);
+                    // Определяем родителя, в котором ставим количество таблеток
+                    countTablets = document.getElementsByClassName('js-count-tablet-home')[0];
+
+                    // Заголовок, куда пишем количество таблеток
+                    p = document.getElementsByClassName('js-title-added-home')[0];
+                }
+
+                // В зависимости от суммы показываем количество необходимых таблеток
+                if (sum <= 10 && sum > 0) {
+                    countTablets.innerHTML = 1;
+                } else if (sum >= 10 && sum <= 25) {
+                    countTablets.innerHTML = 2;
+                } else if (sum > 25) {
+                    countTablets.innerHTML = 3;
+                } else if (sum == 0) {
+                    countTablets.innerHTML = ' ';
+                }
+
+                // выбираем все ячейки и ищем количество выделенных
+                var cells = wrapper.querySelectorAll('div.js-added-home.free--item');
+
+                // Если выбрано меньше 3 ситуаций, удаляем заголовок с количкеством и текстом
+                if(cells.length < 3) {
+                    p.classList.remove('visible');
+                }
             }
         }
     }
@@ -715,7 +845,7 @@ var App = {
         var $close = $('.js-close-cart'),
             $cart = $('.js-popup-cart'),
             $compositionLink = $('.js-composition-link'),
-            $composition = $('.js-composition'),
+            //$composition = $('.js-composition'),
             $overlay = $('.js-overlay'),
             $add = $('.js-add-good');
 

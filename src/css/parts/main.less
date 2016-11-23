@@ -795,7 +795,7 @@ header {
 			position: absolute;
 			z-index: 2;
 			top: 0;
-			width: 100%;
+			width: 13%;
 			min-width: 50px;
 			height: 100%;
 			background-color: @black;
@@ -1801,6 +1801,16 @@ header {
               font: 1.6em @semibold;
               color: @white;
               text-align: center;
+				opacity: 0;
+				visibility: hidden;
+				transition-property: visibility, opacity;
+				transition-timing-function: linear;
+				transition-duration: 300ms;
+
+				&.visible {
+					opacity: 1;
+					visibility: visible;
+				}
 
               @media (max-width: 1199px) {
 

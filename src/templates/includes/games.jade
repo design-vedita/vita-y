@@ -23,45 +23,63 @@ mixin games()
                      .col-lg-6.col-md-12.col-sm-12
                         .games__tap-block__at-work
                            p.title  At work
-                           .list-loads
+                           .list-loads.js-list-loads-work
                               .list-loads__item
-                                 .big-square-load.elem.js-elem-work.js-hint(data-hint="Woke up too late? Not enough time for a relaxed morning? No breakfast?")
+                                 .big-square-load.elem.js-elem-work.js-hint(data-hint="Woke up too late? Not enough time for a relaxed morning? No breakfast?"
+                                                                              data-count=4)
                                     img(src="../img/work-1.svg")
                                  .list-loads__item__mini
-                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Woke up too late? Not enough time for a relaxed morning? No breakfast?")
+                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Woke up too late? Not enough time for a relaxed morning? No breakfast?"
+                                                                                       data-count=4)
                                        img(src="../img/work-1.svg")
-                                    .square-load.elem.js-elem-work.js-hint(data-hint="Children have to be made ready for school")
+                                    .square-load.elem.js-elem-work.js-hint(data-hint="Children have to be made ready for school"
+                                                                           data-count=4)
                                        img(src="../img/work-2.svg")
-                                    .square-load.elem.js-elem-work.js-hint(data-hint="The boss is in a bad mood.")
+                                    .square-load.elem.js-elem-work.js-hint(data-hint="The boss is in a bad mood."
+                                                                           data-count=12)
                                        img(src="../img/work-4.svg")
-                                    .square-load.elem.js-elem-work.js-hint(data-hint="Too much work to do.")
+                                    .square-load.elem.js-elem-work.js-hint(data-hint="Too much work to do."
+                                                                           data-count=8)
                                        img(src="../img/work-5.svg")
-                                    .square-load.elem.js-elem-work.js-hint(data-hint="Phone ringing all day long.")
+                                    .square-load.elem.js-elem-work.js-hint(data-hint="Phone ringing all day long."
+                                                                           data-count=10)
                                        img(src="../img/work-6.svg")
-                                    .two-square-load.elem.js-elem-work.js-hint(data-hint="The traffic jam already stresses you out, before you get to work.")
+                                    .two-square-load.elem.js-elem-work.js-hint(data-hint="The traffic jam already stresses you out, before you get to work."
+                                                                              data-count=8)
                                        img(src="../img/work-3.svg")
                                     //- Показываем на мобильных
-                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Appraisal interview.")
+                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Appraisal interview."
+                                                                                       data-count=12)
                                        img(src="../img/work-10.svg")
-                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Just a relaxed working day.")
+                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Just a relaxed working day."
+                                                                                       data-count=2)
                                        img(src="../img/work-7.svg")
-                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Colleagues are mean as always.")
+                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Colleagues are mean as always."
+                                                                                       data-count=2)
                                        img(src="../img/work-8.svg")
-                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Important meeting / presentation.")
+                                    .square-load.elem.js-elem-work.hidden-item.js-hint(data-hint="Important meeting / presentation."
+                                                                                       data-count=8)
                                        img(src="../img/work-9.svg")
                                  .clear
                               .list-loads__item
-                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Appraisal interview.")
+                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Appraisal interview."
+                                                                                    data-count=12)
                                     img(src="../img/work-10.svg")
-                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Just a relaxed working day.")
+                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Just a relaxed working day."
+                                                                                    data-count=2)
                                     img(src="../img/work-7.svg")
-                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Colleagues are mean as always.")
+                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Colleagues are mean as always."
+                                                                                    data-count=2)
                                     img(src="../img/work-8.svg")
-                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Important meeting / presentation.")
+                                 .square-load.elem.hidden-phone.js-elem-work.js-hint(data-hint="Important meeting / presentation."
+                                                                                    data-count=8)
                                     img(src="../img/work-9.svg")
                         .list-added
-                           p.title-added You need to work up to 3 capsules
-                           .list-added__wrapper
+                           p.title-added.js-title-added-work You need to work up to
+                              = ' '
+                              span.js-count-tablet-work
+                              |  capsules
+                           .list-added__wrapper.js-parent-work
                               .list-added__wrapper__item.js-added-work
                                  a(href="javascript:void(0)").delete-item.js-delete
                                     span  X
@@ -85,45 +103,63 @@ mixin games()
                      .col-lg-6.col-md-12.col-sm-12
                         .games__tap-block__at-home
                            p.title  At Home
-                           .list-loads
+                           .list-loads.js-list-loads-home
                               .list-loads__item
-                                 .big-square-load.elem.js-elem-home.js-hint(data-hint="Children want to play.")
+                                 .big-square-load.elem.js-elem-home.js-hint(data-hint="Children want to play."
+                                                                           data-count=4)
                                     img(src="../img/home-4.svg")
                                  .list-loads__item__mini
-                                    .square-load.elem.js-elem-home.hidden-item.js-hint(data-hint="Children want to play.")
+                                    .square-load.elem.js-elem-home.hidden-item.js-hint(data-hint="Children want to play."
+                                                                                       data-count=4)
                                        img(src="../img/home-4.svg")
-                                    .square-load.elem.js-elem-home.js-hint(data-hint="A birthday / party has to be celebrated.")
+                                    .square-load.elem.js-elem-home.js-hint(data-hint="A birthday / party has to be celebrated."
+                                                                           data-count=8)
                                        img(src="../img/home-6.svg")
-                                    .square-load.elem.js-elem-home.js-hint(data-hint="Sports in the evening (gym, tennis, dancing, football etc.)")
+                                    .square-load.elem.js-elem-home.js-hint(data-hint="Sports in the evening (gym, tennis, dancing, football etc.)"
+                                                                           data-count=10)
                                        img(src="../img/home-9.svg")
-                                    .square-load.elem.js-elem-home.js-hint(data-hint="Worked too long? Too much to do?")
+                                    .square-load.elem.js-elem-home.js-hint(data-hint="Worked too long? Too much to do?"
+                                                                           data-count=8)
                                        img(src="../img/home-1.svg")
-                                    .square-load.elem.js-elem-home.js-hint(data-hint="Have to go to bed late, because of an event (cinema, concert etc.)?")
+                                    .square-load.elem.js-elem-home.js-hint(data-hint="Have to go to bed late, because of an event (cinema, concert etc.)?"
+                                                                           data-count=8)
                                        img(src="../img/home-8.svg")
-                                    .two-square-load.elem.js-elem-home.js-hint(data-hint="Traffic jam stresses you out on the way back home. AGAIN.")
+                                    .two-square-load.elem.js-elem-home.js-hint(data-hint="Traffic jam stresses you out on the way back home. AGAIN."
+                                                                              data-count=12)
                                        img(src="../img/home-2.svg")
                                     //- Показываем на мобильных
-                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="Wife / Husband / Partner awaits you in trouble and bad mood.")
+                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="Wife / Husband / Partner awaits you in trouble and bad mood."
+                                                                                       data-count=8)
                                        img(src="../img/home-3.svg")
-                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="A relaxed evening in front of the TV.")
+                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="A relaxed evening in front of the TV."
+                                                                                       data-count=2)
                                        img(src="../img/home-7.svg")
-                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="Friend are coming over for a dinner.")
+                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="Friend are coming over for a dinner."
+                                                                                       data-count=6)
                                        img(src="../img/home-5.svg")
-                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="Relaxed evening with good food and your wife / girlfriend / husband / boyfriend / date.")
+                                    .square-load.elem.hidden-item.js-elem-home.js-hint(data-hint="Relaxed evening with good food and your wife / girlfriend / husband / boyfriend / date."
+                                                                                       data-count=4)
                                        img(src="../img/home-10.svg")
                                  .clear
                               .list-loads__item
-                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="Wife / Husband / Partner awaits you in trouble and bad mood.")
+                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="Wife / Husband / Partner awaits you in trouble and bad mood."
+                                                                                    data-count=8)
                                     img(src="../img/home-3.svg")
-                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="A relaxed evening in front of the TV.")
+                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="A relaxed evening in front of the TV."
+                                                                                    data-count=2)
                                     img(src="../img/home-7.svg")
-                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="Friend are coming over for a dinner.")
+                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="Friend are coming over for a dinner."
+                                                                                    data-count=6)
                                     img(src="../img/home-5.svg")
-                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="Relaxed evening with good food and your wife / girlfriend / husband / boyfriend / date.")
+                                 .square-load.elem.hidden-phone.js-elem-home.js-hint(data-hint="Relaxed evening with good food and your wife / girlfriend / husband / boyfriend / date."
+                                                                                    data-count=6)
                                     img(src="../img/home-10.svg")
                         .list-added
-                           p.title-added You need to work up to 3 capsules
-                           .list-added__wrapper
+                           p.title-added.js-title-added-home You need to work up to
+                              = ' '
+                              span.js-count-tablet-home
+                              |  capsules
+                           .list-added__wrapper.js-parent-home
                               .list-added__wrapper__item.js-added-home
                                  a(href="javascript:void(0)").delete-item.js-delete
                                     span  X
