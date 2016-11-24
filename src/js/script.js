@@ -146,8 +146,8 @@ var App = {
             'nextArrow': '<button type="button" class="slick-next"></button>',
             fade: true,
             speed: 1500,
-            //autoplay: true,
-            //autoplaySpeed: 2000,
+            slidesToScroll: 1,
+            autoplaySpeed: 1500,
             responsive: [
                 {
                     breakpoint: 768,
@@ -158,6 +158,11 @@ var App = {
             ]
 
         });
+
+        // Если страница загрузилась, включаем автоплэй для верхнего слайдера
+        var $preloader = $('.preloader');
+
+        if ($preloader.hasClass('slow')) $topSlider.slick('slickPlay');
 
         resizes($topSlider);
 
@@ -179,8 +184,8 @@ var App = {
                 $sizeButtton = $width / 2;
 
 
-            $($prev).css({'max-width': $sizeButtton + 'px'});
-            $($next).css({'max-width': $sizeButtton + 'px'});
+            $($prev).css({'width': $sizeButtton + 'px'});
+            $($next).css({'width': $sizeButtton + 'px'});
         }
 
         /*.on('beforeChange', function(){
@@ -216,6 +221,8 @@ var App = {
             'nextArrow': '<button type="button" class="slick-next-man"></button>',
             fade: true,
             speed: 1000,
+            slidesToScroll: 1,
+            autoplaySpeed: 4200,
             infinite: true
         })
         .on('beforeChange', function(event, slick, currentSlide, nextSlide){
@@ -444,12 +451,15 @@ var App = {
         popups.openComposition();
         popups.close();
 
+
         if(document.getElementById('vigdorovich')) {
             //waypoint
             var waypoint = new Waypoint({
                 element: document.getElementById('vigdorovich'),
                 handler: function(direction) {
                     var $block = $('.js-animate');
+
+                    $('.js-man-slider').slick('slickPlay');
 
                     $block.each(function(){
 
@@ -487,6 +497,7 @@ var App = {
             $spinner   = $preloader.find('.spinner');
         $preloader.addClass('slow');
         $spinner.addClass('slow');
+
     }
 
     // Высота серой подложки в заголовке игры на мелких устройствах
@@ -796,7 +807,8 @@ var App = {
 
                 var blockWork = '',
                     countTablets = '',
-                    p = '';
+                    p = '',
+                    query = '';
 
                 if (parent.classList.contains('js-added-work')) {
                     blockWork = document.getElementsByClassName('js-list-loads-work')[0];
@@ -807,6 +819,7 @@ var App = {
 
                     // Заголовок, куда пишем количество таблеток
                     p = document.getElementsByClassName('js-title-added-work')[0];
+                    query = 'div.js-added-work.free--item';
                 } else {
                     blockWork = document.getElementsByClassName('js-list-loads-home')[0];
                     blockWork.setAttribute('new-sum', sum);
@@ -815,6 +828,7 @@ var App = {
 
                     // Заголовок, куда пишем количество таблеток
                     p = document.getElementsByClassName('js-title-added-home')[0];
+                    query = 'div.js-added-home.free--item';
                 }
 
                 // В зависимости от суммы показываем количество необходимых таблеток
@@ -829,7 +843,7 @@ var App = {
                 }
 
                 // выбираем все ячейки и ищем количество выделенных
-                var cells = wrapper.querySelectorAll('div.js-added-home.free--item');
+                var cells = wrapper.querySelectorAll(query);
 
                 // Если выбрано меньше 3 ситуаций, удаляем заголовок с количкеством и текстом
                 if(cells.length < 3) {

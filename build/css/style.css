@@ -1375,7 +1375,7 @@ header .menu__list__networks svg.linkedin:hover {
 .content .man-slider .slider-man__desc__text .subtitle {
   margin-top: -5px;
   margin-bottom: 0;
-  font: 1.6em 'opensans-light', 'sans-serif';
+  font: 1.4em 'opensans-regular', 'sans-serif';
   color: #2e2e2e;
   letter-spacing: .2px;
 }
