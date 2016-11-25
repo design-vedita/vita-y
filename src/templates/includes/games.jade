@@ -75,11 +75,14 @@ mixin games()
                                                                                     data-count=8)
                                     img(src="../img/work-9.svg")
                         .list-added
+                           p.title-added.alert.js-alert
                            p.title-added.js-title-added-work You need to work up to
                               = ' '
                               span.js-count-tablet-work
                               |  capsules
-                           .list-added__wrapper.js-parent-work
+                           .calculate
+                              a(href="javascript:void(0)").work.js-calculate   Calculate
+                           .list-added__wrapper.js-parent-work.js-game
                               .list-added__wrapper__item.js-added-work
                                  a(href="javascript:void(0)").delete-item.js-delete
                                     span  X
@@ -155,11 +158,14 @@ mixin games()
                                                                                     data-count=6)
                                     img(src="../img/home-10.svg")
                         .list-added
+                           p.title-added.alert.js-alert
                            p.title-added.js-title-added-home You need to work up to
                               = ' '
                               span.js-count-tablet-home
                               |  capsules
-                           .list-added__wrapper.js-parent-home
+                           .calculate
+                              a(href="javascript:void(0)").home.js-calculate   Calculate
+                           .list-added__wrapper.js-parent-home.js-game
                               .list-added__wrapper__item.js-added-home
                                  a(href="javascript:void(0)").delete-item.js-delete
                                     span  X

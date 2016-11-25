@@ -1405,6 +1405,33 @@ header .menu__list__networks svg.linkedin:hover {
 .content #games {
   margin-top: 20px;
 }
+.content #games .calculate {
+  text-align: center;
+}
+.content #games .calculate a {
+  margin-top: 10px;
+  padding: 9px 57px 9px 57px;
+  display: inline-block;
+  font: 15px 'opensans-semibold', 'sans-serif';
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 300ms linear;
+}
+@media (max-width: 1199px) {
+  .content #games .calculate a {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+}
+.content #games .calculate a.work {
+  background-color: #F89305;
+}
+.content #games .calculate a.home {
+  background-color: #3AAADC;
+}
 @media (max-width: 767px) {
   .content #games {
     position: relative;
@@ -2146,18 +2173,32 @@ header .menu__list__networks svg.linkedin:hover {
   }
 }
 .content .games__tap-block .list-added .title-added {
+  padding: 0;
   font: 1.6em 'opensans-semibold', 'sans-serif';
   color: #fff;
+  margin-bottom: 0;
   text-align: center;
   opacity: 0;
+  line-height: 0;
   visibility: hidden;
-  transition-property: visibility, opacity;
+  transition-property: visibility, opacity, height;
   transition-timing-function: linear;
-  transition-duration: 300ms;
+  transition-duration: 300ms, 300ms, 100ms;
 }
 .content .games__tap-block .list-added .title-added.visible {
   opacity: 1;
   visibility: visible;
+  line-height: normal;
+}
+.content .games__tap-block .list-added .title-added.alert {
+  margin-bottom: 0;
+  height: 0;
+}
+.content .games__tap-block .list-added .title-added.alert.open {
+  opacity: 1;
+  visibility: visible;
+  line-height: normal;
+  height: auto;
 }
 @media (max-width: 1199px) {
   .content .games__tap-block .list-added .title-added {

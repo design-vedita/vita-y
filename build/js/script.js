@@ -76,6 +76,7 @@ var App = {
         activeStep();
         beforeSelected();
         heightTopSlider();
+        calculate();
 
         App.win.on('resize', function(){
             burger.heightMenu();
@@ -667,6 +668,59 @@ var App = {
     hint.hintGallery();
     hint.hintGames('.js-hint');
 
+
+    // Подсчёт количества необходимый пользователю таблеток
+    function calculate() {
+        var $calculate = $('.js-calculate');
+
+        $calculate.click(function(){
+
+            var $alertCount = 0,
+                $alert = $(this).closest('.list-added').find('.js-alert'),
+                $count,
+                $elCount,
+                $p,
+                $parent = $(this).closest('.list-added').find('.js-game');
+
+            ($(this).hasClass('work')) ? $count = $('.js-count-tablet-work') : $count = $('.js-count-tablet-home');
+            ($(this).hasClass('work')) ? $p = $('.js-title-added-work') : $p = $('.js-title-added-home');
+
+            $elCount = $parent.find('.free--item').length;
+
+            if ($elCount < 3) {
+
+                // Если выбрано меньше 3-х, то сообщение об ошибке.
+                $alertCount = 3 - $elCount;
+                $alert.addClass('open');
+                $p.removeClass('visible');
+                $alert.html('Joined at least 3 events. Select another '+ $alertCount +' event');
+
+            } else {
+
+                // Очищаем сообщение об ошибке
+                $alert.removeClass('open');
+                $alert.html(' ');
+
+                if ($parent.is('[data-sum]')) {
+                    var sum = +$parent.attr('data-sum');
+                }
+
+                $p.addClass('visible');
+
+                if (sum <= 10 && sum > 0) {
+                    $count.html('1');
+                } else if (sum >= 10 && sum <= 25) {
+                    $count.html('2');
+                } else if (sum > 25) {
+                    $count.html('3');
+                } else if (sum == 0) {
+                    $count.html(' ');
+                }
+            }
+        });
+
+    }
+
     // добавление элемента для расчёта в ячейку
     function addedItem(el, el_add, parent) {
         var item = document.getElementsByClassName(el),
@@ -699,22 +753,13 @@ var App = {
                 }
 
                 var parent = '',
-                    newSum = 0,
-                    countTablets = '',
-                    p = '',
-                    query = '';
+                    newSum = 0;
 
                 // Объявляем родителя, чтобы по нему смотреть новую сумму, после удаления
                 if(this.classList.contains('js-elem-work')) {
                     parent = document.getElementsByClassName('js-list-loads-work')[0];
-                    countTablets = document.getElementsByClassName('js-count-tablet-work')[0];
-                    p = document.getElementsByClassName('js-title-added-work')[0];
-                    query = 'div.js-added-work.free--item';
                 } else  {
                     parent = document.getElementsByClassName('js-list-loads-home')[0];
-                    countTablets = document.getElementsByClassName('js-count-tablet-home')[0];
-                    p = document.getElementsByClassName('js-title-added-home')[0];
-                    query = 'div.js-added-home.free--item';
                 }
 
                 // Если у родителя есть аттрибут с персчитанной суммой после удаления
@@ -736,15 +781,6 @@ var App = {
                     parentDel.setAttribute('data-sum', sum);
                 }
 
-                if (sum <= 10 && sum > 0) {
-                    countTablets.innerHTML = 1;
-                } else if (sum >= 10 && sum <= 25) {
-                    countTablets.innerHTML = 2;
-                } else if (sum > 25) {
-                    countTablets.innerHTML = 3;
-                } else if (sum == 0) {
-                    countTablets.innerHTML = ' ';
-                }
 
                 for (k = 0; k < add.length; k++) {
                     if([k] == index) {
@@ -754,17 +790,7 @@ var App = {
                         var img = add[k].querySelector('img');
                         img.setAttribute('src', url + '-hover' + typeImg);
                         add[k].classList.add('free--item');
-                        add[k].setAttribute('data-count', +count);
                     }
-                }
-
-
-                // выбираем все ячейки и ищем количество выделенных
-                var cells = parentDel.querySelectorAll(query);
-
-                // Если выбрано 3 ситуации и больше, показываем заголовок с количкеством и текстом
-                if(cells.length >= 3) {
-                    p.classList.add('visible');
                 }
             };
         }
@@ -805,49 +831,14 @@ var App = {
 
                 // Определем в блоке клика родителя, которому добавлять аттрибут с новой суммой
 
-                var blockWork = '',
-                    countTablets = '',
-                    p = '',
-                    query = '';
+                var blockWork = '';
 
                 if (parent.classList.contains('js-added-work')) {
                     blockWork = document.getElementsByClassName('js-list-loads-work')[0];
                     blockWork.setAttribute('new-sum', sum);
-
-                    // Определяем родителя, в котором ставим количество таблеток
-                    countTablets = document.getElementsByClassName('js-count-tablet-work')[0];
-
-                    // Заголовок, куда пишем количество таблеток
-                    p = document.getElementsByClassName('js-title-added-work')[0];
-                    query = 'div.js-added-work.free--item';
                 } else {
                     blockWork = document.getElementsByClassName('js-list-loads-home')[0];
                     blockWork.setAttribute('new-sum', sum);
-                    // Определяем родителя, в котором ставим количество таблеток
-                    countTablets = document.getElementsByClassName('js-count-tablet-home')[0];
-
-                    // Заголовок, куда пишем количество таблеток
-                    p = document.getElementsByClassName('js-title-added-home')[0];
-                    query = 'div.js-added-home.free--item';
-                }
-
-                // В зависимости от суммы показываем количество необходимых таблеток
-                if (sum <= 10 && sum > 0) {
-                    countTablets.innerHTML = 1;
-                } else if (sum >= 10 && sum <= 25) {
-                    countTablets.innerHTML = 2;
-                } else if (sum > 25) {
-                    countTablets.innerHTML = 3;
-                } else if (sum == 0) {
-                    countTablets.innerHTML = ' ';
-                }
-
-                // выбираем все ячейки и ищем количество выделенных
-                var cells = wrapper.querySelectorAll(query);
-
-                // Если выбрано меньше 3 ситуаций, удаляем заголовок с количкеством и текстом
-                if(cells.length < 3) {
-                    p.classList.remove('visible');
                 }
             }
         }
