@@ -647,6 +647,10 @@ header .menu__list__networks svg.linkedin {
 header .menu__list__networks svg.linkedin:hover {
   fill: #007ab9;
 }
+.content .top-slider {
+  width: 100%;
+  overflow: hidden;
+}
 .content .top-slider .slick-arrow {
   position: absolute;
   z-index: 2;
@@ -3350,8 +3354,6 @@ footer .footer-phone a.ask-link svg {
   z-index: 102;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   visibility: hidden;
   opacity: 0;
@@ -3360,6 +3362,8 @@ footer .footer-phone a.ask-link svg {
   transition-timing-function: linear;
 }
 .overlay.visible {
+  width: 100%;
+  height: 100%;
   visibility: visible;
   opacity: 1;
 }
@@ -3466,7 +3470,7 @@ footer .footer-phone a.ask-link svg {
 .popup-composition {
   max-width: 790px;
   position: absolute;
-  left: 0;
+  left: -790px;
   top: 0;
 }
 .popup-composition__content {
