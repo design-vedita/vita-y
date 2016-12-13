@@ -783,8 +783,43 @@ header .menu__list__networks svg.linkedin:hover {
   background-repeat: no-repeat;
   padding-left: 29px;
 }
+@media (min-width: 1199px) {
+  .content .text-slides {
+    display: none;
+  }
+}
+.content .text-slides__item {
+  padding-top: 22px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 35px;
+}
+.content .text-slides__item.green {
+  background-color: #659a19;
+}
+.content .text-slides__item.blue {
+  text-align: right;
+  background-color: #305094;
+}
+.content .text-slides__item .title {
+  font-size: 14px;
+  font-family: 'opensans-bold', 'sans-serif';
+  text-transform: uppercase;
+  color: #fff;
+}
+.content .text-slides__item .inner-text {
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
 .content .man-slider {
   margin-top: 13px;
+}
+@media (max-width: 1199px) {
+  .content .man-slider {
+    display: none;
+  }
 }
 .content .man-slider .static-image {
   position: relative;
@@ -1534,7 +1569,10 @@ header .menu__list__networks svg.linkedin:hover {
 @media (max-width: 673px) {
   .content .games::before {
     top: 159px;
-    height: calc(50% - 159px);
+    height: calc(51% - 159px);
+  }
+  .content .games::after {
+    top: 51%;
   }
 }
 .content .games .title-games {
@@ -2430,8 +2468,13 @@ header .menu__list__networks svg.linkedin:hover {
 .content .catalog__list__item .subtitle-good {
   margin-bottom: 0;
   margin-top: 11px;
-  font: 3em 'opensans-light', 'sans-serif';
+  font: 2em 'opensans-light', 'sans-serif';
   color: #2e2e2e;
+}
+@media (max-width: 767px) {
+  .content .catalog__list__item .subtitle-good {
+    font-size: 1.5em;
+  }
 }
 .content .catalog__list__item__description__introtext {
   margin-top: 14px;
@@ -2458,6 +2501,16 @@ header .menu__list__networks svg.linkedin:hover {
 .content .catalog__list__item__description__buttons .add-good {
   width: 145px;
   float: right;
+}
+@media (max-width: 991px) {
+  .content .catalog__list__item__description__buttons:lang(de-de) .add-good {
+    float: none;
+    margin: 0 auto;
+  }
+  .content .catalog__list__item__description__buttons:lang(de-de) .counter-good {
+    float: none;
+    margin: 0 auto 10px;
+  }
 }
 .content .catalog__list__item__description__buttons form::after {
   display: block;

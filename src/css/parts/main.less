@@ -954,8 +954,55 @@ header {
 		}
 	}
 
+	.text-slides {
+
+		@media (min-width: 1199px) {
+
+			& {
+				display: none;
+			}
+		}
+
+		&__item {
+			padding-top: 22px;
+			padding-left: 15px;
+			padding-right: 15px;
+			padding-bottom: 35px;
+
+			&.green {
+				background-color: @green;
+			}
+
+			&.blue {
+				text-align: right;
+				background-color: @blueArrow;
+			}
+
+			.title {
+				font-size: 14px;
+				font-family: @bold;
+				text-transform: uppercase;
+				color: @white;
+			}
+
+			.inner-text {
+				margin-bottom: 0;
+				font-size: 14px;
+				line-height: 20px;
+				color: fade(@white, 60%);
+			}
+		}
+	}
+
     .man-slider {
 		margin-top: 13px;
+
+		@media (max-width: 1199px) {
+
+			& {
+				display: none;
+			}
+		}
 
 		.static-image {
 			position: relative;
@@ -1683,7 +1730,11 @@ header {
 
 				&::before {
 					top: 159px;
-					height: calc(~'50% - 159px');
+					height: calc(~'51% - 159px');
+				}
+
+				&::after {
+					top: 51%;
 				}
 			}
 
@@ -2147,8 +2198,15 @@ header {
 				.subtitle-good {
 					margin-bottom: 0;
 					margin-top: 11px;
-					font: 3em @light;
+					font: 2em @light;
 					color: @titleSlide;
+
+					@media (max-width: 767px) {
+
+						& {
+							font-size: 1.5em;
+						}
+					}
 				}
 
 				&__description {
@@ -2182,6 +2240,22 @@ header {
 						.add-good {
 							width: 145px;
 							float: right;
+						}
+
+						&:lang(de-de) {
+
+							@media (max-width: 991px) {
+
+								.add-good {
+									float: none;
+									margin: 0 auto;
+								}
+
+								.counter-good {
+									float: none;
+									margin: 0 auto 10px;
+								}
+							}
 						}
 
 						form {
