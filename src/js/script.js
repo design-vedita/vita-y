@@ -165,7 +165,11 @@ var App = {
 
         if ($preloader.hasClass('slow')) $topSlider.slick('slickPlay');
 
-        resizes($topSlider);
+
+
+        $topSlider.on('init', function(){
+            resizes($topSlider);
+        });
 
         // размер кнопок влево-вправо подгоняем так, чтобы не было белого заднего
         // фона под размер картинки

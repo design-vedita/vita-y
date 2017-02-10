@@ -647,6 +647,9 @@ header .menu__list__networks svg.linkedin {
 header .menu__list__networks svg.linkedin:hover {
   fill: #007ab9;
 }
+.content #header-slider {
+  width: 100%;
+}
 .content .top-slider {
   width: 100%;
   overflow: hidden;
