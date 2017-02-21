@@ -824,6 +824,9 @@ header .menu__list__networks svg.linkedin:hover {
     display: none;
   }
 }
+.content .man-slider .slide-man {
+  height: 784px;
+}
 .content .man-slider .static-image {
   position: relative;
 }

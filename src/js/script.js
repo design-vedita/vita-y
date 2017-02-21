@@ -956,7 +956,7 @@ var App = {
                     i++;
                     $(this).toggleClass('opened');
 
-                    (i % 2 == 0) ? $(this).html('Показать ответ') : $(this).html('Скрыть ответ');
+                    (i % 2 == 0) ? $(this).html('Antwort anzeigen') : $(this).html('Antwort ausblenden');
 
                     var $parent  = $(this).parent(),
                         $block = $parent.find('.js-inner');
